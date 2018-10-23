@@ -9,11 +9,11 @@
 
 ## Linux Nedir ?
 
-Linux bir çekirdektir. 
+> Linux; bilgisayar işletim sistemlerinin en temel parçası olan çekirdek yazılımlarından bir tanesidir. GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir. Linux ismi ilk geliştiricisi olan Linus Torvalds tarafından 1991 yılında verilmiştir. C dili ile yazılmış ve 17 Eylül 1991 tarihinde piyasaya sürülmüştür. - Wikipedia
 
 **Peki çekirdek nedir ?** 
 
-Çekirdek , yani kernel, işletim sisteminin kalbidir. Uygulamalar ve donanım arasında çevirici görev görür. Fiziksel donanımla yazılım arasındaki haberleşmeyi sağlar.  
+Çekirdek, yani kernel, işletim sisteminin kalbidir. Uygulamalar ve donanım arasında çevirici görev görür. Fiziksel donanımla yazılım arasındaki haberleşmeyi sağlar.  
 
 <p align="center">
 	<img alt="kernel-nedir" src="img/0.png" width="500">
