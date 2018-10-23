@@ -3,7 +3,7 @@
 
 **Amaç :** Linux'un genel bir tanımı. PauSiber Dev kurulumunun gerçekleştirilmesi.  
 
-**Yazarlar :** [**boratanrikulu**](https://github.com/boratanrikulu) && [**hasantezcan**](https://github.com/hasantezcan)
+**Yazarlar :** [**boratanrikulu**](https://github.com/boratanrikulu) **&&** [**hasantezcan**](https://github.com/hasantezcan)
 
 ---
 
