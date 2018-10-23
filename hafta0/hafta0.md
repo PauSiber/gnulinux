@@ -11,9 +11,11 @@
 
 Linux C dili yazılmış bir çekirdektir.  
 
-1991'de UNIX'e bir alternetif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiç bir kod bulunmamaktadır.  
+1991'de UNIX'e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiç bir kod bulunmamaktadır.  
 
 POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir. 
+
+> Daha detaylı bilgi için **Just for Fun : The Story of an Accidental Revolutionary by Linus Benedict Torvalds**
 
 **Peki çekirdek nedir ?** 
 
