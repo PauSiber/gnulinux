@@ -60,7 +60,7 @@ GNU/Linux'un size sağlayacağı bir çok avantaj var.
 - GNU/Linux için **zararlı yazılım sayısının az olması**
 - **Özgür Yazılım** olması
 - Açık kaynak olduğu için, **sorun tespitinin ve çözümünün oldukça hızlı olması** (community)  
-- Yardım bulabilmeniz için bir çok toğluluğun(community) olması; **bir şirkete bağlı değilsiniz, yalnız değilsiniz!**
+- Yardım bulabilmeniz için bir çok topluluğun(community) olması; **bir şirkete bağlı değilsiniz, yalnız değilsiniz!**
 
 ---
 
@@ -84,7 +84,7 @@ Bir yazılımın özgür olması için yerine getirmesi gereken 4 kriter vardır
 
 0. **Çalıştırılabilirlik:** Bir yazılım istendiği şekilde ve doğrultuda çalıştırılabilir.
 
-1. **Değiştirilebilirlik:** Herhangi bir yazlım istendiği amaç doğrultusunuda değiştirilebilir. İstediğimiz şekilde ekleme çıkarma yapılabilinir.*(Yazılımın kaynak koduna erişim (open source) bunun için bir önşarttır.)*
+1. **Değiştirilebilirlik:** Herhangi bir yazlım istendiği amaç doğrultusunda değiştirilebilir. İstediğimiz şekilde ekleme çıkarma yapılabilinir.*(Yazılımın kaynak koduna erişim (open source) bunun için bir önşarttır.)*
 
 2. **Dağıtılabilirlik:**  Yazılım herhangi biri tarafından tekrardan dağıtılabilir, toplulukla bunu paylaşabilir.
 
