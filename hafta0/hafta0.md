@@ -9,7 +9,11 @@
 
 ## Linux Nedir ?
 
-> Linux; bilgisayar işletim sistemlerinin en temel parçası olan çekirdek yazılımlarından bir tanesidir. GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir. Linux ismi ilk geliştiricisi olan Linus Torvalds tarafından 1991 yılında verilmiştir. C dili ile yazılmış ve 17 Eylül 1991 tarihinde piyasaya sürülmüştür. - Wikipedia
+Linux C dili yazılmış bir çekirdektir.  
+
+1991'de UNIX'e bir alternetif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiç bir kod bulunmamaktadır.  
+
+POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir. 
 
 **Peki çekirdek nedir ?** 
 
