@@ -1,4 +1,4 @@
-Kurs Eğitmenleri : [**boratanrikulu**](https://github.com/boratanrikulu) [**hasantezcan**](https://github.com/hasantezcan)
+Kurs Eğitmenleri : [**boratanrikulu**](https://github.com/boratanrikulu) && [**hasantezcan**](https://github.com/hasantezcan)
 
 | Hafta | İçerik    |
 | :------------- | :------------- |
