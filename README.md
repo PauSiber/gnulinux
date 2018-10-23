@@ -1,3 +1,3 @@
-| HAFTA | İÇERİK    |
+| Hafta | İçerik    |
 | :------------- | :------------- |
-| hafta 0      | [PauSiber Dev Kurulumu ve Isındırma](https://github.com/boratanrikulu/gnulinux/blob/master/hafta0/hafta0.md)      |
+| hafta 0      | [Linux'un genel tanımı ve PauSiber Dev kurulumu](hafta0/hafta0.md) |
