@@ -9,7 +9,7 @@
 
 ## Linux Nedir ?
 
-Linux C dili yazılmış bir çekirdektir.  
+Linux C dili ile yazılmış bir çekirdektir.  
 
 1991'de UNIX'e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiç bir kod bulunmamaktadır.  
 
@@ -168,7 +168,7 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 
 ## VirtualBox Kurulumu 
 
-**1 -** VirtualBox'ın sitesinden bilgisayarınıza uygun olan setup indirin.
+**1 -** VirtualBox'ın sitesinden bilgisayarınıza uygun olan setup'ı indirin.
 [www.virtualbox.org/wiki/Downloads/](https://www.virtualbox.org/wiki/Downloads)
 
 <p align="center">
