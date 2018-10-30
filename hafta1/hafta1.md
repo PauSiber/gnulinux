@@ -390,11 +390,11 @@ Daha düzenli şekilde görebilmek aşağıdaki gibi bir komut yürütebilirsini
 
 **`ctrl + shift + v`** ile **`yapıştırma`** yapılır.
 
-**`ctrl + c`** ile çalışan uygulama `durdurulabilir`.
+**`ctrl + c`** ile çalışan uygulama **`durdurulabilir`**.
 
-**`ctrl + z`** çalışan uygulama `arkaya atılır`.
+**`ctrl + z`** çalışan uygulama **`arkaya atılır`**.
 
-**`ctrl + u`** o anda `satıra yazılan herşeyi siler`, temizler.
+**`ctrl + u`** o anda **`satıra yazılan herşeyi siler`**, temizler.
 
 ---
 
