@@ -194,7 +194,13 @@ Bir dosyanın içeriğini terminale basar.
 	<img alt="cat" src="img/10.png" width="800">
 </p>
 
-tac
+### `tac`  
+
+Bir dosyanın içieriğini satır bazlı şekilde ters döndürüp terminale basar.
+
+<p align="center">
+	<img alt="tac" src="img/26.png" width="800">
+</p>
 
 ---
 
