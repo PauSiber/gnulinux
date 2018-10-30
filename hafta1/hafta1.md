@@ -478,7 +478,6 @@ Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depo
 
 GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağamlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.
 
-
 <p align="center">
 	<img alt="opt" src="img/25.png" width="800">
 </p>
@@ -492,3 +491,123 @@ Bir dosyanın yeri tarif ederken kullanıdiğimiz iki türlü yol vardır. Bunla
 **Tam Yol :** Herzaman `root` dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiç bir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.
 
 **Göreceli Yol :** Bu tarifin herzaman geçerliliği yoktur. İçersinde bulununan dizine göre değişiklik gösterir.
+
+---
+
+## Paket Yöneticisi Nedir ?
+
+Hadi şimdi gidip Windows bir sistem deneme amaçlı bir uygulama kuralım. Örnek olması açısından firefox kurulumu yapalım.
+
+Kurulum için ilk olarak browser açılmalı, ilgili site bulunmalı, ilgili exe dosyası sisteme indirilip, çalıştırılmalı ve ardından kurulum adımları uygulanmalıdır.
+
+**Ne kadar ilkelce değil mi ?**
+
+GNU/Linux dağıtımlarında böyle bir şey yok arkadaşlar. Paket yöneticisi diye bir kavram var. Paket yöneticisi ile tek bir komut ile istediğiniz uygulamayı kullandığınız dağıtımın **`repo`**'larından direkt olarak çekip kurabilirsiniz.
+
+Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisi her dağıtımda kullanamazsınız.
+
+Örneğin Debian'dan türemiş olan Ubuntu, APT isimli bir paket yöneticisi kullanır.
+
+Yani Debian tabanlı dağıtımlarda APT paket yöneticisi kullanılır.
+
+APT dışında, debian tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
+
+- dnf(yum) `fedora`
+- pacman `archlinux`
+- portage `gentoo`
+- zypper `opensuse`
+
+Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. Bunun için aşağıdaki komutu yürütmemiz yeterlidir.
+
+```bash
+	sudo apt install firefox
+```
+
+<p align="center">
+	<img alt="apt" src="img/28.png" width="800">
+</p>
+
+Şimdi bu komutu inceleyelim..
+
+<p align="center">
+	<img alt="apt" src="img/29.png" width="800">
+</p>
+
+Burada **`sudo`** ifadesini kullanma sebebimiz işlemin sistem dosyaları üzerinde gerçekleşiyor olması. Bu yüzden komutun root yetkisi ile çalışması için komutun başına **`sudo`** ifadesini ekledik.
+
+Gördüğünüz gibi kullanımı oldukça basit. APT paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
+
+Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz **:)** .
+
+| APT | Açıklama |
+|:--------:|:--------:|
+| apt search **`packageName`** | paket arar |
+| apt install **`packageName`** | paket yükler |
+| apt remove **`packageName`** | paket siler |
+| apt autoremove | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
+| apt update | repo paket bilgilerini günceller |
+| apt update && apt upgrade | yüklü paketleri günceller |
+| apt update && apt dist-upgrade | sistemin tam güncellemesini yapar |
+| apt install --download-only **`packageName`** | paketi yalnızca indirir (paket yöneticisi cache konumuna) |
+| ls /var/cache/apt/archives/ | paket yöneticisi cache'ni görüntüler |
+| apt install **`/path/to/packageName.deb`** | paketi dosya ile yükler |
+| tail -f /var/log/dpkg.log | paket yöneticisi log'larını gösterir |
+| apt show **`packageName`** | repo'daki bir paketin bilgisini gösterir |
+| dpkg -s **`packageName`** | yüklü olan bir paketin bilgisini gösterir |
+| dpkg -l \| less <br>**-ya da-**<br>apt list --installed \| less | yük olan tüm paketleri listeler |
+| apt list \| less | repo'da bulunan tüm paketleri listeler |
+| dpkg -L **`packageName`** | yüklü olan paketin dosyalarının konumlarını gösterir |
+| apt-cache policy | paket kaynak adreslerini listeler |
+
+---
+
+## REPO Kavramı Nedir ?
+
+Az önce paket yöneticisi ile birlikte uygulamaların nasıl kurulacağını öğrendik.
+
+**Peki bu paketler nereden geliyor..** İşte burada REPO kavramı ortaya çıkıyor. Her dağıtımın kendisine ait bir REPO'su vardır. PAket yöneticisi ile indirilip kurulan uygulamalar bu REPO'lardan gelir.
+
+REPO adreslerini aşağıdaki gibi görüntüleyebiliriz. Ama lütfen bu dosyaları bir bilginiz yok ise değiştirmeyin.
+
+```bash
+	vim /etc/apt/source.list
+```
+
+PauSiber Dev'de REPO olarak [http://archive.ubuntu.com/ubuntu/](http://archive.ubuntu.com/ubuntu/) kullanılmaktadır.
+
+<p align="center">
+	<img alt="repo" src="img/30.png" width="800">
+</p>
+
+---
+
+## REPO'da Olmayan Uygulamalar
+
+REPO'larda yalnızca açık kaynak uygulamalar bulunabilir. Örneğin Google Chrome kapalı kaynak bir uygulamadır. Bu durumda ne yapacağız ?
+
+**Not :** Chromium açık kaynak olduğu için REPO'larda mevcuttur.
+
+Eğer REPO'larda bulunmayan bir uygulamaya kurulacak ise ilk yapılması gerek uygulamanın dağıtıcının sitesinden hangi şekilde edinilmesi gerektiğine bakmaktır. Çünkü bir çok farklı şekilde dağıtılıyor olabilir.
+
+Örneğin Google Chrome için bir **`deb`** paketi indirmek gerekirken, Spotify kurulumu için REPO listemize ek bir kaynak adresi eklememiz gerekir.
+
+Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da youtube'a bakmak yerine, dağıtıcının sitesinden bakın. Orada kesinlikle bir bilgi olacaktır.
+
+<p align="center">
+	<img alt="chrome" src="img/31.png" width="800">
+</p>
+
+<p align="center">
+	<img alt="spotify" src="img/32.png" width="800">
+</p>
+
+---
+
+## Bu hafta neler yaptık ?
+
+- **Terminalin ne olduğu** ve neden kullanmamız gerektiğini öğrendik
+- **Temel komutlar** ile terminal kullanıma ilk adımı attık.
+- Terminal üzerinde kullanabileceğimiz **yararlı kısayollar**ı öğrendik.
+- Terminal üzerinde çalışan **metin editörleri**ni denedik.
+- GNU/Linux’da **dosya sistem hiyerarşisi**nin nasıl olduğunu temel düzeyde öğrendik.
+- **Paket Yöneticisi** ve **REPO** kavramlarını öğrendik.
