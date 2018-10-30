@@ -4,3 +4,19 @@
 | :------------- | :------------- |
 | `hafta 0`      | [Linux'un genel tanımı ve PauSiber Dev kurulumu](hafta0/hafta0.md) |
 | `hafta 1` | [Terminal kullanımını ve Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı](hafta1/hafta1.md)|
+
+---
+
+#### İletişim Bilgileri
+
+**Bora Tanrıkulu**
+
+- [**Telegram**](https://t.me/boratanrikulu/)
+- [**Twitter**](https://twitter.com/boratanrikulu_/)
+- [**Instagram**](https://www.instagram.com/boratanrikulu/)
+
+**Hasan Tezcan**
+
+- [**Telegram**](https://t.me/hasantezcan/)
+- [**Twitter**](https://twitter.com/hasantezcann/)
+- [**Instagram**](https://www.instagram.com/hasantezcn/)
