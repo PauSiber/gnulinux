@@ -43,7 +43,7 @@ SHELL işletim sistemlerinin servislerini kullanmak amacıyla kullanılan bir ku
 
 Kabuk (shell) , çekirdek ile kullanıcı arasında ara görev görür.
 
-Bir çok kabul çeşidi vardır;
+Bir çok kabuk çeşidi vardır;
 
 - sh
 - bash
