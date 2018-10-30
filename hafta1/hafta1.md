@@ -46,7 +46,7 @@ Kabuk (shell) , çekirdek ile kullanıcı arasında ara görev görür.
 Bir çok kabul çeşidi vardır;
 
 - sh
-- bash (Bourne Again Shell)
+- bash
 - zsh
 - csh
 - ksh
@@ -74,7 +74,7 @@ Terminalda kullanabileceğiniz sayısız uygulama, sayısız komut var. Biz bu e
 
 ---
 
-### `ls [LIST]`
+### `ls [list]`
 
 Herhangi bir dizinin içini görmek için kullandığımız komuttur.
 
@@ -118,25 +118,29 @@ Peki örneğin bulunduğumuz dizin altında bulunan tüm dosyaları tarihe ögre
 
 ---
 
-### `man [MANUEL]`
+### `man [manual]`
 
 EE tüm parametreleri böyle tek tek öğrenecek miyiz ? Evet.
 
 **Peki ezberleyecek miyiz ? HAYIR !**
 
-Kullanılan neredeyse her komutun bir manuel sayfası vardır. Bunları okumak için `man` komutunu kullanabiliriz. Örneğin `ls` komutunun manuel sayfasını okumak için `man ls` dememiz yeterlidir.
+Kullanılan neredeyse her komutun bir manual sayfası vardır. Bunları okumak için `man` komutunu kullanabiliriz. Örneğin `ls` komutunun manual sayfasını okumak için `man ls` dememiz yeterlidir.
 
-Son derece detaylı olan bu manuel sayfalarında ilgili komutla ilgili tüm detaya ulaşabilirsiniz.
+```bash
+	man ls
+```
+
+Son derece detaylı olan bu manual sayfalarında ilgili komutla ilgili tüm detaya ulaşabilirsiniz.
+
+**Not :** manual sayfasından **q**'a basarak çıkabilirsiniz.
 
 <p align="center">
 	<img alt="man ls" src="img/6.png" width="800">
 </p>
 
-**Not :** manuel sayfasından **q**'a basarak çıkabilirsiniz.
-
 Ayrıca ek bir öneri olarak; okuma kolaylığı sağlaması, aranan şeylere daha kolay ulaşma imkanı vermesi açısından, man kullanmak yerine **tldr** uygulamasını kullanabilirsiniz.
 
-[**github.com/tldr-pages/tldr**](https://github.com/tldr-pages/tldr) **|** *tl;dr : "too long; didn't read"*
+[**github.com/tldr-pages/tldr**](https://github.com/tldr-pages/tldr) *`tl;dr : "too long; didn't read"`*
 
 <p align="center">
 	<img alt="man ls" src="img/7.png" width="800">
@@ -144,7 +148,7 @@ Ayrıca ek bir öneri olarak; okuma kolaylığı sağlaması, aranan şeylere da
 
 ---
 
-### `cd` [Change Directory]
+### `cd [change directory]`
 
 Bulunduğumuz dizini değiştirmek için cd komutunu kullanırız.
 
@@ -158,7 +162,7 @@ Bulunduğumuz dizini değiştirmek için cd komutunu kullanırız.
 
 ---
 
-### `pwd` [Print Working Directory]
+### `pwd [print working directory]`
 
 Bu komut bize hangi dizinin içinde olduğumuzu söyler. Yani bulunduğumuz dizinin path'ini verir.
 
@@ -177,8 +181,12 @@ Bu komut bize hangi dizinin içinde olduğumuzu söyler. Yani bulunduğumuz dizi
 İçi boş bir dosya oluşturmak amacıyla kullanılır.
 
 ```bash
-	touch yeni_bir_dosya.txt
+	touch yeni_bir_dosya
 ```
+
+<p align="center">
+	<img alt="touch" src="img/27.png" width="800">
+</p>
 
 ---
 
@@ -196,7 +204,11 @@ Bir dosyanın içeriğini terminale basar.
 
 ### `tac`  
 
-Bir dosyanın içieriğini satır bazlı şekilde ters döndürüp terminale basar.
+Bir dosyanın içeriğini, ters sırada, terminale basar.
+
+```bash
+	tac beni_tersten_oku
+```
 
 <p align="center">
 	<img alt="tac" src="img/26.png" width="800">
@@ -216,14 +228,14 @@ Terminal ekrine string bir ifadeyi basmak amacıyla kullanılabilir.
 	<img alt="echo" src="img/11.png" width="800">
 </p>
 
-Daha çok dosyaların içersine veri yazılırken kullanılır.
+**`echo`** daha çok dosyaların içersine veri yazılırken kullanılır.
 
-Örneğin aşağıdaki gibi bir ifade, file.txt dosyasının en son satırına "yeni veri" string'ini ekler
+Örneğin aşağıdaki gibi bir ifade, file.txt dosyasının en son satırına "yeni veri" string'ini ekler.
 ```bash
 	echo "yeni veri" >> file.txt
 ```
 
-Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ver yerine yazmak istersek
+Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ver yerine yazmak istersek **`>>`** diyebiliriz.
 
 ```bash
 	echo "hepsini sil yerine yaz" > file.txt
@@ -245,7 +257,7 @@ Dosya içeriğini vim'e benzer bir şekilde görüntelememizi sağlayan bir prog
 
 ---
 
-### `mkdir` [Make Directory]
+### `mkdir [make directory]`
 
 Dizin (klasör) oluşturmak amacıyla kullanılır. Aynı anda birden fazla klasör oluşturulabilir.
 
@@ -262,7 +274,7 @@ Hatta aynı anda iç içe klasörler de direkt olarak tek komutta oluşturulabil
 
 ---
 
-### `mv` [MOVE]
+### `mv [move]`
 
 Dosya ya da dizinlerin taşınmasını sağlar.
 
@@ -278,7 +290,7 @@ Dosya ya da dizinlerin taşınmasını sağlar.
 
 ---
 
-### `cp` [COPY]
+### `cp [copy]`
 
 Dosya ya da dizinlerin kopyalanması sağlar.
 
@@ -298,7 +310,7 @@ Dosya ya da dizinlerin kopyalanması sağlar.
 
 ---
 
-### `rm` [REMOVE]
+### `rm [remove]`
 
 Dosya ya da dizinlerin silinmesi amacıyla kullanılır.
 
@@ -417,15 +429,13 @@ UNIX tabanlı ya da esinlenilmiş işletim sistemlerinin dosya sistem hiyerarşi
 	<img alt="windows-my-computer" src="img/24.png" width="800">
 </p>
 
-
-
-GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Ve bunu en üstünde `"/"` yani `root(kök)` bulunu. Bu tüm sistemin referans noktasıdır.
+GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Vu hiyerarşinin en üstünde `"/"` yani `root(kök)` dizini bulunur. Bu, tüm sistemin referans noktasıdır.
 
 <p align="center">
 	<img alt="dosya-sistem-hiyerarşisi" src="img/22.png" width="800">
 </p>
 
-#### `"/" - root(kök) dizini`
+#### `/ [root(kök) dizini]`
 
 Tüm dizinlerin üzerinde bulunan dizindir. Tüm dizinler buradan dallanarak oluşturulur.
 
@@ -446,17 +456,21 @@ Windows'daki Documents and Settings'e benzetebiliriz. Her bir yeni kullanıcı i
 
 ``` bash
 - /home
-	|-----> PauSiberDev
+	|-----> dev
 	|-----> hasantezcan  
 	|-----> boratanrıkulu
 ```
+
+#### `/root`
+
+Root kullanıcısının home dizinidir. Diğer home dizinlerinden bi farkı yoktur.
 
 #### `/lib`
 
 Kernel modülleri ve paylaşılan kütüphane dosyaları bu klasörde bulunur. Var olan çekirdek modüllerini `/lib/modules/[versiyon_numarası]` içersinde bulabilirsiniz.
 
 
-#### `var`
+#### `/var`
 
 Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depolarken, /var dizini içinde de programların oluşturduğu veriler tutulur.
 
@@ -469,14 +483,12 @@ GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. 
 	<img alt="opt" src="img/25.png" width="800">
 </p>
 
-
-
-`Not:` Linux bir sistemde çalışırken unutulmaması gerek en önemli şeylerden birde **`Sürekli bir dizinde olduğunuzdur.`**
+**Not :** GNU/Linux sistemlerde **`herzaman bir dizin içersinde bulunursunuz.`** Yani ağaç yapısının dışına çıkamazsınız.
 
 ---
 
-Bir dosyanın yeri tarif ederken kullanıdğimiz iki turlu yol vardır. Bunlar **`Tam Yol`** ve **`Göreceli Yol`** dur.
+Bir dosyanın yeri tarif ederken kullanıdiğimiz iki türlü yol vardır. Bunlar **`Tam Yol`** ve **`Göreceli Yol`** dur.
 
 **Tam Yol :** Herzaman `root` dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiç bir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.
 
-**Göreceli Yol :** Bu tarifin herzaman geçerliliği yoktur. Bulunulan konuma göre değişiklik gösterir.
+**Göreceli Yol :** Bu tarifin herzaman geçerliliği yoktur. İçersinde bulununan dizine göre değişiklik gösterir.
