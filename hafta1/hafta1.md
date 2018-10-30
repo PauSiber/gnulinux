@@ -52,9 +52,7 @@ Bir çok kabuk çeşidi vardır;
 - ksh
 - tcsh
 
-Önünüzde bulunan PauSiber Dev'de ise kabuk yani shell olarak ZSH kullanılmamaktadır.
-
-Kabuk olarak BASH yerine ZSH kullanma sebebimiz; ZSH'ın BASH'e göre daha fazla özellik içermesi.
+Önünüzde bulunan PauSiber Dev'de ise kabuk yani shell olarak ZSH kullanılmaktadır. Kabuk olarak BASH yerine ZSH kullanma sebebimiz; ZSH'ın BASH'e göre daha fazla özellik içermesi.
 
 Bi de şekil filan yani .s.s.s
 
