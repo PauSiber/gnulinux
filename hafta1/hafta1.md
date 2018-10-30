@@ -241,7 +241,7 @@ Dosya içeriğini vim'e benzer bir şekilde görüntelememizi sağlayan bir prog
 
 ### `mkdir` [Make Directory]
 
-Dizin (klasör) oluşturmak amacıyla kullanılır. Aynı anda birden fazla klasör oluşturulabilir. 
+Dizin (klasör) oluşturmak amacıyla kullanılır. Aynı anda birden fazla klasör oluşturulabilir.
 
 Hatta aynı anda iç içe klasörler de direkt olarak tek komutta oluşturulabilir.
 
@@ -351,7 +351,7 @@ Son komutu tekrar yürütür.
 Daha düzenli şekilde görebilmek aşağıdaki gibi bir komut yürütebilirsiniz.
 
 ```bash
-	history | less 
+	history | less
 ```
 
 <p align="center">
@@ -411,7 +411,66 @@ UNIX tabanlı ya da esinlenilmiş işletim sistemlerinin dosya sistem hiyerarşi
 	<img alt="windows-my-computer" src="img/24.png" width="800">
 </p>
 
+
+
+GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Ve bunu en üstünde `"/"` yani `root(kök)` bulunu. Bu tüm sistemin referans noktasıdır.
+
 <p align="center">
 	<img alt="dosya-sistem-hiyerarşisi" src="img/22.png" width="800">
 </p>
 
+#### `"/" - root(kök) dizini`
+
+Tüm dizinlerin üzerinde bulunan dizindir. Tüm dizinler buradan dallanarak oluşturulur.
+
+#### `/bin`
+
+Sisteminin temel komutlarının bulunduğu dizindir.
+
+Kullandığımız çoğu komut bu dizin altında bulunur. `(cat, mkdir, cp, ls, mv, rm )`
+
+#### `/etc`
+
+Sistemin bütün yapılandırma dosyaları bu dizin altında bulunur. Yapılandırma dosyası; bir programın işleyişini kontrol etmek için kullanılan yerel bir dosyadır.
+
+#### `/home`
+
+Kullanıcıların kayıtlı dosyalarını, kişisel ayarlarını vb. içeren ev dizinleridir.
+Windows'daki Documents and Settings'e benzetebiliriz. Her bir yeni kullanıcı için alt dizin olarak altına oluşturulur.
+
+``` bash
+- /home
+	|-----> PauSiberDev
+	|-----> hasantezcan  
+	|-----> boratanrıkulu
+```
+
+#### `/lib`
+
+Kernel modülleri ve paylaşılan kütüphane dosyaları bu klasörde bulunur. Var olan çekirdek modüllerini `/lib/modules/[versiyon_numarası]` içersinde bulabilirsiniz.
+
+
+#### `var`
+
+Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depolarken, /var dizini içinde de programların oluşturduğu veriler tutulur.
+
+#### `/opt`
+
+GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağamlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.
+
+
+<p align="center">
+	<img alt="opt" src="img/25.png" width="800">
+</p>
+
+
+
+`Not:` Linux bir sistemde çalışırken unutulmaması gerek en önemli şeylerden birde **`Sürekli bir dizinde olduğunuzdur.`**
+
+---
+
+Bir dosyanın yeri tarif ederken kullanıdğimiz iki turlu yol vardır. Bunlar **`Tam Yol`** ve **`Göreceli Yol`** dur.
+
+**Tam Yol :** Herzaman `root` dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiç bir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.
+
+**Göreceli Yol :** Bu tarifin herzaman geçerliliği yoktur. Bulunulan konuma göre değişiklik gösterir.
