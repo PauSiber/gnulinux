@@ -158,6 +158,12 @@ Bulunduğumuz dizini değiştirmek için cd komutunu kullanırız.
 	<img alt="cd" src="img/9.png" width="800">
 </p>
 
+Eğer bulunduğumuz dizinin bir üstüne gitmek istiyorsak aşağıdaki gibi yapmalıyız.
+
+```bash
+	cd ..
+```
+
 ---
 
 ### `pwd [print working directory]`
