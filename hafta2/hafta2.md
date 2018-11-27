@@ -1,12 +1,12 @@
 
 # Hafta 2
 
-**Amaç :** Kullanıcı-grup yönetimi ve dosya-dizin izinleri..
+**Amaç :** Kullanıcı-grup yönetimi ve dosya-dizin izinleri
 
 **Yazarlar :** [**boratanrikulu**](https://github.com/boratanrikulu) **&&** [**hasantezcan**](https://github.com/hasantezcan)
 
 ---
-## Hastane örneği..
+## Hastane Örneği Üzerinden Açıklanması
 
 Bir hastane düşünün, bu hastanede çalışanların kullanabileceği yanlız bir tane bilgisayar var. Ve hastanemizde çalışan üç ana meslek grubu var. Bunlar; **doktorlar**, **güvenlik görevlileri** ve **aşçılar**.
 
@@ -16,7 +16,7 @@ Bir hastane düşünün, bu hastanede çalışanların kullanabileceği yanlız 
 
 Bu çalışanların tek bir bilgisayarı kullanmasının iki farklı seneryosu olabilir.
 
-#### **`1 - Üç meslek grubu da aynı bilgisayarı "tek oturum" şekilde kullanabilir.`**
+#### 1 - Üç meslek grubu da aynı bilgisayarı "tek oturum" şekilde kullanabilir.
 
 Bu durumda doktor, bilgisayarı kullandığı zaman, olması gerektiği gibi hastalarının; raporlarına, filimlerine, ameliyat görüntülerine vb.. bilgilere ulaşabilir. Aynı zamanda diğer meslek grupları ile ortak bir bilgisayar kullandığından; **güvenlik kameralarına**, o aynın **mutfak masraflarına** da bakabilir.
 
@@ -24,18 +24,30 @@ Bu durumda doktor, bilgisayarı kullandığı zaman, olması gerektiği gibi has
 
  işte bu durumun yaşanmaması için, her bir çalışan için ayrı bir kullanıcı oturumu oluştururuz.
 
-#### **`2 - Herbir çalışan için ayrı bir oturum açılabilir.`**
+#### 2 - Herbir çalışan için ayrı bir oturum açılabilir.
 
 Bu durumda herbir çalışanın kendine ait bir **kullancısı** olacağından bir önceki durumda yaşanan dosya erişim karmaşası bu sefer olmayacaktır. Yani hiç bir aşçı, güvenlik kameralarına erişip bu kayıtlar ile oynayamayacaktır. Her bir kullanıcının yetkileri bellirli olacaktır.
 
 ---
 
-- Şimdi gelin bu hastaneye iki tane doktor, iki tane güvenlik görevlisi ve iki tane de aşçı ekleyelim.
+## Hastane Örneğimizi Uygulayalım
 
-GNU/Linux işletim sistemlerinde, sisteme bir `kullanıcı eklemek` için;
+Şimdi gelin bu hastaneye **iki tane doktor**, **iki tane güvenlik görevlisi** ve **iki tane de aşçı** ekleyelim.
 
-```BASH
-sudo adduser kullanıcının_adı
+- Doktorlar
+	- doktor_beyza
+	- doktor_ahmed
+- Güvenlikçiler
+	- guvenlik_aykut
+	- guvenlik_ayse
+- Aşçılar
+	- asci_bora
+	- asci_hayriye
+
+GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **`adduser`** komutu kullanılabilir.
+
+```bash
+	[~#] adduser kullanıcının_adı
 ```
 
 <p align="center">
@@ -50,81 +62,85 @@ sudo adduser kullanıcının_adı
 	<img alt="pwd" src="img/6.png" width="800">
 </p>
 
+Şuan sistemimize altı adet kullanıcı ekledik.
 
-Şuan sistemimize altı adet kullanıcı ekledik. Şimdi ise sistemdeki tüm kullanıcılara bakalım. Bunun için **/etc/passwd** dosyasını görüntülememiz gerekiyor.
+---
 
-### **`/etc/passwd`**
+#### Eklediğimiz Kullanıcıları Görüntüleyelim
 
-Sistemdeki kullancıların bilgileri bu dosyada saklanır.
+GNU/Linux'da sistemde bulunan kullanıcılar **`/etc/passwd`** dosyasında sıralanır. Kullancıların bilgileri bu dosyada saklanır.
 
 Bu dosyayı görüntülemek için;
-```BASH
-cat /etc/passwd
+```bash
+	[~$] cat /etc/passwd
 ```
 
 <p align="center">
 	<img alt="pwd" src="img/7.png" width="800">
 </p>
 
-```BASH
-dev:x:1000:1000:PauSiber Dev,,,:/home/dev:/usr/bin/zsh
-```
-> biraz karışık görünen bu ifadeler için ufak bir açıklama
+Dosya incelendiğinde **`dev:x:1000:1000:PauSiber Dev,,,:/home/dev:/usr/bin/zsh`** gibi ifadeler gözükür. Hadi şimdi bu ifadelerin ne anlama geldiğini açıklayalım.
 
 |       ifade       |                         açıklama                        |
 |:-----------------:|:-------------------------------------------------------:|
 |      **dev**      |                      kullanıcı adı                      |
 |       **x**       |            kullancının parolasını temsil eder           |
-|     **1000**      |        kullanıcının üyelik numarasıdır. (user ID)       |
-|     **1000**      | kullanıcının ait olduğu grubunn numarasıdır. (group ID) |
+|     **1000**      |        kullanıcının üyelik numarasıdır (user ID)       |
+|     **1000**      | kullanıcının ait olduğu grubunn numarasıdır (group ID) |
 | **PauSiber Dev**  |             kullancı hakkında kayıtlı bilgi             |
-| **/usr/bin/zsh**  |                kullanıcının shell dizini.               |
+| **/usr/bin/zsh**  |                kullanıcının shell dizini             |
 
+---
 
-**Peki bu hastanede bir tane mi doktar var?**
+#### Gruplarımızı Oluşturalım
 
-Tabiki de hayır. Bir meslek grubuna dahil birden fazla çalışan olabilir. Aynı meslek grubunda bulunan çalışanların görev tanımları bibirleri ile örtüşür.
-
+Peki bu hastanede bir tane mi doktar var ? Tabiki de hayır. Bir meslek grubuna dahil birden fazla çalışan olabilir. Aynı meslek grubunda bulunan çalışanların görev tanımları birbirleri ile örtüşür. Aynı meslek grubunda olanları gruplara toplamamız mantıklık bir hareket olacaktır.
 
 Şuan hastanemizde üç farklı meslek grubuna ait ikişer tane çalışanımız var. Gelin şimdi bu meslek grupları için sistemizde bunu ifade edecek yeni gruplar oluşturalım.
 
-GNU/Linux işletim sistemlerinde, sisteme bir `grup eklemek` için;
+GNU/Linux dağıtımlarım, sisteme bir grup eklemek için **`groupadd`** komutu kullanılabilir.
 
-```BASH
-sudo groupadd grubun_ismi
+```bash
+	[~#] sudo groupadd grubun_ismi
 ```
 <p align="center">
 	<img alt="pwd" src="img/8.png" width="800">
 </p>
 
-Sistemimize üç adet yeni grup ekledik. Bu grupları görüntülemek için;
+Sistemimize üç adet yeni grup ekledik. Sistemimizde bulunan gruplar **`/etc/group`** dosyasında sıralanır.
 
-```BASH
-cat /etc/group
+Bu dosyayı görüntülemek için;
+```bash
+	[~$] cat /etc/group
 ```
 
 <p align="center">
 	<img alt="pwd" src="img/9.png" width="800">
 </p>
 
-Son görselde de görüldüğü üzere bizim eklediğimiz grupların haricinde, öceden eklediğimiz kullacılar da burda gözükmekde. Ör: "doktor_beyza" gibi. **Peki bu nasıl oluyor?**
+Son görselde de görüldüğü üzere bizim eklediğimiz grupların haricinde, öceden eklediğimiz kullacılar da burda gözükmekde. Örneğin "doktor_beyza" gibi bir grup sistemde çoktandır eklenmiş durumda. **Peki bu nasıl oluyor?**
 
-GNU/Linux işletim sistemlerinde, sisteme yeni bir kullanıcı eklediğinizde, sisteme aynı anda bu kullanıcı adınında bir de grup ekler.
+GNU/Linux dağıtımlarında, sisteme yeni bir kullanıcı eklediğinizde, sisteme aynı anda bu kullanıcı adınında bir de grup ekler.
 
-Evet, şuan hastanemizde altı adet çalışan ve bunla birlikte henüz daha hiç bir personeli dahil etmediğimiz üç tane de meslek grubumuz var. Şimdi çalışanlarımızı ait oldukları meslek gruplarına ekleyelim.
+---
 
-Bunu yapmak için;
+#### Çalışanlarımızı Gruplarına Ekleyelim
 
-```BASH
-sudo gpasswd --add kullanıcı_adi grup_adi
+Evet, şuan hastanemizde altı adet çalışan ve bununla birlikte henüz daha hiç bir personeli dahil etmediğimiz üç tane de meslek grubumuz var. Şimdi çalışanlarımızı ait oldukları meslek gruplarına ekleyelim.
+
+Bunu yapmak için **`gpasswd`** komutu kullanılabilir.
+
+```bash
+	[~#] gpasswd --add kullanıcı_adi grup_adi
 ```
-> Buradaki add parametresi sayesinde bir kullancıyı yeni yeni gruplara ekleyebiliyoruz.
+
+**Not :** Burada **`--add`** parametresi oldukça kritiktir. Eğer kullanılmaz ise kullanıcıyı hali hazırda bulunduğu tüm gruplardan çıkarır ve yeni gruba ekler. Fakat bizim istediğimiz bu değil, kullanıcının hali hazırda bulunduğu grupları değiştirmek istemiyoruz, yalnızca yeni bir gruba dahil etmek istiyoruz, bu durumda --add parametresi kullanmamız bir gerekliktir.
 
 <p align="center">
 	<img alt="pwd" src="img/10.png" width="800">
 </p>
 
-şimdi /etc/group 'u yeniden görüntüleyelim.
+Ekleme işlemlerimizi yaptık. Şimdi **`/etc/group`**' u yeniden görüntüleyelim.
 
 <p align="center">
 	<img alt="pwd" src="img/11.png" width="800">
@@ -132,48 +148,91 @@ sudo gpasswd --add kullanıcı_adi grup_adi
 
 Başarılı bir şekilde personelimizi gruplarına ekledik.
 
-Şimdi sıra hastanenin müdüründen bahsetmeye geldi. Hastane müdürü hasatanedeki en yetkili kişidir. Doktorların, güvenlik görevlilerinin ve aşçının erişebildiği verilerin hepsine erişebilir. Aslında o da bir çalışandır. Fakat yetkileri onu diğer çalışanlardan ayrıştırır.
+---
 
-GNU/Linux sistemlerde bahsettiğimiz hastane müdrünün karşılığı root kullanıcısıdır.
-Root kullancısı sistemdeki en yetkili kullancıdır. Sistemdeki tüm dosyalara erişim yetkisi vardır.
+#### Hastane Müdürümüz, Nam-ı Değer ROOT !
 
-**Çalışanların odaları**  
+Şimdi sıra hastanenin müdüründen bahsetmeye geldi. Hastane müdürü hastanedeki en yetkili kişidir. Doktorların, güvenlik görevlilerinin ve aşçının erişebildiği verilerin hepsine erişebilir. Aslında o da bir çalışandır, fakat özel bir çalışandır. Yetkileri onu diğer çalışanlardan ayrıştırır.
+
+GNU/Linux sistemlerde bahsettiğimiz hastane müdrünün karşılığı **`root`** kullanıcısıdır. Root kullancısı sistemdeki en yetkili kullancıdır. Sistemdeki tüm dosyalara erişim yetkisi vardır.
+
+---
+
+#### Çalışanların Odaları, /home dizinleri
+
 Hastanemizde çalışan tüm personelin kendine ait bir odası vardır. Çalışanlar bu odalarda kendi kişisel eşyalarını saklarlar.
 
-GNU/Linux işletim sistemlerinde sisteme kayıtlı her insan kullancı için /home dizini altında o kullancıya tahisis edilmiş bir alan mevcuttur. Kullanıcılar bu dizinde verilerini diledikleri şekilde depolarlar.
+GNU/Linux işletim sistemlerinde sisteme kayıtlı her insan kullancı için **`/home`** dizini altında o kullancıya tahsis edilmiş bir alan mevcuttur. Kullanıcılar bu dizinde verilerini diledikleri şekilde depolarlar.
 
 root kullancısının da kendine ait bir odası vardır. Fakat root kullacısına ayrılmış bu alan direk root dizini altında ayrılmış /root dizinidir.
 
+<p align="center">
+	<img alt="pwd" src="img/17.png" width="800">
+</p>
 
-**Sistemden kullancı silme**   
-Hastanemizden bir çalışanı işten çıkarmamız gerekiyor bunu nasıl yapıcaz?
+---
 
-```BASH
-userdel -r kullancı_adi
+#### Hastanemizden Çalışan Çıkaralım
+
+Hastanemizden, yani sistemimizden bir kullanıcısı silmek istersek **`userdel`** komutu kullanabiliriz.
+
+```bash
+	[~#] deluser --remove-home kullancı_adi
 ```
 
-şimdi sistemizie kayıtlı olan doktor_ahmedi işten çıkaralım.
+Şimdi sistemizide kayıtlı olan doktor_ahmedi aşağıdaki örnekteki gibi işten çıkaralım.
 
 <p align="center">
 	<img alt="pwd" src="img/12.png" width="800">
 </p>
 
-**Kullancının parolasını değiştirmesi**
-Bir kullanıcı dilediği zaman kullancı parolasını değişrirebilir. Bunu yaparken..
+---
 
-```BASH
-passwd
+#### Kullancının Parolalarının Değiştirilmesi
+
+Eğer bir kullanıcı parolasını değiştirmek ister ise **`passwd`** komutu kullanılabilir.
+
+```bash
+	[~$] passwd
 ```
 
 <p align="center">
 	<img alt="pwd" src="img/13.png" width="800">
 </p>
 
->Güvenlik önmelemi amaçıyla kullancı parolasını girerken bu ekrana basılmaz.
+---
 
+#### Bir Çalışanımızı Grubundan Çıkaralım
 
-**Grup silme**
+Örneğin guvenlık_aykut kullanıcısının artık guvenlik grubunda bulunmasını istemiyorsak **`gpasswd`** ile birlikte **`--delete`** parametresini kullanarak bu işlemi gerçekleştirebiliriz.
 
+```bash
+	[~#] gpasswd --delete guvenlik_aykut guvenlikciler
+```
+
+<p align="center">
+	<img alt="pwd" src="img/18.png" width="800">
+</p>
+
+Kullanıcı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edelim **:)**.
+
+```bash
+	[~#] gpasswd --add guvenlik_aykut guvenlikciler
+```
+
+---
+
+#### Bir Grubumuzu Silelim
+
+Örneğin sistemimize hemşireler grubunu eklemiş olalım, eğer bu gruba ihtiyacımız artık kalmaz ise grubu silebiliriz. Grubu silmek için **`groupdel`** komutu kullanılır.
+
+```bash
+	[~#] groupdel hemsireler
+```
+
+<p align="center">
+	<img alt="pwd" src="img/15.png" width="800">
+</p>
 
 ---
 
