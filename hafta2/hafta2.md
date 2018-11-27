@@ -46,7 +46,7 @@ Bu durumda herbir çalışanın kendine ait bir **kullancısı** olacağından b
 
 GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **`adduser`** komutu kullanılabilir.
 
-```bash
+```
 	[~#] adduser kullanıcının_adı
 ```
 
@@ -71,7 +71,7 @@ GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **`adduser`*
 GNU/Linux'da sistemde bulunan kullanıcılar **`/etc/passwd`** dosyasında sıralanır. Kullancıların bilgileri bu dosyada saklanır.
 
 Bu dosyayı görüntülemek için;
-```bash
+```
 	[~$] cat /etc/passwd
 ```
 
@@ -100,8 +100,8 @@ Peki bu hastanede bir tane mi doktar var ? Tabiki de hayır. Bir meslek grubuna 
 
 GNU/Linux dağıtımlarında, sisteme bir grup eklemek için **`groupadd`** komutu kullanılabilir.
 
-```bash
-	[~#] sudo groupadd grubun_ismi
+```
+	[~#] groupadd grubun_ismi
 ```
 <p align="center">
 	<img alt="pwd" src="img/8.png" width="800">
@@ -110,7 +110,7 @@ GNU/Linux dağıtımlarında, sisteme bir grup eklemek için **`groupadd`** komu
 Sistemimize üç adet yeni grup ekledik. Sistemimizde bulunan gruplar **`/etc/group`** dosyasında sıralanır.
 
 Bu dosyayı görüntülemek için;
-```bash
+```
 	[~$] cat /etc/group
 ```
 
@@ -130,7 +130,7 @@ Evet, şuan hastanemizde altı adet çalışan ve bununla birlikte henüz daha h
 
 Bunu yapmak için **`gpasswd`** komutu kullanılabilir.
 
-```bash
+```
 	[~#] gpasswd --add kullanıcı_adi grup_adi
 ```
 
@@ -176,7 +176,7 @@ root kullancısının da kendine ait bir odası vardır. Fakat root kullacısın
 
 Hastanemizden, yani sistemimizden bir kullanıcısı silmek istersek **`userdel`** komutu kullanabiliriz.
 
-```bash
+```
 	[~#] deluser --remove-home kullancı_adi
 ```
 
@@ -192,7 +192,7 @@ Hastanemizden, yani sistemimizden bir kullanıcısı silmek istersek **`userdel`
 
 Eğer bir kullanıcı parolasını değiştirmek ister ise **`passwd`** komutu kullanılabilir.
 
-```bash
+```
 	[~$] passwd
 ```
 
@@ -206,7 +206,7 @@ Eğer bir kullanıcı parolasını değiştirmek ister ise **`passwd`** komutu k
 
 Örneğin guvenlık_aykut kullanıcısının artık guvenlik grubunda bulunmasını istemiyorsak **`gpasswd`** ile birlikte **`--delete`** parametresini kullanarak bu işlemi gerçekleştirebiliriz.
 
-```bash
+```
 	[~#] gpasswd --delete guvenlik_aykut guvenlikciler
 ```
 
@@ -216,7 +216,7 @@ Eğer bir kullanıcı parolasını değiştirmek ister ise **`passwd`** komutu k
 
 Kullanıcı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edelim **:)**.
 
-```bash
+```
 	[~#] gpasswd --add guvenlik_aykut guvenlikciler
 ```
 
@@ -226,7 +226,7 @@ Kullanıcı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edeli
 
 Örneğin sistemimize hemşireler grubunu eklemiş olalım, eğer bu gruba ihtiyacımız artık kalmaz ise grubu silebiliriz. Grubu silmek için **`groupdel`** komutu kullanılır.
 
-```bash
+```
 	[~#] groupdel hemsireler
 ```
 
@@ -270,8 +270,8 @@ Dizin ve dosya isimleri aynı olamaz.
 
 **ls** ile dosyaların izinleri incelenebilir.
 
-```bash
-	$ ls -l fileName
+```
+	[~$] ls -l fileName
 ```
 
 <p align="center">
@@ -311,13 +311,13 @@ iznine sahip olduğunu görüyoruz. Ayrıca bu dosyaların fsutil kullanıcısı
 Dosyaların sahipliklerini user ve group bazında değiştireceğiz. Bunun için **`chown`** komutu kullanabiliriz. Yapısı oldukça basittir.
 
 Genel syntax örnekleri aşağıdaki gibidir.
-```bash
+```
 	[~#] chown yeniSahip dosya_adi
 ```
-```bash
+```
 	[~#] chown yeniSahip:yeniGroup dosya_adi
 ```
-```bash
+```
 	[~#] chown :yeniGroup dosya_adi
 ```
 
@@ -349,8 +349,8 @@ Bunun için **`chmod`** komutu kullanabilirz. Chmod'un iki tip kullanımı vard�
 
 Text Method'un genel kullanım syntax'ı aşağıdaki gibidir.
 
-```bash
-	$ chmod kim=izinYetkisi dosyaAd
+```
+	[~$] chmod kim=izinYetkisi dosyaAd
 ```
 
 Burada **`kim`** ifadesi, işlemi hangi kişiler için yapacağını belirtmek için kullanırız.
@@ -380,7 +380,7 @@ Burada **`kim`** ifadesi, işlemi hangi kişiler için yapacağını belirtmek i
 
 İlk olarak tüm dosya group'larından yazma yetkisini çıkaracağız. Bunun için aşağıdaki gibi bir ifade kullanmamız yeterlidir. Aşağıdaki ifade, dosyanın group sahipliğinden yazma**[w]** yetkisini çıkarmamızı sağlar. Artık group yetkisi kullanırak dosya üzerinde yazma işlemi yapılamayacaktır.
 
-```bash
+```
 	[~#] chown g-w -R dizin/
 ```
 
@@ -391,7 +391,7 @@ Burada **`kim`** ifadesi, işlemi hangi kişiler için yapacağını belirtmek i
 Ayrıca **`other`**'ın dosya üzerinde hiç bir yetkisinin olmasını istemiyoruz. Bunun için de aşağıdaki gibi örneğimizi uygularız. Other'ın sahip olduğunu tüm yetkiyi kaldırmış oluruz.
 
 
-```bash
+```
 	[~#] chown o-rwx -R dizin/
 ```
 
@@ -433,8 +433,8 @@ Bir dosyanın yetkisinin numarasal karşılığı göstermek için 3 basamaklı 
 
 Kendimiz toplamak yerine, bir dosyanın yetkisinin numarasal karşılığı direkt olarak görmek için **`stat`** komutu kullanılabilir.
 
-```bash
-	$ stat -c %a dosyaAdi
+```
+	[~$] stat -c %a dosyaAdi
 ```
 
 <p align="center">
@@ -443,8 +443,8 @@ Kendimiz toplamak yerine, bir dosyanın yetkisinin numarasal karşılığı dire
 
 Dosyanın izinlerini numeric method ile değiştirmek istiyorsak aşağıdaki gibi bir syntax kullanırız.
 
-```bash
-	$ chmod XXX dosyaAdi
+```
+	[~$] chmod XXX dosyaAdi
 ```
 
 Örneğin hastalar klasörü içersinde bulunan dosyaların, other'lar tarafından okunabilir ve çalıştırılabilir olmasını istiyor olalım, aşağıdaki gibi yapabiliriz.
@@ -463,14 +463,14 @@ Bir dosyayı üzerinde izni verilmiş olsa bile kilitlemek, yani değişik yapı
 
 Kilitlemek için :
 
-```bash
-	$ chattr +i dosyaAdi
+```
+	[~$] chattr +i dosyaAdi
 ```
 
 Kilidi açmak için :
 
-```bash
-	$ chattr -i dosyaAdi
+```
+	[~$] chattr -i dosyaAdi
 ```
 
 ---
@@ -494,4 +494,3 @@ Kilidi açmak için :
 	- Dosya sahipliklerinin nasıl değiştirileceğini,
 	- Text ve numeric method ile dosyaların izinlerinini nasıl değiştirileceğini,
 	- Dosyaların nasıl kilitlenebileceğini öğrendik..
-	
