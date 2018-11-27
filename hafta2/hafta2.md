@@ -98,7 +98,7 @@ Peki bu hastanede bir tane mi doktar var ? Tabiki de hayır. Bir meslek grubuna 
 
 Şuan hastanemizde üç farklı meslek grubuna ait ikişer tane çalışanımız var. Gelin şimdi bu meslek grupları için sistemizde bunu ifade edecek yeni gruplar oluşturalım.
 
-GNU/Linux dağıtımlarım, sisteme bir grup eklemek için **`groupadd`** komutu kullanılabilir.
+GNU/Linux dağıtımlarında, sisteme bir grup eklemek için **`groupadd`** komutu kullanılabilir.
 
 ```bash
 	[~#] sudo groupadd grubun_ismi
@@ -236,6 +236,26 @@ Kullanıcı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edeli
 
 ---
 
+## Hastane Yönetimi
+
+Hastane örneğimizde **`hastalar`**, **`kameralar`** ve **`yemekhane`** dizinlerimiz olacak. Fakat tahmin edeceğiniz üzere bu dosyalara yalnızca belirli meslek gruplarının ve belirli kullanıcıların yetki sahibi olmasını bekleriz.
+
+Aşağıdaki gibi dizinleri oluşturalım.
+
+<p align="center">
+	<img alt="pwd" src="img/19.png" width="800">
+</p>
+
+Dizinlerimiz içersine aşağıdaki gibi gerekli dosyaları da oluşturalım.
+
+Bu dizinlerin sahiplik ve izinlerini ayarlama işlemine geçmeden önce GNU/Linux'da dosya ve dizin kavramlarından bahsetmeliyiz.
+
+<p align="center">
+	<img alt="pwd" src="img/20.png" width="800">
+</p>
+
+---
+
 ## Dosya ve Dizin Kavramları
 
 **GNU/Linux'ta her şey birer dosyadır**. [**[1]**](https://stackoverflow.com/a/10893965)
@@ -246,7 +266,7 @@ Dizin ve dosya isimleri aynı olamaz.
 
 ---
 
-## Dosya ve Dizin İzinlerinin İncelenmesi
+#### Dosya ve Dizin İzinlerinin İncelenmesi
 
 **ls** ile dosyaların izinleri incelenebilir.
 
@@ -280,27 +300,60 @@ Yani bu örnektekinin;
 - dosya grubunun **okuma/çalıştırma**,  
 - diğer herkesin de **okuma/çalıştırma**  
 
-iznine sahip olduğunu görüyoruz.
+iznine sahip olduğunu görüyoruz. Ayrıca bu dosyaların fsutil kullanıcısına ait olduğunu ve group'unun users olduğunu incelemiş olduk.
 
 ---
 
-#### Chmod ile İzinlerin Düzenlemesi [Text Method]
+#### Hastane Dosya Sahipliklerinin Değiştirilmesi
 
-Chmod'un 3 temel parametresi vardır, bunlar aşağıdaki gibidir.
+Şimdi teorik bilgimizi edikten sonra hastane örneğimize geri dönebiliriz. 
 
-| Parametre | Anlamı | Açıklama |
-|:---------:|:--------:|:-------:|
-| **-R**    | Recursive | Objenin tüm alt klasörlerine de aynı işlemin uygulanması amaçlı kullanılır |
-| **-f**    | Force | Ortaya çıkan hataların gözardı yapılarak işlemin uygulanmasını zorlamak amaçlı kullanılır |
-| **-v** | Verbose | İşlemin detayını göstermesi amaçlı kullanılır |
+Dosyaların sahipliklerini user ve group bazında değiştireceğiz. Bunun için **`chown`** komutu kullanabiliriz. Yapısı oldukça basittir.
 
-Text method'da genel syntax aşağıdaki gibidir.
-
+Genel syntax örnekleri aşağıdaki gibidir.
 ```bash
-	$ chmod who=permission fileName
+	[~#] chown yeniSahip dosya_adi
+```
+```bash
+	[~#] chown yeniSahip:yeniGroup dosya_adi
+```
+```bash
+	[~#] chown :yeniGroup dosya_adi
 ```
 
-Kim olduğunu belirtmek için **u**, **g**, **o**, **a** kullanılır.
+Aşağıdaki gibi 3 dizin için de **-R** parametresini kullanarak dosyaların group bilgilerini değiştirelim.  
+
+Burada **-R** parametresini kullanma sebebimiz belirttiğimiz işlemi recursive olarak tüm alt(sub) dosya ve dizinlere uygulanması gerektiğini belirtmek içindir.
+
+<p align="center">
+	<img src="img/21.png">
+</p>
+
+Tüm hastane dosyalarımızın group sahipliklerini değiştirdik. Fakat dosyaların kullanıcı sahiplikleri hale belirlenmiş değil. Her dosyanın sahibi olarak meslek grubundan belirlenen bir kullanıcıyı atamak istiyoruz. Aşağıdaki gibi adımları gerçekleştirdik.
+
+<p align="center">
+	<img src="img/22.png">
+</p>
+
+Dosya sahipliklerini ayarladık.
+
+---
+
+#### Hastane Dosya İzinlerinin Değiştirilmesi
+
+Burada kurmak isteğimiz yapı şu şekilde; ilgi dizinler ve dosyalar meslek grubundaki herkes tarafından okunabilir, çalıştırılabilir olmalı; meslek grubundan belirlenen yalnızca bir kişi dosya üzerinde değiştirme yetkisine sahip olmalı.
+
+Bu için dosyaların izinlerini değiştireceğiz.
+
+Bunun için **`chmod`** komutu kullanabilirz. Chmod'un iki tip kullanımı vardır; **text method** ve **numeric method**. Text method günlük kullanımda daha çok kullanılır, basit olması açısından. Numeric method daha çok script'lerde kullanılır.
+
+Text Method'un genel kullanım syntax'ı aşağıdaki gibidir.
+
+```bash
+	$ chmod kim=izinYetkisi dosyaAd
+```
+
+Burada **`kim`** ifadesi, işlemi hangi kişiler için yapacağını belirtmek için kullanırız.
 
 | Text | Class | Açıklama |
 |:----:|:-----:|:--------:|
@@ -309,17 +362,7 @@ Kim olduğunu belirtmek için **u**, **g**, **o**, **a** kullanılır.
 | **o** | Other | Diğer herkes |
 | **a** | All | Herkes (**ugo** ile aynı anlama gelir) |
 
-Örneğin bir dosya için dosya kullanıcısına okuma/yazma/çalıştırma izinleri vermek istiyorsak aşağıdaki gibi yapabiliriz.
-
-```bash
-	$ chmod u=rwx fileName
-```
-
-<p align="center">
-	<img src="img/dosya-ve-dizin-izinleri/2.png">
-</p>
-
-Yalnızca **" = "** operatörü yoktur. Diğer operatör ve amaçları da aşağıdaki gibidir.
+Örnekte **`=`** olarak ifade ise verilen işlem ile ne yapılacağını belirtmek amacıyla kullanırız.
 
 | Operator | Açıklama |
 |:----:|:-----:|
@@ -327,33 +370,54 @@ Yalnızca **" = "** operatörü yoktur. Diğer operatör ve amaçları da aşağ
 | **-** | Yetkiyi ilgili kullanıcılardan çıkarır |
 | **=** | Yetkiyi eşitler |
 
-Örneğin az önceki örnekte **" u=rwx "** demiştik. Bunun yerine direkt olarak çalıştırma iznini **" + "** ile ekleyebilirdik.
-
-```bash
-	$ chmod u+x fileName
-```
-
-<p align="center">
-	<img src="img/dosya-ve-dizin-izinleri/3.png">
-</p>
-
-Ya da örneğin diğer herkesin yetkisini 0 yapmak istersek aşağıdaki gibi yapabiliriz. Bu şekilde diğer herkesin sahip olduğu yetkileri silmiş oluruz.
-
-```bash
-	$ chmod o= fileName
-```
-
-Ya da örneğin kullanıcı hariç diğer herkesten çalıştırma izinlerini çıkarmak istiyorsak aşağıdaki gibi yapabiliriz.
-
-```bash
-	$ chmod go-x fileName
-```
+**`İzin yetkisi`** ise verilecek olan izindir. Yani; r, w, x gibi ifadeler girilir.
 
 ---
 
-#### Chmod ile İzinlerin Düzenlemesi [Numberic Method]
+#### Dosyalarımızın İzinlerini Ayarlayalım
 
-Her yetkinin numarasal olarak bir karşılığı vardır. Bunlar aşağıdaki gibidir.
+Şimdi öğrendiğimiz teorik bilgileri, hastane örneğimiz üzerinde uygulayarak pratiğe dökelim.
+
+İlk olarak tüm dosya group'larından yazma yetkisini çıkaracağız. Bunun için aşağıdaki gibi bir ifade kullanmamız yeterlidir. Aşağıdaki ifade, dosyanın group sahipliğinden yazma**[w]** yetkisini çıkarmamızı sağlar. Artık group yetkisi kullanırak dosya üzerinde yazma işlemi yapılamayacaktır.
+
+```bash
+	[~#] chown g-w -R dizin/
+```
+
+<p align="center">
+	<img src="img/23.png">
+</p>
+
+Ayrıca **`other`**'ın dosya üzerinde hiç bir yetkisinin olmasını istemiyoruz. Bunun için de aşağıdaki gibi örneğimizi uygularız. Other'ın sahip olduğunu tüm yetkiyi kaldırmış oluruz.
+
+
+```bash
+	[~#] chown o-rwx -R dizin/
+```
+
+<p align="center">
+	<img src="img/24.png">
+</p>
+
+Bu işlemi uyguladığımızda klasör'ün içinde neler olduğuna bile bakamayız, çünkü şu ana kadar olan tüm işlemleri PauSiber Dev'in normal kullanıcısı olan **`dev`** ile yaptık, dizinler üzerinde dev kullanıcısı other olarka gözükür. dev'in hiç bir yetkisi olmadığı için dizin içlerini göremeyiz.
+
+Dizinlerin içersini görüntülemek için meslek grubundan bir kullanıcıya geçiş yapabiliriz.
+
+Eğer dosyalar üzerinden yazma işlemi yapmak istersek te meslek grubundan şef olarak seçtiğimiz kullanıcıya geçiş yapmamız gerekir.
+
+Başka bir kullanıcıya geçiş yapmak için **`su`** komutu kullanabiliriz.
+
+<p align="center">
+	<img src="img/25.png">
+</p>
+
+---
+
+#### Numeric Method ile İzin İşlemlerinin Yapılması
+
+Az önce, text method örneklermizi yapmadan önce, numeric method da olduğunu söylemiştik. Bu method'u uygulayabilmemiz için bazı bilgilere ihtiyacımız var.
+
+Daha önceden öğrendiğimiz gibi, dosya ve dizinlerin izinleri **r**, **w** ve **x** ile temsil edilir. Her yetkinin numarasal olarak bir karşılığı vardır. Bunlar aşağıdaki gibidir.
 
 | İzin | Numara Karşılığı |
 |:----:|:------:|
@@ -361,79 +425,73 @@ Her yetkinin numarasal olarak bir karşılığı vardır. Bunlar aşağıdaki gi
 | **w** | 2 |
 | **x** | 1 |
 
-Numarasal method'da genel syntax aşağıdaki gibidir. Burada **X** her grup için yetki numaralarının toplamına eşittir.
+<p align="center">
+	<img src="img/dosya-ve-dizin-izinleri/1.png">
+</p>
+
+Bir dosyanın yetkisinin numarasal karşılığı göstermek için 3 basamaklı bir sayı kullanırız. Bu 3 basamaklı sayıyı elde etmek için yetkileri üçerli olarak gruplandırıp toplarız.
+
+Kendimiz toplamak yerine, bir dosyanın yetkisinin numarasal karşılığı direkt olarak görmek için **`stat`** komutu kullanılabilir.
 
 ```bash
-	$ chmod XXX fileName
-```
-
-Örneğin elimizde **" -rw-r--r-- "** olduğu varsayalım. Bu ifade **644** ile ifade edilebilir. Eğer yetkiyi text değil de direkt olarak numarasal formda görmek istersek **stat**'ı kullanabiliriz.
-
-```bash
-	$ stat -c %a fileName
+	$ stat -c %a dosyaAdi
 ```
 
 <p align="center">
-	<img src="img/dosya-ve-dizin-izinleri/4.png">
+	<img src="img/26.png">
 </p>
 
-**644** yetkisi numarasal method ile olarak bu şekilde :
+Dosyanın izinlerini numeric method ile değiştirmek istiyorsak aşağıdaki gibi bir syntax kullanırız.
 
 ```bash
-	chmod 644 fileName
+	$ chmod XXX dosyaAdi
 ```
 
-Text method'u ile de bu şekilde :
+Örneğin hastalar klasörü içersinde bulunan dosyaların, other'lar tarafından okunabilir ve çalıştırılabilir olmasını istiyor olalım, aşağıdaki gibi yapabiliriz.
 
-```bash
-	chmod u=rw fileName && chmod go=r fileName
-```
+<p align="center">
+	<img src="img/27.png">
+</p>
 
-ifade edilmektedir, ikisi de aynı işlemi yapmaktadır.
+Text method kullanacak olsaydık, aynı işlemi yapmak için `chmod o=rx *` dememiz yeterdi.
 
 ---
 
-#### Chown ile Sahipliğin Değiştirilmesi
+#### Dosya Kilitlemek
 
-Her dosyanın (ya da dizinin) ait olduğu bir kullanıcı ve bir grup olmalıdır. Eğer dosya ya da dizinlerin sahipliğini değiştirmek istiyorsak **chown**'u kullanabiliriz.
+Bir dosyayı üzerinde izni verilmiş olsa bile kilitlemek, yani değişik yapılmaz olsun istiyorsak **`chattr`** komutu kullanabiliriz. Kullanımı oldukça basittir.
 
-Genel syntax örnekleri aşağıdaki gibidir.
+Kilitlemek için :
+
 ```bash
-	$ chown newOwner fileName
-```
-```bash
-	$ chown newOwner:newGroup fileName
-```
-```bash
-	$ chown :newGroup fileName
+	$ chattr +i dosyaAdi
 ```
 
-<p align="center">
-	<img src="img/dosya-ve-dizin-izinleri/5.png">
-</p>
+Kilidi açmak için :
 
-Eğer tüm alt klasör ve dizinler için de sahipliği değiştirmek istiyorsak, chmod'da da olduğu gibi, recursive parametresi olan **-R** kullanılır.
-
-<p align="center">
-	<img src="img/dosya-ve-dizin-izinleri/6.png">
-</p>
-
----
-
-## Chattr ile bişiler
-
-...  
-...
+```bash
+	$ chattr -i dosyaAdi
+```
 
 ---
 
 ## Bu hafta neler yaptık ?
 
-- Elimizde bulunan kullanıcının parolasının nasıl değiştirileceğini,  
-	sisteme yeni kullanıcıların nasıl ekleneceğini,  
-	kullanıcıların gruplara nasıl dahil edileceğini,  
-	yeni grupların nasıl oluşturulacağını,  
-	kullanıcıların gruplardan nasıl çıkarılacağını genel olarak öğrendik.  
-- Dosya ve dizin kavramlarının özünde aynı şeyi ifade ettiğini,  
-	dosya-dizin izinlerinin text ve numeric method'lar ile nasıl belirleneceğini,  
-	dosya-dizin sahipliklerinin nasıl değiştirileceğini genel olarak öğrendik.
+- Kullanıcı-Grup Yönetimi için;
+	- Bir kullanıcının parolasının nasıl değiştirileceğini,
+	- Sisteme yeni kullanıcıların nasıl ekleneceğini,
+	- Yeni grupların nasıl oluşturulacağını,
+	- Gruplara kullanıcıların nasıl ekleneceğini,
+	- Root kullanıcısının mantığını,
+	- /home dizinlerinin mantığını,
+	- Kullanıcıların nasıl silineceğini,
+	- Gruplardan kullanıcıların nasıl çıkarılacağını,
+	- Grupların nasıl silineceğini öğrendik..
+
+- Dosya-Dizin İzinleri için;
+	- GNU/Linux'ta dizinlerin de aslında birer dosya olduğunu,
+	- Yetki kavramlarını,
+	- Dosya sahipliklerinin nasıl değiştirileceğini,
+	- Text ve numeric method ile dosyaların izinlerinini nasıl değiştirileceğini,
+	- Dosyaların nasıl kilitlenebileceğini öğrendik..
+	
