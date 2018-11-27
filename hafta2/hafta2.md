@@ -381,7 +381,7 @@ Burada **`kim`** ifadesi, işlemi hangi kişiler için yapacağını belirtmek i
 İlk olarak tüm dosya group'larından yazma yetkisini çıkaracağız. Bunun için aşağıdaki gibi bir ifade kullanmamız yeterlidir. Aşağıdaki ifade, dosyanın group sahipliğinden yazma**[w]** yetkisini çıkarmamızı sağlar. Artık group yetkisi kullanırak dosya üzerinde yazma işlemi yapılamayacaktır.
 
 ```
-	[~#] chown g-w -R dizin/
+	[~#] chmod g-w -R dizin/
 ```
 
 <p align="center">
@@ -392,7 +392,7 @@ Ayrıca **`other`**'ın dosya üzerinde hiç bir yetkisinin olmasını istemiyor
 
 
 ```
-	[~#] chown o-rwx -R dizin/
+	[~#] chmod o-rwx -R dizin/
 ```
 
 <p align="center">
