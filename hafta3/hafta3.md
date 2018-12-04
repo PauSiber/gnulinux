@@ -74,7 +74,7 @@ ssh-keygen
 	<img alt="ssh-keygen" src="img/1.png" width="800">
 </p>
 
-- Oluşan keyi istediğimiz bir dizine koyamak için bu komutu yürütürüz.
+- Oluşan keyi istediğimiz bir dizine koymak için bu komutu yürütürüz.
 ```bash
 ssh-keygen -f ~/.ssh/file_name
 ```
