@@ -7,24 +7,45 @@
 
 ---
 
-## Server (sunucu) Nedir ?
+## Server (Sunucu) Nedir ?
 
-...  
-...
+Server denince, akıllara; -filimlerin de etkisiyle- devasa büyüklükte hangarlar içine, sıra sıra istiflenmiş genelde siyah renkte dolaplar içinde bulunan, dikdörtgen şeklinde çekmeceler geliyor.
+
+<p align="center">
+	<img alt="pwd" src="img/0.jpg" width="800">
+</p>
+
+Evet, akıllara gelen bu tablo ve tanım tamamen doğru. Fakat bir "server" oluşturmak için tüm bu saydığımız şeylere ihtiyacımız yok. Sadece bir bilgisayar, server oluşturmak için yeterli. Ve tabiki gerekli iletişim ağı.(internet ya da local ağ)
+
+Yani server dediğimiz şeylerde aslında birer bilgisayardır.
+
+Bir bilgisayarın server olarak çalışabilmesi için; gerekli bazı yazılımlara ve kulandığı verileri iletim ağına itebilecek ve çekebilecek güce sahip olması gerekir.
+
+Bu **güç** bazen; en başta anlattığımız, o hollywood vari tablodaki serverların güçü gibi devasa bir güçce sahip olurken, bazen de 20 dolarlık bir Raspberry Pi'ın gücü olabilir.
 
 ---
-
 ## SSH Protokolü Nedir ?
 
-...  
-...
+SSH (Secure Shell), ağ üzerinde bulunan bir sunucuya bağlanmaya ve bağlanılan sunucu üzerinde komut çalıştırma, dosya transferi gibi işlemleri gerçekleştirmeye olanak sağlayan bir uzak sunucu bağlantı protokolüdür.
+
+SSH protokolü, komut çalıştırma, dosya transferi gibi işlemlerin dışında, güvenli iletişim kanalları gerektiren durumların tamamında kullanılabilmektedir. Örneğin; POP3 mail protokolü gibi iletişimini şifrelenmemiş şekilde gerçekleştiren servisler SSH üzerinden aktarılarak şifreli ve güvenli duruma getirilebilirler.
 
 ---
 
 #### SSH Kullanımı
 
-...  
-...
+- Uzakdaki bir sunucuya bağlanmak için;
+```bash
+ssh kullancı_adı@remote_host
+```
+
+
+- Uzakdaki bir sunucuya özel bir port üzerinden bağlanmak;
+```bash
+ssh kullancı_adı@remote_host -p port
+```
+
+
 
 ---
 
@@ -44,15 +65,49 @@
 
 #### SSH-Keygen ile Key Oluşturulması
 
-...  
-...
+- SSH key oluşturmak için;
+```bash
+ssh-keygen
+```
+
+<p align="center">
+	<img alt="ssh-keygen" src="img/1.png" width="800">
+</p>
+
+- Oluşan keyi istediğimiz bir dizine koyamak için bu komutu yürütürüz.
+```bash
+ssh-keygen -f ~/.ssh/file_name
+```
 
 ---
 
 #### Bir Server'e SSH-Key Kullanarak Bağlantı Sağlanması
 
-...  
-...
+- Uzakdaki bir sunucuya private key kullanarak bağlanmak;
+```bash
+ssh -i private_key_path kullancı_adı@remote_host
+```
+
+---
+
+#### ".ssh/config" Dosyasının Kullanımı
+
+Eğer birden fazla sunucu ile uğraşıyorsanız, her bağlantı kurma aşamasında IP girmek tam bir işkence. Bunun önüne geçmek için bilgisayarınızda aşağıdaki gibi bir .ssh/config dosyası oluşturabilirsiniz. Bu sayede IP'leri girmeden direkt olarak **ssh serverName** diyerek sunucunuz ile bağlantı sağlayabilirsiniz.
+
+Bunun için **~/.ssh/config** dosyasını oluşturun.  
+```bash
+	[~$] touch .ssh/config
+```
+Ardından aşağıdaki dosyayı ayarlayın.
+```bash
+	Host	serverName
+		HostName		ServerIP
+		User			username
+		Port			22
+		IdentityFile		/path/to/ssh-key
+```
+
+Artık herhangi bir şekilde IP girmek yerine direkt olarak **ssh serverName** diyerek sunucunuza bağlanabilirsiniz.
 
 ---
 
@@ -63,7 +118,7 @@ Zamanlanmış görevler sayesinde günlük-haftalık-aylık-yıllık periyotlar 
 Zamanlanmış görevler için çoğunlukla **cron** kullanılır. Çoğu sistemde cron kurulu olarak gelmektedir. Ayrıca yine çoğu sistemde default olarak gelen bazı zamanlanmış cron görevleri mevcuttur.  
 Bunlar **/etc/** altında aşağıdaki gibi bulunur.
 
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/3.png">
 </p>
 
@@ -73,14 +128,14 @@ Bunlar **/etc/** altında aşağıdaki gibi bulunur.
 
 Cron zamanlanmış olarak komutları çalıştırmamızı sağlayan bir daemon'dur. Çoğu linux dağıtımında yüklü olarak gelir.
 
-Cron kullanımı için iki temel yol vardır. 
+Cron kullanımı için iki temel yol vardır.
 
 Birincisi; hali hazırda sistemde /etc/ altında bulunan **cron.daily**, **cron.hourly**, **cron.monthly** ve **cron.weekly** klasörlerinine istenen script'in kopyalanmasıdır.  
 Bu klasörlerde bulunan scriptler, **/etc/crontab**'daki ayarlamaya göre ilgili zaman dilimlerinde çalıştırılır.
 
 /etc/crontab aşağıdaki gibidir.
 
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/4.png">
 </p>
 
@@ -100,10 +155,10 @@ Eğer istenenden farklı bir sonuç gözleniyor ise aşağıdaki komut ile siste
 ```
 	[~#] dpkg-reconfigure tzdata
 ```
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/1.png">
 </p>
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/2.png">
 </p>
 
@@ -130,13 +185,13 @@ Crontab dosyasını bir kullanıcı için oluşturmak ve düzenlemek istiyorsak 
 ```
 
 
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/11.png">
 </p>
 
 Crontab dosya yapısı aşağıdaki yapıdaki gibi kullanılmalıdır. Her satıra bir işlem yazılacak şekilde düzenlenmelidir.
 
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/10.png">
 </p>
 
@@ -154,7 +209,7 @@ Yukardaki ifade yerine direkt olarak aşağıdaki gibi bir yapı da kullanılabi
 
 Örneğin aşağıdaki iki satır da aynı işlemi yapmaktadır.
 
-<p align="center"> 
+<p align="center">
 	<img src="img/cron-ile-zamanlanmis-gorevler/12.png">
 </p>
 
