@@ -65,8 +65,7 @@ Bu yüzden, server'ımıza erişim sağlarken, ssh-key kullanmamız daha kullan�
 
 #### SSH-Key Nedir ?
 
-...  
-...
+SSH-Key, parola kullanmadan SSH bağlantıları sağlayabilmemizde kullanılan public ve private key çiftine denir.
 
 ---
 
@@ -115,9 +114,9 @@ Ardından dosya içeriğini aşağıdaki yapıya uygun şekilde ayarlayın.
 
 ```
 	Host	server_name
-		HostName			server_ip
-		User				username
-		Port				22
+		HostName		server_ip
+		User			username
+		Port			22
 		IdentityFile		/path/to/ssh-key
 ```
 

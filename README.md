@@ -2,9 +2,10 @@
 
 | Hafta | İçerik    |
 | :------------- | :------------- |
-| `hafta 0`      | [Linux'un genel tanımı ve PauSiber Dev kurulumu](hafta0/hafta0.md) |
-| `hafta 1` | [Terminal kullanımını ve Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı](hafta1/hafta1.md)|
-| `hafta 2` | [Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri](hafta2/hafta2.md)|
+| **`hafta 0`**      | [Linux'un genel tanımı ve PauSiber Dev kurulumu](hafta0/hafta0.md) |
+| **`hafta 1`** | [Terminal kullanımını ve Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı](hafta1/hafta1.md)|
+| **`hafta 2`** | [Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri](hafta2/hafta2.md)|
+| **`hafta 3`** | [Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması](hafta3/hafta3.md) | 
 
 ---
 
