@@ -39,7 +39,7 @@ Yani Linux tek başına bir işletim sistemi değildir.
 
 ---
 
-GNU isimli de bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi 1983'de Richard Stallman tarafından duyurulmuştur.
+GNU isimli de bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi 1983'de Richard Stallman tarafından duyurulmuştur.[gnu.org](https://www.gnu.org/)
 
 Belli bir süre HURD çekirdeğini kullanan GNU; 1991'de Linus Torvals tarafından Linux'un duyurulması ve **Linux çekirdeğinin popülerlik kazanmasıyla, GNU işletim sisteminde, çekirdek olarak Linux'a geçiş yapılmıştır.** GNU araçları Linux'a uyarlanmış ve böylelikle HURD'ın gelişimi iyiden iyiye yavaşlamıştır.
 
