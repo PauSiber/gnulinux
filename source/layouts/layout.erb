@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "PaüSiber" %></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "site" %>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="homepage">
+        <%= link_to("Herkes için GNU/Linux",
+        "http://lvh.me:4567/") %>
+      </div>
+      <div class="authors">
+        <div class="author">
+          <%= link_to("Bora Tanrıkulu",
+          "https://github.com/boratanrikulu/",
+          target: "_blank") %>
+        </div>
+        <div class="author">
+          &#8226;
+        </div>
+        <div class="author">
+          <%= link_to("Hasan Tezcan",
+          "https://github.com/hasantezcan/",
+          target: "_blank") %>
+        </div>
+      </div>
+    </nav>
+    <header>
+        <a href="http://lvh.me:4567">
+          <div class="site-logo">
+            <img src="logo.png" alt="pausiber-logo" height="200">
+          </div>
+        </a>
+        <div class="site-title">
+          <h1>
+            Herkes için GNU/Linux - PaüSiber
+          </h1>
+          <p class="site-desc">
+            topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
+          </p>
+        </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

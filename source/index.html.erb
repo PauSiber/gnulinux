@@ -1,0 +1,20 @@
+---
+title: Herkes için GNU/Linux - PaüSiber
+---
+
+<main>
+  <div class="articles">
+    <table>
+      <tr>
+        <th>Eğitim Dokümanı</th>
+        <th>Eğitimden Fotoğraflar</th>
+      </tr>
+      <% blog.articles.reverse.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article %></td>
+          <td>test</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</main>
