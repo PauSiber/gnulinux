@@ -1,4 +1,9 @@
-**Kurs Eğitmenleri :** [**boratanrikulu**](https://github.com/boratanrikulu) **&&** [**hasantezcan**](https://github.com/hasantezcan)
+> Kurs dokümanları ve eğitimden fotoğraflara bu adres üzerinden de erieşbilirsiniz.  
+  [**`https://gnulinux.pausiber.xyz`**](https://gnulinux.pausiber.xyz)
+
+**Kurs Eğitmenleri:** [**boratanrikulu**](https://github.com/boratanrikulu) && [**hasantezcan**](https://github.com/hasantezcan)
+
+---
 
 | Hafta | İçerik    |
 | :------------- | :------------- |
@@ -10,7 +15,7 @@
 
 ---
 
-#### İletişim Bilgileri
+**Eğitmen İletişim Bilgileri**
 
 **Bora Tanrıkulu**
 
