@@ -1,15 +1,22 @@
 @import "highlight.css.sass";
 
-body {
-  background-color: #fbc547;
-  color: #333;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
     "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
     "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
     "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 1vh 1rem;
-  font-size: 1.15em;
+}
+
+body {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px -2px rgba(128,128,128,0.75);
+  background-color: #F9F9F9;
 }
 
 a {
@@ -18,8 +25,15 @@ a {
 
   &:focus,
   &:hover {
-    color: rgba(#fff, 0.6);
+    color: #B7950B;
   }
+}
+
+.main-container{
+  height: 100%;
+  width: 55vw;
+  background-color: #F8F9F9;
+  box-shadow: 0px 0px 20px -2px rgba(128,128,128,0.75);
 }
 
 .container {
@@ -28,36 +42,215 @@ a {
 }
 
 .article {
-  width: 50vw;
   text-align: left;
+  overflow: hidden;
+  padding: 0px 3em 0px 3em;
+  margin: 0px 1em 0px 1em;
+
+
+  hr{
+    margin: 1em 0px 1em 0px;
+    padding: 1.5px;
+    background-color: black;
+  }
+  img{
+    max-width: 40vw;
+    margin: 3em 0px 3em 0px;
+    box-shadow: 0px 0px 20px -2px rgba(128,128,128,0.75);
+  }
+  p{
+    margin: 1em 0px 1em 0px;
+  }
+  h1, h2, h3{
+    margin: 1em 0px 1em 0px;
+  }
+  table{
+    width: 100%;
+  }
+  td{
+    border: .5px solid black;
+    border-color: lightgrey;
+  }
 }
 
-img {
-  max-width: 50vw;
-}
-
-.articles {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  table {
-    text-align: left;
-  }
-  tr > td:last-child{
-    text-align: center;
-  }
+.pausiber-logo{
+  width: 40%;
 }
 
 .navbar {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #BDC3C7;
+  position: fixed;
+  z-index: 100;
+  width: 55vw;
+  height: 5em;
+  align-items: center;
+  background-color: #EAEDED;
+}
+
+.homepage{
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  position: relative;
+  left: 1.3em;
+}
+
+.authors{
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  margin-right: 1em;
+}
+
+.author1{
+  position: relative;
+  right: 2em;
+}
+
+footer{
+  width: 100%;
+  height: 7em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-top: 2em;
+  border-top: 1px solid lightgrey;
+  display: flex;
   justify-content: space-around;
+  align-items: center;
+  img{
+    width: 1.5em;
+  }
 }
 
-.author {
-  display: inline-block;
-  padding-left: 10px;
+header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
 
-.site-desc {
-  opacity: 0.7;
+.footer-images{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-logo{
+  padding-bottom: 2em;
+}
+
+.site-desc{
+  padding-top: 1em;
+}
+
+.articles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card{
+  margin-top: 7%;
+  box-shadow: 0px 0px 10px -5px rgba(128,128,128,0.75);
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+  background-color: white;
+  transition: all .2s linear;
+}
+
+.card:hover,:focus{
+  transform: scale(1.02);
+  background-image: linear-gradient(to right, whitesmoke , #FEF9E7);
+  p{
+    color: black;
+    font-weight: 200;
+  }
+
+}
+
+.activity-logo{
+  width: 34%;
+  height: 40%;
+  margin-bottom: 10px;
+}
+
+.images{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1000px) {
+  .main-container{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+  }
+
+  .navbar{
+    font-size: 1em;
+    padding-bottom: 8%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .main-container{
+    width: 100%;
+    height: 100%;
+    font-size: .5em;
+  }
+
+  .navbar{
+    font-size: .1em;
+    padding-bottom: 8%;
+    width: 100%;
+  }
+
+  footer{
+    width: 100%;
+    font-size: .4em;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .main-container{
+    width: 100%;
+    height: 100%;
+    font-size: .2em;
+  }
+
+  .navbar{
+    font-size: .3em;
+    padding-bottom: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .homepage{
+      width: 50px;
+    }
+    .author1{
+      position: relative;
+      right: 1em;
+    }
+  }
+
+  footer{
+    font-size: .1em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
