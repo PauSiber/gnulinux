@@ -1,0 +1,675 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Hafta 1 - Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı</title>
+    <link href="stylesheets/site.css" rel="stylesheet" />
+    <script src="javascripts/site.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <nav class="navbar">
+        <div class="homepage">
+          <a href="/">Herkes için GNU/Linux</a>
+        </div>
+        <div class="authors">
+          <div class="author1">
+            <a href="https://github.com/boratanrikulu/" target="_blank">Bora Tanrıkulu</a>
+          </div>
+          <div class="author">
+          </div>
+          <div class="author">
+            <a href="https://github.com/hasantezcan/" target="_blank">Hasan Tezcan</a>
+          </div>
+        </div>
+      </nav>
+      <header>
+          <a href="/">
+            <div class="site-logo">
+              <a href="https://pausiber.xyz/">
+              <img src="logo.png" alt="pausiber-logo" class="pausiber-logo">
+              </a>
+            </div>
+          </a>
+          <div class="site-title">
+            <h1>
+              Herkes için GNU/Linux - PaüSiber
+            </h1>
+            <p class="site-desc">
+              Topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
+            </p>
+          </div>
+      </header>
+        <article class="article">
+    <hr>
+    <h2 id="hafta-1-temel-komutlar-dosya-sistem-hiyerar-isi-paket-y-neticisi-kavram">Hafta 1 - Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı</h2>
+
+<p><strong>Amaç :</strong> Terminal kullanımını kavratmak, dosya sistem hiyerarşisini kavratmak, paket yöneticisi kavramından bahsetmek</p>
+
+<hr>
+
+<h2 id="terminal-nedir">Terminal Nedir ?</h2>
+
+<p>Terminal, işletim sisteminizi shell ile kullanmanızı sağlayan bir arayüzdür. GNU/Linux dağıtımlarında SHELL olarak genellikle BASH kabuğu (shell) kullanılır.</p>
+
+<p>Windows&#39;ta bunun karşılığı CMD denebilir.</p>
+
+<p>Windows&#39;ta şuana kadar hiç CMD&#39;ye girmeden hayatta kalabiliyorsanız, aslında GNU/Linux dağıtımlarının <strong>bir çoğunda da</strong> terminale hiç uğramadan da hayatta kalabilirsiniz..</p>
+
+<p align="center">
+    <img alt="cmd" src="images/hafta-1/2.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="peki-neden-size-terminal-kullan-m-anlat-yoruz">Peki neden size terminal kullanımı anlatıyoruz ?</h2>
+
+<p>İşletim sistemine tamamen hakim olmak, isteklerinizi grafik arayüzünün hantallığına takılmadan yapmak ve işlerinizi çok daha hızlı görmek açısından terminal kullanımı önemlidir.</p>
+
+<p>Ayrıca mesleğimiz gereği burada çok işimiz oluyor <strong>:)</strong>.</p>
+
+<p>Örneğin en basitinden, bir kaç hafta içersinde eğitimini alacağınız git kullanımının terminal üzerinden yapılması gibi. Onun dışında, yazdığınız herhangi bir programı derlerken terminal kullanmanız gerektiği gibi faktörler terminal kullanımına alışmanız açısından önemlidir.</p>
+
+<p>Bu arada html/css derslerinde yazdığınız ya da yazcağınız uygulamaları bundan bir kaç hafta sonra hep birlikte, hiç bir şekilde grafik arayüzü (GUI) kullanmadan yalnızca terminali kullanarak; bir sunucu üzerinde ayağa kaldıracağız <strong>:)</strong>.</p>
+
+<p>Yani şuan öğreneceğiniz bilgiler başka anlamsız, hantal ve yavaş olarak gözükecek olsa bile aslında ilerki mesleki hayatınızda çokça rahat etmenizi sağlayacaktır.</p>
+
+<p>Ne kadar erken öğrenmeniz sizin için o kadar iyi olacaktır.</p>
+
+<hr>
+
+<h2 id="shell-nedir">SHELL Nedir ?</h2>
+
+<p>SHELL işletim sistemlerinin servislerini kullanmak amacıyla kullanılan bir kullanıcı arabirimidir (user interface), bir programdır.</p>
+
+<p>Kabuk (shell) , çekirdek ile kullanıcı arasında ara görev görür.</p>
+
+<p>Bir çok kabuk çeşidi vardır;</p>
+
+<ul>
+<li>sh</li>
+<li>bash</li>
+<li>zsh</li>
+<li>csh</li>
+<li>ksh</li>
+<li>tcsh</li>
+</ul>
+
+<p>Önünüzde bulunan PauSiber Dev&#39;de ise kabuk yani shell olarak ZSH kullanılmaktadır. Kabuk olarak BASH yerine ZSH kullanma sebebimiz; ZSH&#39;ın BASH&#39;e göre daha fazla özellik içermesi.</p>
+
+<p>Bi de şekil filan yani .s.s.s</p>
+
+<p align="center">
+    <img alt="zsh" src="images/hafta-1/0.png" width="800">
+</p>
+
+<p align="center">
+    <img alt="bash" src="images/hafta-1/1.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="temel-komutlar">Temel Komutlar</h2>
+
+<p>Terminalda kullanabileceğiniz sayısız uygulama, sayısız komut var. Biz bu eğitim sırasında yalnızca temel düzeyde olan komutları göstereceğiz.</p>
+
+<hr>
+
+<h3 id="ls-list"><code>ls [list]</code></h3>
+
+<p>Herhangi bir dizinin içini görmek için kullandığımız komuttur.</p>
+
+<p>Örneğin terminalde aşağıdaki gibi bir komut yürütürsek, o sırada bulunduğumuz dizinin içindeki tüm dosya dizinlerin çıktısı görürüz</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">ls</span>
+</code></pre></div>
+<p align="center">
+    <img alt="ls" src="images/hafta-1/3.png" width="800">
+</p>
+
+<hr>
+
+<p>GNU/Linux&#39;da bir dosyanın gizli olması için başına <strong><q>.</q></strong> konması yeterlidir. Eğer bir dosyanın başında <strong><q>.</q></strong> ifadesin var ise <code>ls</code> sorgularında gösterilmez.</p>
+
+<p>Bu yüzden az önce yaptığımız sorgu gördüklerimiz bulunduğumuz satırdaki tüm dosya ya da dizinleri göstermedi.</p>
+
+<p>Gizli dosya ve dizinler dahil tüm her şeyi görmek istiyor isek <strong>&ndash;all</strong> ya da <strong>-a</strong> parametresi kullanmamız gerekir.</p>
+
+<p>Yani aşağıdaki gibi bir komut yürütürüz.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>
+<p align="center">
+    <img alt="ls - show them all" src="images/hafta-1/4.png" width="800">
+</p>
+
+<p>Peki örneğin bulunduğumuz dizin altında bulunan tüm dosyaları tarihe ögre sıralı şekilde görüntülemek istersek ne yapmalıyız ? Aşağıdaki parametreleri kullanabiliriz.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">ls</span> <span class="nt">-lat</span>
+</code></pre></div>
+<p align="center">
+    <img alt="ls - show them all with ordering by date" src="images/hafta-1/5.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="man-manual"><code>man [manual]</code></h3>
+
+<p>EE tüm parametreleri böyle tek tek öğrenecek miyiz ? Evet.</p>
+
+<p><strong>Peki ezberleyecek miyiz ? HAYIR !</strong></p>
+
+<p>Kullanılan neredeyse her komutun bir manual sayfası vardır. Bunları okumak için <code>man</code> komutunu kullanabiliriz. Örneğin <code>ls</code> komutunun manual sayfasını okumak için <code>man ls</code> dememiz yeterlidir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    man <span class="nb">ls</span>
+</code></pre></div>
+<p>Son derece detaylı olan bu manual sayfalarında ilgili komutla ilgili tüm detaya ulaşabilirsiniz.</p>
+
+<p><strong>Not :</strong> manual sayfasından <strong>q</strong>&lsquo;a basarak çıkabilirsiniz.</p>
+
+<p align="center">
+    <img alt="man ls" src="images/hafta-1/6.png" width="800">
+</p>
+
+<p>Ayrıca ek bir öneri olarak; okuma kolaylığı sağlaması, aranan şeylere daha kolay ulaşma imkanı vermesi açısından, man kullanmak yerine <strong>tldr</strong> uygulamasını kullanabilirsiniz.</p>
+
+<p><a href="https://github.com/tldr-pages/tldr"><strong>github.com/tldr-pages/tldr</strong></a> <em><code>tl;dr : &quot;too long; didn&#39;t read&quot;</code></em></p>
+
+<p align="center">
+    <img alt="man ls" src="images/hafta-1/7.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="cd-change-directory"><code>cd [change directory]</code></h3>
+
+<p>Bulunduğumuz dizini değiştirmek için cd komutunu kullanırız.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">cd </span>Documents/
+</code></pre></div>
+<p align="center">
+    <img alt="cd" src="images/hafta-1/9.png" width="800">
+</p>
+
+<p>Eğer bulunduğumuz dizinin bir üstüne gitmek istiyorsak aşağıdaki gibi yapmalıyız.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">cd</span> ..
+</code></pre></div>
+<hr>
+
+<h3 id="pwd-print-working-directory"><code>pwd [print working directory]</code></h3>
+
+<p>Bu komut bize hangi dizinin içinde olduğumuzu söyler. Yani bulunduğumuz dizinin path&#39;ini verir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">pwd</span>
+</code></pre></div>
+<p align="center">
+    <img alt="pwd" src="images/hafta-1/8.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="touch"><code>touch</code></h3>
+
+<p>İçi boş bir dosya oluşturmak amacıyla kullanılır.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">touch </span>yeni_bir_dosya
+</code></pre></div>
+<p align="center">
+    <img alt="touch" src="images/hafta-1/27.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="cat"><code>cat</code></h3>
+
+<p>Bir dosyanın içeriğini terminale basar.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">cat </span>beni_oku
+</code></pre></div>
+<p align="center">
+    <img alt="cat" src="images/hafta-1/10.png" width="800">
+</p>
+
+<h3 id="tac"><code>tac</code></h3>
+
+<p>Bir dosyanın içeriğini, ters sırada, terminale basar.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">tac </span>beni_tersten_oku
+</code></pre></div>
+<p align="center">
+    <img alt="tac" src="images/hafta-1/26.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="echo"><code>echo</code></h3>
+
+<p>Terminal ekrine string bir ifadeyi basmak amacıyla kullanılabilir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">echo</span> <span class="s2">"MESAJ"</span>
+</code></pre></div>
+<p align="center">
+    <img alt="echo" src="images/hafta-1/11.png" width="800">
+</p>
+
+<p><strong><code>echo</code></strong> daha çok dosyaların içersine veri yazılırken kullanılır.</p>
+
+<p>Örneğin aşağıdaki gibi bir ifade, file.txt dosyasının en son satırına <q>yeni veri</q> string&#39;ini ekler.
+<code>bash
+    echo &quot;yeni veri&quot; &gt;&gt; file.txt
+</code></p>
+
+<p>Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ver yerine yazmak istersek <strong><code>&gt;&gt;</code></strong> diyebiliriz.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">echo</span> <span class="s2">"hepsini sil yerine yaz"</span> <span class="o">&gt;</span> file.txt
+</code></pre></div>
+<hr>
+
+<h3 id="less"><code>less</code></h3>
+
+<p>Dosya içeriğini vim&#39;e benzer bir şekilde görüntelememizi sağlayan bir programdır.</p>
+<div class="highlight"><pre class="highlight shell"><code>    less dosya_adi
+</code></pre></div>
+<p align="center">
+    <img alt="less" src="images/hafta-1/12.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="mkdir-make-directory"><code>mkdir [make directory]</code></h3>
+
+<p>Dizin (klasör) oluşturmak amacıyla kullanılır. Aynı anda birden fazla klasör oluşturulabilir.</p>
+
+<p>Hatta aynı anda iç içe klasörler de direkt olarak tek komutta oluşturulabilir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">mkdir </span>klasor_adi
+</code></pre></div>
+<p align="center">
+    <img alt="mkdir" src="images/hafta-1/13.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="mv-move"><code>mv [move]</code></h3>
+
+<p>Dosya ya da dizinlerin taşınmasını sağlar.</p>
+
+<p><em>Bu arada, GNU/Linux&#39;da dosya ve dizin aynı şeydir, buna ileride değineceğiz.</em></p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">mv </span>pamuk_seker tatli_bisey/
+</code></pre></div>
+<p align="center">
+    <img alt="mv" src="images/hafta-1/14.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="cp-copy"><code>cp [copy]</code></h3>
+
+<p>Dosya ya da dizinlerin kopyalanması sağlar.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">cp </span>dosya dosya.backup
+</code></pre></div>
+<p><strong><q>-r</q></strong> parametresi ise dizinlerin kopyalanması sağlanırken kullanılır.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">cp</span> <span class="nt">-r</span> sutlac/ tatli_bisey/
+</code></pre></div>
+<p align="center">
+    <img alt="cp" src="images/hafta-1/15.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="rm-remove"><code>rm [remove]</code></h3>
+
+<p>Dosya ya da dizinlerin silinmesi amacıyla kullanılır.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">rm </span>dosya
+</code></pre></div><div class="highlight"><pre class="highlight shell"><code>    <span class="nb">rm</span> <span class="nt">-r</span> dizin/
+</code></pre></div>
+<p>Örneğin aşağıdaki gibi tüm sistemi tek bir komut ile silebilirsiniz. Lakin bu komutun bir çok GNU/Linux dağıtımında çalıştırılması engellidir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">rm</span> <span class="nt">-rf</span> /
+</code></pre></div>
+<p align="center">
+    <img alt="sil cnm" src="images/hafta-1/16.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="wget"><code>wget</code></h3>
+
+<p>Wget; internet protokolleri üzerinden dosya indirme aracıdır.</p>
+<div class="highlight"><pre class="highlight shell"><code>    wget https://raw.githubusercontent.com/PauSiber/gnulinux/master/hafta1/hafta1.md
+</code></pre></div>
+<p align="center">
+    <img alt="wget" src="images/hafta-1/17.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="part-5046aea5e12f39e0"><code>!!</code></h3>
+
+<p>Son komutu tekrar yürütür.</p>
+
+<p align="center">
+    <img alt="!!-elif-hocama-selamlar" src="images/hafta-1/18.png" width="800">
+</p>
+
+<hr>
+
+<h3 id="histroy"><code>histroy</code></h3>
+
+<p>Önceden yürütülen komutları listeli halde gösterir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    histroy
+</code></pre></div>
+<p>Daha düzenli şekilde görebilmek aşağıdaki gibi bir komut yürütebilirsiniz.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">history</span> | less
+</code></pre></div>
+<p align="center">
+    <img alt="history" src="images/hafta-1/19.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="bir-ka-k-sa-yol">Bir Kaç Kısa Yol</h2>
+
+<p><strong><code>ctrl + a</code></strong> ile terminalde yazılı olan ifadenin <strong><code>ilk başına</code></strong> gidilir.</p>
+
+<p><strong><code>ctrl + e</code></strong> ile terminalde yazılı olan ifadenin <strong><code>en sonuna</code></strong> gidilir.</p>
+
+<p><strong><code>ctrl + l</code></strong> ile terminal <strong><code>temizlenir</code></strong>.</p>
+
+<p><strong><code>ctrl + d</code></strong> ile terminalden <strong><code>çıkış</code></strong> sağlanır.</p>
+
+<p><strong><code>ctrl + shift + c</code></strong> ile <strong><code>kopyalama</code></strong> yapılır.</p>
+
+<p><strong><code>ctrl + shift + v</code></strong> ile <strong><code>yapıştırma</code></strong> yapılır.</p>
+
+<p><strong><code>ctrl + c</code></strong> ile çalışan uygulama <strong><code>durdurulabilir</code></strong>.</p>
+
+<p><strong><code>ctrl + z</code></strong> çalışan uygulama <strong><code>arkaya atılır</code></strong>.</p>
+
+<p><strong><code>ctrl + u</code></strong> o anda <strong><code>satıra yazılan herşeyi siler</code></strong>, temizler.</p>
+
+<hr>
+
+<h2 id="terminalde-al-an-metin-edit-rleri">Terminal&#39;de Çalışan Metin Editörleri</h2>
+
+<h4 id="nano"><code>nano</code></h4>
+
+<p align="center">
+    <img alt="nano" src="images/hafta-1/20.png" width="800">
+</p>
+
+<h4 id="vim"><code>vim</code></h4>
+
+<p align="center">
+    <img alt="vim" src="images/hafta-1/21.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="gnu-linuxda-dosya-sistem-hiyerar-isi">GNU/Linux&#39;da Dosya Sistem Hiyerarşisi</h2>
+
+<p>UNIX tabanlı ya da esinlenilmiş işletim sistemlerinin dosya sistem hiyerarşisi Windows işletim sisteminden oldukça farklıdır.</p>
+
+<p align="center">
+    <img alt="windows-my-computer" src="images/hafta-1/23.png" width="800">
+</p>
+
+<p align="center">
+    <img alt="windows-my-computer" src="images/hafta-1/24.png" width="800">
+</p>
+
+<p>GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Vu hiyerarşinin en üstünde <code>&quot;/&quot;</code> yani <code>root(kök)</code> dizini bulunur. Bu, tüm sistemin referans noktasıdır.</p>
+
+<p align="center">
+    <img alt="dosya-sistem-hiyerarşisi" src="images/hafta-1/22.png" width="800">
+</p>
+
+<h4 id="root-k-k-dizini"><code>/ [root(kök) dizini]</code></h4>
+
+<p>Tüm dizinlerin üzerinde bulunan dizindir. Tüm dizinler buradan dallanarak oluşturulur.</p>
+
+<h4 id="bin"><code>/bin</code></h4>
+
+<p>Sisteminin temel komutlarının bulunduğu dizindir.</p>
+
+<p>Kullandığımız çoğu komut bu dizin altında bulunur. <code>(cat, mkdir, cp, ls, mv, rm )</code></p>
+
+<h4 id="etc"><code>/etc</code></h4>
+
+<p>Sistemin bütün yapılandırma dosyaları bu dizin altında bulunur. Yapılandırma dosyası; bir programın işleyişini kontrol etmek için kullanılan yerel bir dosyadır.</p>
+
+<h4 id="home"><code>/home</code></h4>
+
+<p>Kullanıcıların kayıtlı dosyalarını, kişisel ayarlarını vb. içeren ev dizinleridir.
+Windows&#39;daki Documents and Settings&#39;e benzetebiliriz. Her bir yeni kullanıcı için alt dizin olarak altına oluşturulur.</p>
+<div class="highlight"><pre class="highlight shell"><code>- /home
+    |-----&gt; dev
+    |-----&gt; hasantezcan  
+    |-----&gt; boratanrıkulu
+</code></pre></div>
+<h4 id="root"><code>/root</code></h4>
+
+<p>Root kullanıcısının home dizinidir. Diğer home dizinlerinden bi farkı yoktur.</p>
+
+<h4 id="lib"><code>/lib</code></h4>
+
+<p>Kernel modülleri ve paylaşılan kütüphane dosyaları bu klasörde bulunur. Var olan çekirdek modüllerini <code>/lib/modules/[versiyon_numarası]</code> içersinde bulabilirsiniz.</p>
+
+<h4 id="var"><code>/var</code></h4>
+
+<p>Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depolarken, /var dizini içinde de programların oluşturduğu veriler tutulur.</p>
+
+<h4 id="opt"><code>/opt</code></h4>
+
+<p>GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz <q>Bağamlılık</q> kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.</p>
+
+<p align="center">
+    <img alt="opt" src="images/hafta-1/25.png" width="800">
+</p>
+
+<p><strong>Not :</strong> GNU/Linux sistemlerde <strong><code>herzaman bir dizin içersinde bulunursunuz.</code></strong> Yani ağaç yapısının dışına çıkamazsınız.</p>
+
+<hr>
+
+<p>Bir dosyanın yeri tarif ederken kullanıdiğimiz iki türlü yol vardır. Bunlar <strong><code>Tam Yol</code></strong> ve <strong><code>Göreceli Yol</code></strong> dur.</p>
+
+<p><strong>Tam Yol :</strong> Herzaman <code>root</code> dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiç bir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.</p>
+
+<p><strong>Göreceli Yol :</strong> Bu tarifin herzaman geçerliliği yoktur. İçersinde bulununan dizine göre değişiklik gösterir.</p>
+
+<hr>
+
+<h2 id="paket-y-neticisi-nedir">Paket Yöneticisi Nedir ?</h2>
+
+<p>Hadi şimdi gidip Windows bir sistem deneme amaçlı bir uygulama kuralım. Örnek olması açısından firefox kurulumu yapalım.</p>
+
+<p>Kurulum için ilk olarak browser açılmalı, ilgili site bulunmalı, ilgili exe dosyası sisteme indirilip, çalıştırılmalı ve ardından kurulum adımları uygulanmalıdır.</p>
+
+<p><strong>Ne kadar ilkelce değil mi ?</strong></p>
+
+<p>GNU/Linux dağıtımlarında böyle bir şey yok arkadaşlar. Paket yöneticisi diye bir kavram var. Paket yöneticisi ile tek bir komut ile istediğiniz uygulamayı kullandığınız dağıtımın <strong><code>repo</code></strong>&#39;larından direkt olarak çekip kurabilirsiniz.</p>
+
+<p>Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisi her dağıtımda kullanamazsınız.</p>
+
+<p>Örneğin Debian&#39;dan türemiş olan Ubuntu, APT isimli bir paket yöneticisi kullanır.</p>
+
+<p>Yani Debian tabanlı dağıtımlarda APT paket yöneticisi kullanılır.</p>
+
+<p>APT dışında, debian tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.</p>
+
+<ul>
+<li>dnf(yum) <code>fedora</code></li>
+<li>pacman <code>archlinux</code></li>
+<li>portage <code>gentoo</code></li>
+<li>zypper <code>opensuse</code></li>
+</ul>
+
+<p>Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. Bunun için aşağıdaki komutu yürütmemiz yeterlidir.</p>
+<div class="highlight"><pre class="highlight shell"><code>    <span class="nb">sudo </span>apt <span class="nb">install </span>firefox
+</code></pre></div>
+<p align="center">
+    <img alt="apt" src="images/hafta-1/28.png" width="800">
+</p>
+
+<p>Şimdi bu komutu inceleyelim..</p>
+
+<p align="center">
+    <img alt="apt" src="images/hafta-1/29.png" width="800">
+</p>
+
+<p>Burada <strong><code>sudo</code></strong> ifadesini kullanma sebebimiz işlemin sistem dosyaları üzerinde gerçekleşiyor olması. Bu yüzden komutun root yetkisi ile çalışması için komutun başına <strong><code>sudo</code></strong> ifadesini ekledik.</p>
+
+<p>Gördüğünüz gibi kullanımı oldukça basit. APT paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.</p>
+
+<p>Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz <strong>:)</strong> .</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">APT</th>
+<th style="text-align: center">Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">apt search <strong><code>packageName</code></strong></td>
+<td style="text-align: center">paket arar</td>
+</tr>
+<tr>
+<td style="text-align: center">apt install <strong><code>packageName</code></strong></td>
+<td style="text-align: center">paket yükler</td>
+</tr>
+<tr>
+<td style="text-align: center">apt remove <strong><code>packageName</code></strong></td>
+<td style="text-align: center">paket siler</td>
+</tr>
+<tr>
+<td style="text-align: center">apt autoremove</td>
+<td style="text-align: center">herhangi bir pakete bağlı olmayan gereksiz paketleri siler</td>
+</tr>
+<tr>
+<td style="text-align: center">apt update</td>
+<td style="text-align: center">repo paket bilgilerini günceller</td>
+</tr>
+<tr>
+<td style="text-align: center">apt update &amp;&amp; apt upgrade</td>
+<td style="text-align: center">yüklü paketleri günceller</td>
+</tr>
+<tr>
+<td style="text-align: center">apt update &amp;&amp; apt dist-upgrade</td>
+<td style="text-align: center">sistemin tam güncellemesini yapar</td>
+</tr>
+<tr>
+<td style="text-align: center">apt install &ndash;download-only <strong><code>packageName</code></strong></td>
+<td style="text-align: center">paketi yalnızca indirir (paket yöneticisi cache konumuna)</td>
+</tr>
+<tr>
+<td style="text-align: center">ls /var/cache/apt/archives/</td>
+<td style="text-align: center">paket yöneticisi cache&#39;ni görüntüler</td>
+</tr>
+<tr>
+<td style="text-align: center">apt install <strong><code>/path/to/packageName.deb</code></strong></td>
+<td style="text-align: center">paketi dosya ile yükler</td>
+</tr>
+<tr>
+<td style="text-align: center">tail -f /var/log/dpkg.log</td>
+<td style="text-align: center">paket yöneticisi log&#39;larını gösterir</td>
+</tr>
+<tr>
+<td style="text-align: center">apt show <strong><code>packageName</code></strong></td>
+<td style="text-align: center">repo&#39;daki bir paketin bilgisini gösterir</td>
+</tr>
+<tr>
+<td style="text-align: center">dpkg -s <strong><code>packageName</code></strong></td>
+<td style="text-align: center">yüklü olan bir paketin bilgisini gösterir</td>
+</tr>
+<tr>
+<td style="text-align: center">dpkg -l \</td>
+<td style="text-align: center">less <br><strong>-ya da-</strong><br>apt list &ndash;installed \</td>
+</tr>
+<tr>
+<td style="text-align: center">apt list \</td>
+<td style="text-align: center">less</td>
+</tr>
+<tr>
+<td style="text-align: center">dpkg -L <strong><code>packageName</code></strong></td>
+<td style="text-align: center">yüklü olan paketin dosyalarının konumlarını gösterir</td>
+</tr>
+<tr>
+<td style="text-align: center">apt-cache policy</td>
+<td style="text-align: center">paket kaynak adreslerini listeler</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="repo-kavram-nedir">REPO Kavramı Nedir ?</h2>
+
+<p>Az önce paket yöneticisi ile birlikte uygulamaların nasıl kurulacağını öğrendik.</p>
+
+<p><strong>Peki bu paketler nereden geliyor..</strong> İşte burada REPO kavramı ortaya çıkıyor. Her dağıtımın kendisine ait bir REPO&#39;su vardır. PAket yöneticisi ile indirilip kurulan uygulamalar bu REPO&#39;lardan gelir.</p>
+
+<p>REPO adreslerini aşağıdaki gibi görüntüleyebiliriz. Ama lütfen bu dosyaları bir bilginiz yok ise değiştirmeyin.</p>
+<div class="highlight"><pre class="highlight shell"><code>    vim /etc/apt/source.list
+</code></pre></div>
+<p>PauSiber Dev&#39;de REPO olarak <a href="http://archive.ubuntu.com/ubuntu/">http://archive.ubuntu.com/ubuntu/</a> kullanılmaktadır.</p>
+
+<p align="center">
+    <img alt="repo" src="images/hafta-1/30.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="repoda-olmayan-uygulamalar">REPO&#39;da Olmayan Uygulamalar</h2>
+
+<p>REPO&#39;larda yalnızca açık kaynak uygulamalar bulunabilir. Örneğin Google Chrome kapalı kaynak bir uygulamadır. Bu durumda ne yapacağız ?</p>
+
+<p><strong>Not :</strong> Chromium açık kaynak olduğu için REPO&#39;larda mevcuttur.</p>
+
+<p>Eğer REPO&#39;larda bulunmayan bir uygulamaya kurulacak ise ilk yapılması gerek uygulamanın dağıtıcının sitesinden hangi şekilde edinilmesi gerektiğine bakmaktır. Çünkü bir çok farklı şekilde dağıtılıyor olabilir.</p>
+
+<p>Örneğin Google Chrome için bir <strong><code>deb</code></strong> paketi indirmek gerekirken, Spotify kurulumu için REPO listemize ek bir kaynak adresi eklememiz gerekir.</p>
+
+<p>Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da youtube&#39;a bakmak yerine, dağıtıcının sitesinden bakın. Orada kesinlikle bir bilgi olacaktır.</p>
+
+<p align="center">
+    <img alt="chrome" src="images/hafta-1/31.png" width="800">
+</p>
+
+<p align="center">
+    <img alt="spotify" src="images/hafta-1/32.png" width="800">
+</p>
+
+<hr>
+
+<h2 id="bu-hafta-neler-yapt-k">Bu hafta neler yaptık ?</h2>
+
+<ul>
+<li><strong>Terminalin ne olduğu</strong> ve neden kullanmamız gerektiğini öğrendik</li>
+<li><strong>Temel komutlar</strong> ile terminal kullanıma ilk adımı attık.</li>
+<li>Terminal üzerinde kullanabileceğimiz <strong>yararlı kısayollar</strong>ı öğrendik.</li>
+<li>Terminal üzerinde çalışan <strong>metin editörleri</strong>ni denedik.</li>
+<li>GNU/Linux’da <strong>dosya sistem hiyerarşisi</strong>nin nasıl olduğunu temel düzeyde öğrendik.</li>
+<li><strong>Paket Yöneticisi</strong> ve <strong>REPO</strong> kavramlarını öğrendik.</li>
+</ul>
+
+  </article>
+
+      <footer class="footer">
+        <a class="footer-images" href="https://www.instagram.com/hasantezcan_/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://twitter.com/hasantezcann" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://hasantezcan.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>hasantezcan</p>
+        </a>
+        <a class="footer-images" href="https://www.instagram.com/boratanrikulu/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://twitter.com/boratanrikulu_" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://boratanrikulu.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>boratanrikulu</p>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

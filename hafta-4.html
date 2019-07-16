@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Hafta 4 - Servis kavramının açıklanması, Systemctl Kullanımı, LAMP ve Wordpress Kurulumu</title>
+    <link href="stylesheets/site.css" rel="stylesheet" />
+    <script src="javascripts/site.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <nav class="navbar">
+        <div class="homepage">
+          <a href="/">Herkes için GNU/Linux</a>
+        </div>
+        <div class="authors">
+          <div class="author1">
+            <a href="https://github.com/boratanrikulu/" target="_blank">Bora Tanrıkulu</a>
+          </div>
+          <div class="author">
+          </div>
+          <div class="author">
+            <a href="https://github.com/hasantezcan/" target="_blank">Hasan Tezcan</a>
+          </div>
+        </div>
+      </nav>
+      <header>
+          <a href="/">
+            <div class="site-logo">
+              <a href="https://pausiber.xyz/">
+              <img src="logo.png" alt="pausiber-logo" class="pausiber-logo">
+              </a>
+            </div>
+          </a>
+          <div class="site-title">
+            <h1>
+              Herkes için GNU/Linux - PaüSiber
+            </h1>
+            <p class="site-desc">
+              Topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
+            </p>
+          </div>
+      </header>
+        <article class="article">
+    <hr>
+    <h2 id="hafta-4-servis-kavram-n-n-a-klanmas-systemctl-kullan-m-lamp-ve-wordpress-kurulumu">Hafta 4 - Servis kavramının açıklanması, Systemctl Kullanımı, LAMP ve Wordpress Kurulumu</h2>
+
+<p><strong>Amaç :</strong> Servis kavramının açıklanması, systemctl Kullanımı, LAMP kurulumunun yapılması</p>
+
+<h2 id="ssh-key-set">SSH-Key set</h2>
+
+<p>mkdir .ssh<br>
+chmod 700 .ssh<br>
+touch .ssh/authorized_keys  </p>
+
+<hr>
+
+<h2 id="servis-nedir">Servis Nedir ?</h2>
+
+<p>&hellip;<br>
+&hellip;</p>
+
+<hr>
+
+<h2 id="systemctl-nedir-nas-l-kullan-l-r">Systemctl Nedir ? Nasıl Kullanılır ?</h2>
+
+<p>Systemctl controls the systemd system and service manager.</p>
+
+<p>List failed units:<br>
+<code>systemctl --failed</code></p>
+
+<p>Start/Stop/Restart/Reload a service:<br>
+<code>systemctl start/stop/restart/reload unit</code></p>
+
+<p>Show the status of a unit:<br>
+<code>systemctl status unit</code></p>
+
+<p>Enable/Disable a unit to be started on bootup:<br>
+<code>systemctl enable/disable unit</code></p>
+
+<p>Mask/Unmask a unit, prevent it to be started on bootup:<br>
+<code>systemctl mask/unmask unit</code></p>
+
+<p>Reload systemd, scanning for new or changed units:<br>
+<code>systemctl daemon-reload</code></p>
+
+<hr>
+
+<p>ROOT için de zsh ayarlar</p>
+
+<h2 id="lamp-kurulumu">LAMP Kurulumu</h2>
+
+<p>Dev&#39;den Debian server&#39;ımıza bağlanmak için iki sanal makinemızın network ayarını da NAT Network olarak seçmeliyiz.</p>
+
+<p>NAT Network oluşturmak için Preferences &gt; Network &gt; Nat</p>
+<div class="highlight"><pre class="highlight plaintext"><code>    [~#] apt update
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>    [~#] apt install apache2
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>    [~#] ls -la /var/www/html
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>    [~#] cd /var/www/html &amp;&amp; git clone https://github.com/PauSiber/dev.git
+</code></pre></div>
+<p><a href="https://10.0.2.5/dev">https://10.0.2.5/dev</a>
+<code>
+    [~#] apt install mariadb-server mariadb-client
+</code>
+<code>
+    [~#] mysql_secure_installation
+</code>
+root parolası set edilir, buradaki root denilen sistem yöneticisi değil mariadb veri tabanın yöneticisi anlamındadır, parolası farklı olmalıdır. Fakat biz deneme amacıyla yapacağımız için 123123 diyip geçiyoruz.
+<code>
+    [~#] apt install php php-mysql php-pear
+</code>
+<code>
+    &lt;?php
+        phpinfo();
+    ?&gt;
+</code>
+<a href="https://10.0.2.5/info.php">https://10.0.2.5/info.php</a>
+<code>
+    [~#] apt install phpmyadmin
+</code></p>
+
+<p>thats all.</p>
+
+<hr>
+
+<h2 id="wordpress-kurulumu">Wordpress Kurulumu</h2>
+
+<p>????????
+<code>
+    [~#] nano /root/.my.cnf
+</code>
+<code>
+    [~#] mysql
+</code>
+<code>
+    CREATE DATABASE wordpress;
+    CREATE USER wordpress@localhost IDENTIFIED BY &#39;123123&#39;;
+    GRANT ALL PRIVILEGES ON wordpress.* TO wordpress@localhost IDENTIFIED BY &#39;123123&#39;;
+    FLUSH PRIVILEGES;
+</code>
+<a href="https://10.0.2.5/phpmyadmin">https://10.0.2.5/phpmyadmin</a>
+<code>
+    [~#] wget http://wordpress.org/latest.tar.gz
+</code>
+<code>
+    [~#] tar xzvf latest.tar.gz
+</code>
+<code>
+    [~#] cp -a wordpress/* /var/www/html/ 
+</code>
+<code>
+    [~#] chown -R www-data:www-data /var/www/html/*
+</code>
+<code>
+    [~#] cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+</code>
+<code>
+    [~#] nano /var/www/html/wp-config.php
+</code>
+<code>
+    [~#] mv /var/www/html/index.html /var/www/html/index.html.backup
+</code>
+<a href="https://10.0.2.5/">https://10.0.2.5/</a></p>
+
+  </article>
+
+      <footer class="footer">
+        <a class="footer-images" href="https://www.instagram.com/hasantezcan_/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://twitter.com/hasantezcann" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://hasantezcan.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>hasantezcan</p>
+        </a>
+        <a class="footer-images" href="https://www.instagram.com/boratanrikulu/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://twitter.com/boratanrikulu_" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://boratanrikulu.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>boratanrikulu</p>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+.highlight {
+  font-weight: bold;
+  color: #586e75;
+  background: #e0e0e0;
+  border-radius: 7px;
+  padding: 5px;
+  overflow: auto;
+  text-align: left; }
+  .highlight span {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    font-size: 1em;
+    font-weight: normal; }
+  .highlight table td {
+    padding: 5px; }
+  .highlight table pre {
+    margin: 0; }
+  .highlight .w {
+    color: #586e75; }
+  .highlight .err {
+    color: #151515;
+    background-color: #ac4142; }
+  .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+    color: #505050; }
+  .highlight .cp, .highlight .nt {
+    color: red; }
+  .highlight .o, .highlight .ow, .highlight .p, .highlight .pi {
+    color: #d0d0d0; }
+  .highlight .gi {
+    color: #90a959; }
+  .highlight .gd {
+    color: #ac4142; }
+  .highlight .gh {
+    color: #6a9fb5;
+    background-color: #151515;
+    font-weight: bold; }
+  .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+    color: #aa759f; }
+  .highlight .kc, .highlight .kt, .highlight .kd {
+    color: #d28445; }
+  .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+    color: #90a959; }
+  .highlight .sr {
+    color: #75b5aa; }
+  .highlight .si, .highlight .se {
+    color: #8f5536; }
+  .highlight .nn, .highlight .nc, .highlight .no {
+    color: #f4bf75; }
+  .highlight .na {
+    color: #6a9fb5; }
+  .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx, .highlight .ss {
+    color: #90a959; }
+
+.shell,
+.plaintext {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 1.2em; }
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif; }
+
+body {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75);
+          box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75);
+  background-color: #F9F9F9; }
+
+a {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none; }
+  a:focus, a:hover {
+    color: #B7950B; }
+
+.main-container {
+  height: 100%;
+  width: 55vw;
+  background-color: #F8F9F9;
+  -webkit-box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75);
+          box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75); }
+
+.container {
+  display: flex;
+  justify-content: center; }
+
+.article {
+  text-align: left;
+  overflow: hidden;
+  padding: 0px 3em 0px 3em;
+  margin: 0px 1em 0px 1em; }
+  .article hr {
+    margin: 1em 0px 1em 0px;
+    padding: 1.5px;
+    background-color: black; }
+  .article img {
+    max-width: 40vw;
+    margin: 3em 0px 3em 0px;
+    -webkit-box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75);
+            box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.75); }
+  .article p {
+    margin: 1em 0px 1em 0px; }
+  .article h1, .article h2, .article h3 {
+    margin: 1em 0px 1em 0px; }
+  .article table {
+    width: 100%; }
+  .article td {
+    border: .5px solid black;
+    border-color: lightgrey; }
+
+.pausiber-logo {
+  width: 40%; }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #BDC3C7;
+  position: fixed;
+  z-index: 100;
+  width: 55vw;
+  height: 5em;
+  align-items: center;
+  background-color: #EAEDED; }
+
+.homepage {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  position: relative;
+  left: 1.3em; }
+
+.authors {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  margin-right: 1em; }
+
+.author1 {
+  position: relative;
+  right: 2em; }
+
+footer {
+  width: 100%;
+  height: 7em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-top: 2em;
+  border-top: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  footer img {
+    width: 1.5em; }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px; }
+
+.footer-images {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.site-logo {
+  padding-bottom: 2em; }
+
+.site-desc {
+  padding-top: 1em; }
+
+.articles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.card {
+  margin-top: 7%;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(128, 128, 128, 0.75);
+          box-shadow: 0px 0px 10px -5px rgba(128, 128, 128, 0.75);
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+  background-color: white;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear; }
+
+.card:hover, :focus {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  background-image: -webkit-gradient(linear, left top, right top, from(whitesmoke), to(#FEF9E7));
+  background-image: linear-gradient(to right, whitesmoke, #FEF9E7); }
+  .card:hover p, :focus p {
+    color: black;
+    font-weight: 200; }
+
+.activity-logo {
+  width: 34%;
+  height: 40%;
+  margin-bottom: 10px; }
+
+.images {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+@media only screen and (max-width: 1000px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+    font-size: 1em; }
+  .navbar {
+    font-size: 1em;
+    padding-bottom: 8%;
+    width: 100%; } }
+
+@media only screen and (max-width: 730px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+    font-size: .5em; }
+  .navbar {
+    font-size: .1em;
+    padding-bottom: 8%;
+    width: 100%; }
+  footer {
+    width: 100%;
+    font-size: .4em;
+    display: flex;
+    flex-wrap: wrap; } }
+
+@media only screen and (max-width: 430px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+    font-size: .2em; }
+  .navbar {
+    font-size: .3em;
+    padding-bottom: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .navbar .homepage {
+      width: 50px; }
+    .navbar .author1 {
+      position: relative;
+      right: 1em; }
+  footer {
+    font-size: .1em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; } }

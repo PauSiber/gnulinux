@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Hafta 0 - Linux'un genel tanımı ve PauSiber Dev kurulumu</title>
+    <link href="stylesheets/site.css" rel="stylesheet" />
+    <script src="javascripts/site.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <nav class="navbar">
+        <div class="homepage">
+          <a href="/">Herkes için GNU/Linux</a>
+        </div>
+        <div class="authors">
+          <div class="author1">
+            <a href="https://github.com/boratanrikulu/" target="_blank">Bora Tanrıkulu</a>
+          </div>
+          <div class="author">
+          </div>
+          <div class="author">
+            <a href="https://github.com/hasantezcan/" target="_blank">Hasan Tezcan</a>
+          </div>
+        </div>
+      </nav>
+      <header>
+          <a href="/">
+            <div class="site-logo">
+              <a href="https://pausiber.xyz/">
+              <img src="logo.png" alt="pausiber-logo" class="pausiber-logo">
+              </a>
+            </div>
+          </a>
+          <div class="site-title">
+            <h1>
+              Herkes için GNU/Linux - PaüSiber
+            </h1>
+            <p class="site-desc">
+              Topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
+            </p>
+          </div>
+      </header>
+        <article class="article">
+    <hr>
+    <h2 id="hafta-0-linuxun-genel-tan-m-ve-pausiber-dev-kurulumu">Hafta 0 - Linux&#39;un genel tanımı ve PauSiber Dev kurulumu</h2>
+
+<p><strong>Amaç :</strong> Linux&#39;un genel bir tanımı. PauSiber Dev kurulumunun gerçekleştirilmesi.</p>
+
+<h2 id="linux-nedir">Linux Nedir ?</h2>
+
+<p>Linux C dili ile yazılmış bir çekirdektir.  </p>
+
+<p>1991&#39;de UNIX&#39;e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX&#39;den esinlenerek yazılmıştır. Linux&#39;ta UNIX&#39;den direkt olarak alınmış hiç bir kod bulunmamaktadır.  </p>
+
+<p>POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir.</p>
+
+<p>Daha detaylı bilgi için <strong>Just for Fun : The Story of an Accidental Revolutionary by Linus Benedict Torvalds</strong></p>
+
+<p><strong>Peki çekirdek nedir ?</strong></p>
+
+<p>Çekirdek, yani kernel, işletim sisteminin kalbidir. Uygulamalar ve donanım arasında çevirici görev görür. Fiziksel donanımla yazılım arasındaki haberleşmeyi sağlar.  </p>
+
+<p align="center">
+    <img alt="kernel-nedir" src="images/hafta-0/0.png" width="500">
+</p>
+
+<p>Yani Linux tek başına bir işletim sistemi değildir.  </p>
+
+<p><strong>Peki işletim sistemi (operating system) nedir ?</strong>  </p>
+
+<p>İşletim sistemi, bilgisayarı kullanabilmemiz için gerekli olan yazılımlar bütünüdür. Örneğin önünüzde bulunan Windows bir işletim sistemidir. İşletim sistemi User Interface (shell) ve Kernel&#39;dan oluşur.</p>
+
+<p align="center">
+    <img alt="os-nedir" src="images/hafta-0/1.png" width="650">
+</p>
+
+<p>İşletim sistemleri ve kernel bir bütün halinde çalışır. <strong>Yani Linux için tek başına bir işletim sistemi diyemeyiz.</strong></p>
+
+<p>GNU isimli de bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi 1983&#39;de Richard Stallman tarafından duyurulmuştur.</p>
+
+<p>Belli bir süre HURD çekirdeğini kullanan GNU; 1991&#39;de Linus Torvals tarafından Linux&#39;un duyurulması ve <strong>Linux çekirdeğinin popülerlik kazanmasıyla, GNU işletim sisteminde, çekirdek olarak Linux&#39;a geçiş yapılmıştır.</strong> GNU araçları Linux&#39;a uyarlanmış ve böylelikle HURD&#39;ın gelişimi iyiden iyiye yavaşlamıştır.</p>
+
+<p>Günümüzde HURD&#39;ın 1. versiyonu halen çıkarılamamıştır.</p>
+
+<p>Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. <strong>GNU/Linux</strong> olarak söylenmesi daha doğrudur.<br>
+(Richard <strong>&lt;3</strong>)</p>
+
+<p align="center">
+    <img alt="hurd" src="images/hafta-0/2.png">
+</p>
+
+<hr>
+
+<h2 id="gnu-linuxa-neden-htiyac-m-z-var">GNU/Linux&#39;a Neden İhtiyacımız Var ?</h2>
+
+<p>Açıkçası bu bir tercih meselesi. İşletim sistemi bir araçtır. <strong>Sizin için en doğru araç, amacınıza en uygun olan araçtır.</strong></p>
+
+<p>GNU/Linux&#39;un size sağlayacağı bir çok avantaj var.</p>
+
+<ul>
+<li>Yüksek düzeyde <strong>özelleştirilebilmesi.</strong><br></li>
+<li><strong>Ücretsiz</strong> olması (her dağıtım ücretsiz değildir)<br></li>
+<li><strong>Hızlı ve Kararlıdır</strong> (Donanım desteği olduğu taktirde)</li>
+<li>GNU/Linux için <strong>zararlı yazılım sayısının az olması</strong></li>
+<li><strong>Özgür Yazılım</strong> olması</li>
+<li>Açık kaynak olduğu için, <strong>sorun tespitinin ve çözümünün oldukça hızlı olması</strong> (community)<br></li>
+<li>Yardım bulabilmeniz için bir çok topluluğun(community) olması; <strong>bir şirkete bağlı değilsiniz, yalnız değilsiniz!</strong></li>
+</ul>
+
+<hr>
+
+<h2 id="zg-r-yaz-l-m-nedir">Özgür Yazılım Nedir ?</h2>
+
+<p><strong>Özgür Yazılım bir özgürlük meselesidir, fiyat değil.</strong></p>
+
+<p>Bu yanlış anlaşılmanın sebebi; <em>free</em> sözcüğünün hem ücretsiz hem de özgür manasına gelmesinden ortaya çıkıyor.</p>
+
+<p><strong><em>To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”.</em></strong></p>
+
+<p>Özgür yazılım insanları öğrenmeye, öğrendiklerini öğretmeye, kısıtlı ömrümüzde kazandığımız bilgileri gelecek nesillere bilgi birikimi olarak bırakmaya, bir defa yapılmış bir şeyin yapımı için gereken tekniği tekrar tekrar bulunmasına gerek bırakmamaya teşvik eder.</p>
+
+<p>Kısacası Özgür Yazılım <strong>tüm insanlığa hizmet eder</strong>, yanlızca <strong>bir grup insanın cebine değil.</strong></p>
+
+<h4 id="bir-yaz-l-m-nas-l-zg-r-yaz-l-m-olur">Bir Yazılım Nasıl Özgür Yazılım Olur?</h4>
+
+<p>Bir yazılımın özgür olması için yerine getirmesi gereken 4 kriter vardır.</p>
+
+<ol>
+<li><p><strong>Çalıştırılabilirlik:</strong> Bir yazılım istendiği şekilde ve doğrultuda çalıştırılabilir.</p></li>
+<li><p><strong>Değiştirilebilirlik:</strong> Herhangi bir yazlım istendiği amaç doğrultusunda değiştirilebilir. İstediğimiz şekilde ekleme çıkarma yapılabilinir.<em>(Yazılımın kaynak koduna erişim (open source) bunun için bir önşarttır.)</em></p></li>
+<li><p><strong>Dağıtılabilirlik:</strong>  Yazılım herhangi biri tarafından tekrardan dağıtılabilir, toplulukla bunu paylaşabilir.</p></li>
+<li><p><strong>Değiştirip Dağıtılabilirlik:</strong> Bir yazılımı istediğimiz gibi çalıştırıp, değiştirdiğimiz gibi o yazılımı istediğimiz doğrultuda değiştirip ve geliştirip bu haliyle yeniden dağıtabiliriz.</p></li>
+</ol>
+
+<p>Tüm bu şartları yerine getirebilen her yazılım <strong>özgürdür.</strong></p>
+
+<hr>
+
+<h2 id="distro-da-t-m-nedir">Distro (Dağıtım) nedir ?</h2>
+
+<p>GNU/Linux isimli indirip kurabileceğiniz bir işletim sistemi aslında yoktur. Bir çok distro vardır.</p>
+
+<p>Distro, yani dağıtım, özgür yazılım felsefesinin çok alternatifli dünyasının bir sonucu olarak ortaya çıkmış, GNU/Linux&#39;a özgü bir terimdir.  </p>
+
+<p><a href="http://futurist.se/gldt/"><strong>futurist.se/gldt/</strong></a></p>
+
+<p align="center">
+    <img alt="distros" src="http://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.png" width="400">
+</p>
+
+<p><strong>Peki neden tek bir işletim sistemi değil de birden fazla işletim sistemine -distro- ihtiyaç duyulmuştur ?</strong></p>
+
+<p>Çünkü tüm insanlar farklıdır. Herkesin kendine göre ilgi alanları vardır. Bu sebepten dolayı aynı ilgi alanına sahip kişiler birleşerek bir topluluk yani <strong>community</strong>&lsquo;leri oluşturur. Bu community&#39;ler ilgi duydukları alanlara uygun özelleştirmeleri yaparak bunu bir dağıtım haline getirirler ve bunu tüm dünya ile paylaşırlar.</p>
+
+<p>Ubuntu Studio bunun için güzel bir örnektir.</p>
+
+<p align="center">
+    <img alt="distros" src="images/hafta-0/12.png" width="600">
+</p>
+
+<hr>
+
+<h2 id="temel-da-t-mlar-nelerdir">Temel Dağıtımlar Nelerdir ?</h2>
+
+<ul>
+<li><p><strong>Debian</strong></p>
+
+<ul>
+<li>Ubuntu</li>
+<li>Pardus</li>
+</ul></li>
+<li><p><strong>Red Hat</strong></p>
+
+<ul>
+<li>CentOS</li>
+<li>Fedora</li>
+</ul></li>
+<li><p><strong>Slackware</strong></p></li>
+<li><p>Arch <strong>&lt;3</strong></p>
+
+<ul>
+<li>Manjaro</li>
+</ul></li>
+<li><p>OpenSuse</p></li>
+</ul>
+
+<p><a href="https://distrowatch.com/"><strong>distrowatch.com/</strong></a></p>
+
+<hr>
+
+<h2 id="pausiber-dev-nedir-neden-htiyac-m-z-var">PauSiber Dev Nedir ? Neden İhtiyacımız Var ?</h2>
+
+<p><strong>PaüSiber Dev, Ubuntu üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış özelleştirilmiş bir dağıtımdır.</strong></p>
+
+<p>Dağıtımın hazırlanması için duyduğumuz isteğin ana kaynağı, topluluğumuz tarafından düzenlenen eğitimler sırasında, katılımcıların sistemlerini eğitime uygun hale hazırlayarak gelmemesi ya da anlık olarak sorunlar çıkmasından kaynaklanan <strong>zaman israfını önlemek</strong> isteyişimizdir.</p>
+
+<p>Bu dağıtım ile daha önceden düşünülerek yapılandırılmış sistem üzerinde, direkt olarak geliştirme aşamasına geçilmesi planlanmaktadır. Ayrıca genel olarak sistemin kullanımı kolaylaştıracak bazı yapılar da sisteme entegre edilmiştir.</p>
+
+<p><strong>Aslında gerçekten bir dağıtım değildir, yalnızca OVA sürümü vardır.</strong></p>
+
+<p>Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux&#39;un farklı donanımlarda ortaya çıkarabileceği sürücü sorunlarıdır. Eğitimler sırasında bu gibi sorunların ortaya çıkmasını istemiyoruz. OVA olarak sunduğumuz için, katılımcı ana sisteminin yapısını değiştirmeden, direkt olarak VirtualBox üzerinden <q>PauSiber Dev.ova</q> kurulumunu 2 dakika içersinde yapabilecektir. Ardından geliştirmeye başlanabilir!</p>
+
+<p><strong>PauSiber Dev</strong> fikri <strong>HacknBreak18</strong>&#39;de oraya çıkmıştır.</p>
+
+<p align="center">
+    <img alt="hacknbreak18" src="images/hafta-0/3.png" width="500">
+</p>
+
+<hr>
+
+<h2 id="virtualbox-kurulumu">VirtualBox Kurulumu</h2>
+
+<p><strong>1 -</strong> VirtualBox&#39;ın sitesinden bilgisayarınıza uygun olan setup&#39;ı indirin.
+<a href="https://www.virtualbox.org/wiki/Downloads">www.virtualbox.org/wiki/Downloads/</a></p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/4.png">
+</p>
+
+<p><strong>2 -</strong> İndirilen setup&#39;ı açın.</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/5.png">
+</p>
+
+<p><strong>3 -</strong> Ardından next next next diyerek kurulumu tamamlayın :) ..</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/6.png">
+</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/7.png">
+</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/8.png">
+</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/9.png">
+</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/10.png">
+</p>
+
+<p><strong>4 -</strong> Ve yükleme işlemi tamamlandı.</p>
+
+<p align="center">
+    <img alt="virtualbox" src="images/hafta-0/11.png">
+</p>
+
+<hr>
+
+<h2 id="pausiber-dev-kurulumu">PauSiber Dev Kurulumu</h2>
+
+<p><strong>1 -</strong> Dev&#39;in sitesinden OVA&#39;yı indirin.
+<a href="https://dev.pausiber.xyz/">dev.pausiber.xyz/</a></p>
+
+<p><strong>2 -</strong> Ardından OVA&#39;yı VirtualBox ile çalıştırın.</p>
+
+<p align="center">
+    <img alt="dev" src="images/hafta-0/13.png">
+</p>
+
+<p><strong>3 -</strong> OVA&#39;yı çalıştırdığınızda karşınız aşağıdaki gibi bir menu gelecek. MAC adreslerinin yeniden oluşturulması için gerekli tiki işaretledikten sonra <strong>import</strong> seçeneğine basın.</p>
+
+<p align="center">
+    <img alt="dev" src="images/hafta-0/14.png">
+</p>
+
+<p><strong>4 -</strong> Import işlemi bittikten sonra sanal makineyi başlatabilirsiniz.</p>
+
+<p align="center">
+    <img alt="dev" src="images/hafta-0/15.png">
+</p>
+
+<hr>
+
+<h2 id="bu-hafta-neler-yapt-k">Bu hafta neler yaptık ?</h2>
+
+<ul>
+<li>Linux&#39;un bir işletim sistemi değil, çekirdek olduğunu öğrendik.</li>
+<li>Çekirdek ve işletim sisteminin ne olduğunu kabaca öğrendik.</li>
+<li>GNU&#39;nun ne olduğunu, önceden HURD isimli bir çekirdeği kullandığını öğrendik.</li>
+<li>Yalnızca Linux denmesinin neden yanlış olduğunu, GNU/Linux olarak isimlendirilmesi gerektiğini öğrendik.</li>
+<li>GNU/Linux&#39;a neden ihtiyacımız olduğunu tartıştık.</li>
+<li>Özgür yazılımın ne olduğu öğrendik.</li>
+<li>Bir yazılımın özgür olması için gerekli koşulların neler olduğunu öğrendik.</li>
+<li>Dağıtım yani distro teriminin ne olduğu ve neden bir çok dağıtımın olduğunu öğrendik.</li>
+<li>Temel dağıtımların neler olduğunu öğrendik.</li>
+<li>PauSiber Dev&#39;in ne olduğu ve neden bunu hazırlama ihtiyacı duyduğumuzu öğrendik.</li>
+</ul>
+
+<p><strong>Haftaya Görüşmek Üzere!</strong></p>
+
+  </article>
+
+      <footer class="footer">
+        <a class="footer-images" href="https://www.instagram.com/hasantezcan_/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://twitter.com/hasantezcann" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://hasantezcan.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>hasantezcan</p>
+        </a>
+        <a class="footer-images" href="https://www.instagram.com/boratanrikulu/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://twitter.com/boratanrikulu_" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://boratanrikulu.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>boratanrikulu</p>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
