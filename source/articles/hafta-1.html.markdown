@@ -1,6 +1,7 @@
 ---
 title: Hafta 1 - Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı
 date: 2012-01-02
+subtitle: Terminal kullanımını kavratmak, dosya sistem hiyerarşisini kavratmak, paket yöneticisi kavramından bahsetmek
 ---
 
 ## Hafta 1 - Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı

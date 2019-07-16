@@ -1,6 +1,7 @@
 ---
 title: Hafta 4 - Servis kavramının açıklanması, Systemctl Kullanımı, LAMP ve Wordpress Kurulumu
 date: 2012-01-05
+subtitle: Servis kavramının açıklanması, systemctl Kullanımı, LAMP kurulumunun yapılması
 ---
 
 ## Hafta 4 - Servis kavramının açıklanması, Systemctl Kullanımı, LAMP ve Wordpress Kurulumu

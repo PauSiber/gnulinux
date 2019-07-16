@@ -1,6 +1,7 @@
 ---
 title: Hafta 0 - Linux'un genel tanımı ve PauSiber Dev kurulumu
 date: 2012-01-01
+subtitle: Linux'un genel bir tanımı. PauSiber Dev kurulumunun gerçekleştirilmesi.
 ---
 
 ## Hafta 0 - Linux'un genel tanımı ve PauSiber Dev kurulumu

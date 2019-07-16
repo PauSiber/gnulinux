@@ -1,6 +1,7 @@
 ---
 title: Hafta 2 - Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri
 date: 2012-01-03
+subtitle: Kullanıcı-grup yönetimi ve dosya-dizin izinleri
 ---
 
 ## Hafta 2 - Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri
@@ -307,7 +308,7 @@ iznine sahip olduğunu görüyoruz. Ayrıca bu dosyaların fsutil kullanıcısı
 
 #### Hastane Dosya Sahipliklerinin Değiştirilmesi
 
-Şimdi teorik bilgimizi edikten sonra hastane örneğimize geri dönebiliriz. 
+Şimdi teorik bilgimizi edikten sonra hastane örneğimize geri dönebiliriz.
 
 Dosyaların sahipliklerini user ve group bazında değiştireceğiz. Bunun için **`chown`** komutu kullanabiliriz. Yapısı oldukça basittir.
 

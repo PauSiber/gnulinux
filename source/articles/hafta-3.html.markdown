@@ -1,6 +1,7 @@
 ---
 title: Hafta 3 - Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması
 date: 2012-01-04
+subtitle: Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması
 ---
 
 ## Hafta 3 - Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması
