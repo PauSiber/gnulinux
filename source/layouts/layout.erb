@@ -11,37 +11,74 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="homepage">
-        <%= link_to("Herkes için GNU/Linux", "/") %>
-      </div>
-      <div class="authors">
-        <div class="author">
-          <%= link_to("Bora Tanrıkulu", "https://github.com/boratanrikulu/", target: "_blank") %>
+    <div class="main-container">
+
+      <nav class="navbar">
+        <div class="homepage">
+          <%= link_to("Herkes için GNU/Linux", "/") %>
         </div>
-        <div class="author">
-          &#8226;
-        </div>
-        <div class="author">
-          <%= link_to("Hasan Tezcan", "https://github.com/hasantezcan/", target: "_blank") %>
-        </div>
-      </div>
-    </nav>
-    <header>
-        <a href="/">
-          <div class="site-logo">
-            <img src="logo.png" alt="pausiber-logo" height="200">
+        <div class="authors">
+          <div class="author1">
+            <%= link_to("Bora Tanrıkulu", "https://github.com/boratanrikulu/", target: "_blank") %>
           </div>
-        </a>
-        <div class="site-title">
-          <h1>
-            Herkes için GNU/Linux - PaüSiber
-          </h1>
-          <p class="site-desc">
-            topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
-          </p>
+          <div class="author">
+          </div>
+          <div class="author">
+            <%= link_to("Hasan Tezcan", "https://github.com/hasantezcan/", target: "_blank") %>
+          </div>
         </div>
-    </header>
-    <%= yield %>
+      </nav>
+
+
+
+      <header>
+          <a href="/">
+            <div class="site-logo">
+              <a href="https://pausiber.xyz/">
+              <img src="logo.png" alt="pausiber-logo" class="pausiber-logo">
+              </a>
+            </div>
+          </a>
+          <div class="site-title">
+            <h1>
+              Herkes için GNU/Linux - PaüSiber
+            </h1>
+            <p class="site-desc">
+              Topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux" kursunun dokümanlarını içerir.
+            </p>
+          </div>
+      </header>
+
+
+      <%= yield %>
+
+      <footer class="footer">
+        <a class="footer-images" href="https://www.instagram.com/hasantezcan_/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://twitter.com/hasantezcann" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>hasantezcan_</p>
+        </a>
+        <a href="https://hasantezcan.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>hasantezcan</p>
+        </a>
+        <a class="footer-images" href="https://www.instagram.com/boratanrikulu/?hl=tr">
+          <img src="https://img.icons8.com/ios/50/000000/instagram-new.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://twitter.com/boratanrikulu_" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/twitter.png">
+          <p>boratanrikulu</p>
+        </a>
+        <a href="https://boratanrikulu.dev/" class="footer-images">
+          <img src="https://img.icons8.com/ios/50/000000/domain.png">
+          <p>boratanrikulu</p>
+        </a>
+      </footer>
+
+    </div>
   </body>
 </html>
