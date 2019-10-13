@@ -524,7 +524,7 @@ APT dışında, debian tabanlı olmayadan dağıtımlarda kullanılan, bir çok 
 Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. Bunun için aşağıdaki komutu yürütmemiz yeterlidir.
 
 ```bash
-	sudo apt install firefox
+	sudo pacman -S firefox
 ```
 
 <p align="center">
@@ -539,29 +539,31 @@ Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. B
 
 Burada **`sudo`** ifadesini kullanma sebebimiz işlemin sistem dosyaları üzerinde gerçekleşiyor olması. Bu yüzden komutun root yetkisi ile çalışması için komutun başına **`sudo`** ifadesini ekledik.
 
-Gördüğünüz gibi kullanımı oldukça basit. APT paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
+Gördüğünüz gibi kullanımı oldukça basit. PACMAN paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
 
 Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz **:)** .
 
 | APT | Açıklama |
 |:--------:|:--------:|
-| apt search **`packageName`** | paket arar |
-| apt install **`packageName`** | paket yükler |
-| apt remove **`packageName`** | paket siler |
-| apt autoremove | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
-| apt update | repo paket bilgilerini günceller |
-| apt update && apt upgrade | yüklü paketleri günceller |
-| apt update && apt dist-upgrade | sistemin tam güncellemesini yapar |
-| apt install --download-only **`packageName`** | paketi yalnızca indirir (paket yöneticisi cache konumuna) |
-| ls /var/cache/apt/archives/ | paket yöneticisi cache'ni görüntüler |
-| apt install **`/path/to/packageName.deb`** | paketi dosya ile yükler |
-| tail -f /var/log/dpkg.log | paket yöneticisi log'larını gösterir |
-| apt show **`packageName`** | repo'daki bir paketin bilgisini gösterir |
-| dpkg -s **`packageName`** | yüklü olan bir paketin bilgisini gösterir |
-| dpkg -l \| less <br>**-ya da-**<br>apt list --installed \| less | yük olan tüm paketleri listeler |
-| apt list \| less | repo'da bulunan tüm paketleri listeler |
-| dpkg -L **`packageName`** | yüklü olan paketin dosyalarının konumlarını gösterir |
-| apt-cache policy | paket kaynak adreslerini listeler |
+| pacman -Ss **`packageName`** | paket arar |
+| pacman -S **`packageName`** | paket yükler |
+| pacman -Rs **`packageName`** | paket siler |
+| pacman -Qdtq | pacman -Rs - | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
+| pacman -Sy | repo paket bilgilerini günceller |
+| pacman -Syu | yüklü paketleri günceller |
+| pacman -Syu | sistemin tam güncellemesini yapar |
+| pacman -Sw **`packageName`** | paketi yalnızca indirir (paket yöneticisi cache konumuna) |
+| ls /var/cache/pacman/pkg/ | paket yöneticisi cache'ni görüntüler |
+| pacman -U **`/path/to/packageName.pkg.tar.xz`** | paketi dosya ile yükler |
+| tail -f /var/log/pacman.log | paket yöneticisi log'larını gösterir |
+| pacman -Si **`packageName`** | repo'daki bir paketin bilgisini gösterir |
+| pacman -Qi **`packageName`** | yüklü olan bir paketin bilgisini gösterir |
+| pacman -Q \| less | yük olan tüm paketleri listeler |
+| pacman -Ss \| less | repo'da bulunan tüm paketleri listeler |
+| pacman -Ql **`packageName`** | yüklü olan paketin dosyalarının konumlarını gösterir |
+| less /etc/pacman.d/mirrorlist | paket kaynak adreslerini listeler |
+| pacman -Qsq > packages.list | yüklü olan tüm paketlerin isimlerini packages.list dosyasına kaydeder |
+| less /etc/pacman.conf | paket yöneticisi ayarlarını gösterir |
 
 ---
 
