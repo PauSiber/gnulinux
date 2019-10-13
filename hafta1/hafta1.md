@@ -510,14 +510,14 @@ GNU/Linux dağıtımlarında böyle bir şey yok arkadaşlar. Paket yöneticisi 
 
 Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisi her dağıtımda kullanamazsınız.
 
-Örneğin Debian'dan türemiş olan Ubuntu, APT isimli bir paket yöneticisi kullanır.
+Örneğin Arch'dan türemiş olan Archlinux, PACMAN isimli bir paket yöneticisi kullanır.
 
-Yani Debian tabanlı dağıtımlarda APT paket yöneticisi kullanılır.
+Yani Arch tabanlı dağıtımlarda PACMAN paket yöneticisi kullanılır.
 
-APT dışında, debian tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
+PACMAN dışında, arch tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
 
 - dnf(yum) `fedora`
-- pacman `archlinux`
+- apt `debian`
 - portage `gentoo`
 - zypper `opensuse`
 
@@ -543,7 +543,7 @@ Gördüğünüz gibi kullanımı oldukça basit. PACMAN paket yöneticisinin par
 
 Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz **:)** .
 
-| APT | Açıklama |
+| PACMAN | Açıklama |
 |:--------:|:--------:|
 | pacman -Ss **`packageName`** | paket arar |
 | pacman -S **`packageName`** | paket yükler |
