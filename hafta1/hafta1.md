@@ -548,7 +548,7 @@ Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kull
 | pacman -Ss **`packageName`** | paket arar |
 | pacman -S **`packageName`** | paket yükler |
 | pacman -Rs **`packageName`** | paket siler |
-| pacman -Qdtq | pacman -Rs - | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
+| pacman -Qdtq \| pacman -Rs - | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
 | pacman -Sy | repo paket bilgilerini günceller |
 | pacman -Syu | yüklü paketleri günceller |
 | pacman -Syu | sistemin tam güncellemesini yapar |
