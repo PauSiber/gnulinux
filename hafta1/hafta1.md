@@ -510,16 +510,16 @@ GNU/Linux dağıtımlarında böyle bir şey yok arkadaşlar. Paket yöneticisi 
 
 Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisi her dağıtımda kullanamazsınız.
 
-Örneğin Arch'dan türemiş olan Archlinux, PACMAN isimli bir paket yöneticisi kullanır.
+Örneğin Archlinux tabanlı dağıtımlarda Pacman isimli paket yöneticisi kullanılır.
 
-Yani Arch tabanlı dağıtımlarda PACMAN paket yöneticisi kullanılır.
-
-PACMAN dışında, arch tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
+Pacman dışında, archlinux tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
 
 - dnf(yum) `fedora`
 - apt `debian`
 - portage `gentoo`
 - zypper `opensuse`
+
+Paket yöneticilerinin kullanımları farklılık gösterebilir. Ancak temelde bütün paket yöneticileri aynı işi yaparlar.
 
 Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. Bunun için aşağıdaki komutu yürütmemiz yeterlidir.
 
@@ -539,7 +539,7 @@ Hadi şimdi bir de PauSiber Dev üzerinde firefox kurulumu gerçekleştirelim. B
 
 Burada **`sudo`** ifadesini kullanma sebebimiz işlemin sistem dosyaları üzerinde gerçekleşiyor olması. Bu yüzden komutun root yetkisi ile çalışması için komutun başına **`sudo`** ifadesini ekledik.
 
-Gördüğünüz gibi kullanımı oldukça basit. PACMAN paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
+Gördüğünüz gibi kullanımı oldukça basit. Pacman paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
 
 Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz **:)** .
 
@@ -547,11 +547,10 @@ Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kull
 |:--------:|:--------:|
 | pacman -Ss **`packageName`** | paket arar |
 | pacman -S **`packageName`** | paket yükler |
-| pacman -Rs **`packageName`** | paket siler |
+| pacman -Rsn **`packageName`** | paket siler |
 | pacman -Qdtq \| pacman -Rs - | herhangi bir pakete bağlı olmayan gereksiz paketleri siler |
 | pacman -Sy | repo paket bilgilerini günceller |
 | pacman -Syu | yüklü paketleri günceller |
-| pacman -Syu | sistemin tam güncellemesini yapar |
 | pacman -Sw **`packageName`** | paketi yalnızca indirir (paket yöneticisi cache konumuna) |
 | ls /var/cache/pacman/pkg/ | paket yöneticisi cache'ni görüntüler |
 | pacman -U **`/path/to/packageName.pkg.tar.xz`** | paketi dosya ile yükler |
@@ -566,6 +565,7 @@ Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kull
 | less /etc/pacman.conf | paket yöneticisi ayarlarını gösterir |
 
 ---
+Kaynak: https://boratanrikulu.dev/pacman-ve-apt-cheatsheet/
 
 ## REPO Kavramı Nedir ?
 
