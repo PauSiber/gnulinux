@@ -609,6 +609,24 @@ Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da you
 
 ---
 
+## AUR(Arch User Repository) Nedir ?
+
+AUR, archlinux topluluğunun geliştirdikleri uygulama paketlerini, kütüphaneleri ve daha bir çok şeyi tüm archlinux topluluğuyla paylaştığı repodur. AUR da bulunan paketler ana repoda yoktur. AUR da bulunan paketler topluluk tarafından oylanarak olumlu yönde oy almış paketler ana repoya taşınabilir.
+
+## AUR Helpers
+
+Ana repodan bir paket indirmek istediğimizde komut satırına pacman yazıyoruz. Peki Arch User reposundan bir paket indirmek istediğimizde ne kullanmamız gerekiyor ?
+Burada devreye AUR helpers giriyor. AUR içinde bir paketi aramak yada indirmek için helpersları kullanırız. 
+- `aura`
+- `pacaur`
+- `pakku`
+- `pikaur`
+- `trizen`
+- `yay(yet another yogurt)`
+- `yaourt`
+
+Yukarıda bazı AUR helperlar listelenmiştir. Bunlardan yaourt ve trizen günümüzde daha çok tercih edilen 2 paket yöneticisidir. Biz burada trizeni kullanacağız çünkü yaourt'a göre daha güvenli ve kullanımı basit. Sizinde bunu kullanmanızı tavsiye ediyoruz :)
+
 ## Bu hafta neler yaptık ?
 
 - **Terminalin ne olduğu** ve neden kullanmamız gerektiğini öğrendik
@@ -616,4 +634,4 @@ Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da you
 - Terminal üzerinde kullanabileceğimiz **yararlı kısayollar**ı öğrendik.
 - Terminal üzerinde çalışan **metin editörleri**ni denedik.
 - GNU/Linux’da **dosya sistem hiyerarşisi**nin nasıl olduğunu temel düzeyde öğrendik.
-- **Paket Yöneticisi** ve **REPO** kavramlarını öğrendik.
+- **Paket Yöneticisi** , **REPO** , **AUR** ve **AUR Helper** kavramlarını öğrendik.
