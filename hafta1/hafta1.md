@@ -613,7 +613,7 @@ Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da you
 
 AUR, archlinux topluluğunun geliştirdikleri uygulama paketlerini, kütüphaneleri ve daha bir çok şeyi tüm archlinux topluluğuyla paylaştığı repodur. Topluluk üyeleri bu repoya kendi geliştirdikleri uygulama paketlerini yükleyebilir.AUR'da bulunan paketler ana repoda yoktur ve bu paketlerin güvenliği kulllanıcının sorumluluğuna aittir. AUR'da bulunan paketler topluluk tarafından oylanarak olumlu yönde oy almış paketler ana repoya taşınabilir.
 
-Kaynak:https://aur.archlinux.org/
+Kaynak: [**aur.archlinux.org**](https://aur.archlinux.org/)
 
 ## AUR'dan Paket Kurulumu
 
@@ -623,17 +623,17 @@ Birlikte ana repoda olmayan ama AUR'da bulunan google chrome'u bilgisayarımıza
 
 ## AUR Helpers
 
-Ana repodan bir paket yüklemek istediğimizde pacman isimli paket yöneticisini kullanırız. Peki Arch User repo'sundan bir paket kurmak istediğimizdeki yolumuz nedir ?
-Burada devreye AUR helpers giriyor. AUR içinde bir paketi aramak yada yüklemek için helpersları kullanırız. Aşağıda örnek helperlar listelenmiştir.
+Ana repodan bir paket yüklemek istediğimizde pacman isimli paket yöneticisini kullanıyoruz. Peki Arch User repo'sundan da paket kurmak için kullanabileceğimiz  **paket yöneticileri** mevcut mudur?
+Burada devreye AUR helper'lar giriyor. Arch user repo içinde bir paketi aramak ya da yüklemek için kullandığımız paket yöneticilerine **AUR helpers** diyoruz. Aşağıda örnek helper'lar listelenmiştir.
 - `aura`
 - `pacaur`
 - `pakku`
 - `pikaur`
-- `trizen`
+-[`trizen`](https://aur.archlinux.org/packages/trizen)
 - `yay(yet another yogurt)`
 - `yaourt`
 
-Yukarıda bazı AUR helperlar listelenmiştir. Bunlardan yaourt bir çok güvenlik açığı barındırmaktadır ilgili reddit paylaşımını aşağıda bulabilirsiniz. Biz hem güvenli hemde kullanımı daha basit olduğu için trizen kullanmayı tercih ediyoruz. AUR helperlara [**`bu`**](https://wiki.archlinux.org/index.php/AUR_helpers) yazıda daha detaylı bir şekilde göz atabilirsiniz.
+Yukarıda bazı AUR helperlar listelenmiştir. Bunlardan yaourt bir çok güvenlik açığı barındırmaktadır ilgili reddit paylaşımını aşağıda bulabilirsiniz. Biz hem güvenli hem de kullanımı daha basit olduğu için trizen kullanmayı tercih ediyoruz. AUR helperlara [**`bu`**](https://wiki.archlinux.org/index.php/AUR_helpers) yazıda daha detaylı bir şekilde göz atabilirsiniz.
 
 `Neden yaourt değil ?`: https://www.reddit.com/r/archlinux/comments/4azqyb/whats_so_bad_with_yaourt/
 
