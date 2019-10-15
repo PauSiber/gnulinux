@@ -629,7 +629,7 @@ Burada devreye AUR helper'lar giriyor. Arch user repo içinde bir paketi aramak 
 - `pacaur`
 - `pakku`
 - `pikaur`  
--[`trizen`](https://aur.archlinux.org/packages/trizen)
+- [`trizen`](https://aur.archlinux.org/packages/trizen)
 - `yay(yet another yogurt)`
 - `yaourt`
 
