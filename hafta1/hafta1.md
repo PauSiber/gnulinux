@@ -628,7 +628,7 @@ Burada devreye AUR helper'lar giriyor. Arch user repo içinde bir paketi aramak 
 - `aura`
 - `pacaur`
 - `pakku`
-- `pikaur`
+- `pikaur`  
 -[`trizen`](https://aur.archlinux.org/packages/trizen)
 - `yay(yet another yogurt)`
 - `yaourt`
