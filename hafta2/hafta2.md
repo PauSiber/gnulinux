@@ -44,25 +44,65 @@ Bu durumda herbir çalışanın kendine ait bir **kullancısı** olacağından b
 	- asci_bora
 	- asci_hayriye
 
-GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **`adduser`** komutu kullanılabilir.
+GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **`useradd`** komutu kullanılabilir.
+
+<p align="center">
+	<img alt="tldr useradd" src="img/28.png" width="800">
+</p>
+
+Örneğin gibi bir ayart belirtmeden bir kullanıcı sisteme ekleyebiliriz. Parola dahil hiç bir ayarı belirtmemiş oluruz.
 
 ```
-	[~#] adduser kullanıcının_adı
+	[~#] auseradd kullanıcının_adı
 ```
 
 <p align="center">
-	<img alt="pwd" src="img/4.png" width="800">
+	<img alt="useradd" src="img/29.png" width="800">
 </p>
+
+Sisteme kullanıcıları ekledik fakat gerçekten istediğimiz gibi oldu mu ? Ev dizinlerin var mı ? Varsayılan shell'leri ne oldu ? Hiç bir gruba dahil etmedik ?
 
 <p align="center">
-	<img alt="pwd" src="img/5.png" width="800">
+	<img alt="home" src="img/30.png" width="800">
 </p>
+
+`useradd` komutunda bunları parametre olarak aşağıdaki gibi girerek eklemek istediğimiz kullanıcıları manipüle edebiliriz.
+
+Az önce eklediğimiz kullanıcıları silelim öncelikle.
 
 <p align="center">
-	<img alt="pwd" src="img/6.png" width="800">
+	<img alt="home" src="img/31.png" width="800">
 </p>
 
-Şuan sistemimize altı adet kullanıcı ekledik.
+Artık istediğimiz özellikleri belirterek kullanıcılarımızı oluşturalım.
+
+<p align="center">
+	<img alt="useradd" src="img/32.png" width="800">
+</p>
+
+Kullanıcı ev dizinleri başarılı olarak yaratıldı.
+
+<p align="center">
+	<img alt="useradd" src="img/33.png" width="800">
+</p>
+
+Fakat kullanıcıların bir parolası yok şuan.
+
+<p align="center">
+	<img alt="passwd" src="img/34.png" width="800">
+</p>
+
+Kullanıcılara geçiş yaptığımızda zsh konfigürasyon dosyası olmadığı için aşağıdak gib bir uyarı görürüz.
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Oh_my_zsh'i aşağıdaki gibi tüm kullanıcılara kurabiliriz.
+
+<p align="center">
+	<img alt="ohmyzsh" src="img/35.png" width="800">
+</p>
 
 ---
 
