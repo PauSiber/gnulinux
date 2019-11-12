@@ -81,7 +81,7 @@ SSH-Key oluşturmak oldukça basittir. Aşağıdaki komutu yürüttüğünüzde 
 	<img alt="ssh-keygen" src="img/1.png" width="800">
 </p>
 
-Üretilen keyler'den sonunda **.pub** uzantısı bulunan sizin public key'inizdir. Bu key'i bağlanmak istediğiniz sunuculara eklemeniz gerekir. Biz bu anlatımda sunucu tarafına değinmeyecemiz için bu adımın nasıl uygulanacağını öğrenmek isteyen arkadaşların bu anlatıma bakmasını tavsiye ederiz : [**`boratanrikulu.me/ssh-key-kullanimi`**](https://boratanrikulu.me/ssh-key-kullanimi/)
+Üretilen keyler'den sonunda **.pub** uzantısı bulunan sizin public key'inizdir. Bu key'i bağlanmak istediğiniz sunuculara eklemeniz gerekir. Biz bu anlatımda sunucu tarafına değinmeyecemiz için bu adımın nasıl uygulanacağını öğrenmek isteyen arkadaşların bu anlatıma bakmasını tavsiye ederiz : [**`boratanrikulu.me/ssh-key-kullanimi`**](https://boratanrikulu.dev/ssh-key-kullanimi/)
 
 Uzantısı bulunmayan key ise sizin private key'inizdir. Bu dosyayı kimse ile paylaşmamalısınız. SSH ile bağlantı sağlarken bu dosyayı kullanacağız.
 
