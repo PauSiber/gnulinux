@@ -362,12 +362,12 @@ Son komutu tekrar yürütür.
 
 ---
 
-### `histroy`
+### `history`
 
 Önceden yürütülen komutları listeli halde gösterir.
 
 ```bash
-	histroy
+	history
 ```
 
 Daha düzenli şekilde görebilmek aşağıdaki gibi bir komut yürütebilirsiniz.
@@ -480,7 +480,7 @@ Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depo
 
 #### `/opt`
 
-GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağamlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.
+GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağımlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.
 
 <p align="center">
 	<img alt="opt" src="img/25.png" width="800">
