@@ -15,6 +15,12 @@
 
 ---
 
+<p align="center">
+	<img alt="gnu-linux-egtimi-poster-2019" src="gnu-linux-egtimi-poster-2019.png" width="400">
+  <br>
+	<em>2019-10-08 tarihli eğitimin afişi</em>
+</p>
+
 ### **`Eğitmen İletişim Bilgileri`**
 
 > **Bora Tanrıkulu :** [**Telegram**](https://t.me/boratanrikulu/), [**Twitter**](https://twitter.com/boratanrikulu_/)
