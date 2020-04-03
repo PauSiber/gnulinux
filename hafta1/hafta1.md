@@ -27,7 +27,7 @@ Windows'ta şuana kadar hiç CMD'ye girmeden hayatta kalabiliyorsanız, aslında
 
 Ayrıca mesleğimiz gereği burada çok işimiz oluyor **:)**.
 
-Örneğin en basitinden, bir kaç hafta içersinde eğitimini alacağınız git kullanımının terminal üzerinden yapılması gibi. Onun dışında, yazdığınız herhangi bir programı derlerken terminal kullanmanız gerektiği gibi faktörler terminal kullanımına alışmanız açısından önemlidir.
+Örneğin en basitinden, bir kaç hafta içerisinde eğitimini alacağınız git kullanımının terminal üzerinden yapılması gibi. Onun dışında, yazdığınız herhangi bir programı derlerken terminal kullanmanız gerektiği gibi faktörler terminal kullanımına alışmanız açısından önemlidir.
 
 Bu arada html/css derslerinde yazdığınız ya da yazcağınız uygulamaları bundan bir kaç hafta sonra hep birlikte, hiç bir şekilde grafik arayüzü (GUI) kullanmadan yalnızca terminali kullanarak; bir sunucu üzerinde ayağa kaldıracağız **:)**.
 
@@ -208,7 +208,7 @@ Bir dosyanın içeriğini terminale basar.
 
 ### `tac`  
 
-Bir dosyanın içeriğini, ters sırada, terminale basar.
+Bir dosyanın içeriğini, ters sırada terminale basar.
 
 ```bash
 	tac beni_tersten_oku
@@ -222,7 +222,7 @@ Bir dosyanın içeriğini, ters sırada, terminale basar.
 
 ### `echo`
 
-Terminal ekrine string bir ifadeyi basmak amacıyla kullanılabilir.
+Terminal ekrana string bir ifadeyi basmak amacıyla kullanılabilir.
 
 ```bash
 	echo "MESAJ"
@@ -239,7 +239,7 @@ Terminal ekrine string bir ifadeyi basmak amacıyla kullanılabilir.
 	echo "yeni veri" >> file.txt
 ```
 
-Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ver yerine yazmak istersek **`>>`** diyebiliriz.
+Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ve yerine yazmak istersek **`>>`** diyebiliriz.
 
 ```bash
 	echo "hepsini sil yerine yaz" > file.txt
@@ -433,7 +433,7 @@ UNIX tabanlı ya da esinlenilmiş işletim sistemlerinin dosya sistem hiyerarşi
 	<img alt="windows-my-computer" src="img/24.png" width="800">
 </p>
 
-GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Vu hiyerarşinin en üstünde `"/"` yani `root(kök)` dizini bulunur. Bu, tüm sistemin referans noktasıdır.
+GNU/Linux sistemlerde bir dosya dizin hiyerarşisi vardır. Bu hiyerarşinin en üstünde `"/"` yani `root(kök)` dizini bulunur. Bu, tüm sistemin referans noktasıdır.
 
 <p align="center">
 	<img alt="dosya-sistem-hiyerarşisi" src="img/22.png" width="800">
@@ -445,7 +445,7 @@ Tüm dizinlerin üzerinde bulunan dizindir. Tüm dizinler buradan dallanarak olu
 
 #### `/bin`
 
-Sisteminin temel komutlarının bulunduğu dizindir.
+Sistemin temel komutlarının bulunduğu dizindir.
 
 Kullandığımız çoğu komut bu dizin altında bulunur. `(cat, mkdir, cp, ls, mv, rm )`
 
@@ -571,7 +571,7 @@ Kaynak: https://boratanrikulu.dev/pacman-ve-apt-cheatsheet/
 
 Az önce paket yöneticisi ile birlikte uygulamaların nasıl kurulacağını öğrendik.
 
-**Peki bu paketler nereden geliyor..** İşte burada REPO kavramı ortaya çıkıyor. Her dağıtımın kendisine ait bir REPO'su vardır. PAket yöneticisi ile indirilip kurulan uygulamalar bu REPO'lardan gelir.
+**Peki bu paketler nereden geliyor..** İşte burada REPO kavramı ortaya çıkıyor. Her dağıtımın kendisine ait bir REPO'su vardır. Paket yöneticisi ile indirilip kurulan uygulamalar bu REPO'lardan gelir.
 
 REPO adreslerini aşağıdaki gibi görüntüleyebiliriz. Ama lütfen bu dosyaları bir bilginiz yok ise değiştirmeyin.
 
