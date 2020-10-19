@@ -26,6 +26,6 @@
 > **Bora Tanrıkulu :** [**Telegram**](https://t.me/boratanrikulu/), [**Twitter**](https://twitter.com/boratanrikulu_/)
 ,[**Instagram**](https://www.instagram.com/boratanrikulu/)
 
-> **Hasan Tezcan :** [**Telegram**](https://t.me/hasantezcan/), [**Twitter**](https://twitter.com/hasantezcann/), [**Instagram**](https://www.instagram.com/hasantezcan_/)
+> **Hasan Tezcan :** [**Telegram**](https://t.me/hasantezcan/), [**Twitter**](https://twitter.com/hasantezcann/), [**Instagram**](https://www.instagram.com/hasantezcan/)
 
 > **Emrullah Cirit :** [**Telegram**](https://t.me/emrullahcirit/), [**Twitter**](https://twitter.com/Iamemrullah), [**Instagram**](https://www.instagram.com/emrullah.cirit/)
