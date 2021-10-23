@@ -148,7 +148,7 @@ Ubuntu Studio bunun için güzel bir örnektir.
 
 ## PauSiber Dev Nedir ? Neden İhtiyacımız Var ?
 
-**PaüSiber Dev, Ubuntu üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış özelleştirilmiş bir dağıtımdır.**
+**PaüSiber Dev, başta Ubuntu üzerine özelleştirilmiş ancak Ubuntu'nun bazı konularda yetersiz kalması sonucu Arch üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış özelleştirilmiş bir dağıtımdır.**
 
 Dağıtımın hazırlanması için duyduğumuz isteğin ana kaynağı, topluluğumuz tarafından düzenlenen eğitimler sırasında, katılımcıların sistemlerini eğitime uygun hale hazırlayarak gelmemesi ya da anlık olarak sorunlar çıkmasından kaynaklanan **zaman israfını önlemek** isteyişimizdir.
 
