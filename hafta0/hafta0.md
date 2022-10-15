@@ -11,7 +11,7 @@
 
 Linux C dili ile yazılmış bir çekirdektir.  
 
-1991'de UNIX'e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiç bir kod bulunmamaktadır.  
+1991'de UNIX'e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX'den esinlenerek yazılmıştır. Linux'ta UNIX'den direkt olarak alınmış hiçbir kod bulunmamaktadır.  
 
 POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir. 
 
@@ -39,14 +39,13 @@ Yani Linux tek başına bir işletim sistemi değildir.
 
 ---
 
-GNU isimli de bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi 1983'de Richard Stallman tarafından duyurulmuştur.[gnu.org](https://www.gnu.org/)
+GNU isimli bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi, 1983'te Richard Stallman tarafından duyurulmuştur.[gnu.org](https://www.gnu.org/)
 
 Belli bir süre HURD çekirdeğini kullanan GNU; 1991'de Linus Torvals tarafından Linux'un duyurulması ve **Linux çekirdeğinin popülerlik kazanmasıyla, GNU işletim sisteminde, çekirdek olarak Linux'a geçiş yapılmıştır.** GNU araçları Linux'a uyarlanmış ve böylelikle HURD'ın gelişimi iyiden iyiye yavaşlamıştır.
 
 Günümüzde HURD'ın 1. versiyonu halen çıkarılamamıştır.
 
-Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. **GNU/Linux** olarak söylenmesi daha doğrudur.  
-(Richard **<3**)
+Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. **GNU/Linux** olarak söylenmesi daha doğrudur.
 
 <p align="center">
 	<img alt="hurd" src="img/2.png">
@@ -58,15 +57,15 @@ Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. **GNU/Linux** olarak 
 
 Açıkçası bu bir tercih meselesi. İşletim sistemi bir araçtır. **Sizin için en doğru araç, amacınıza en uygun olan araçtır.**
 
-GNU/Linux'un size sağlayacağı bir çok avantaj var.
+GNU/Linux'un size sağlayacağı birçok avantaj var.
 
 - Yüksek düzeyde **özelleştirilebilmesi.**  
-- **Ücretsiz** olması (her dağıtım ücretsiz değildir)  
-- **Hızlı ve Kararlıdır** (Donanım desteği olduğu taktirde)
-- GNU/Linux için **zararlı yazılım sayısının az olması**
-- **Özgür Yazılım** olması
-- Açık kaynak olduğu için, **sorun tespitinin ve çözümünün oldukça hızlı olması** (community)  
-- Yardım bulabilmeniz için bir çok topluluğun(community) olması; **bir şirkete bağlı değilsiniz, yalnız değilsiniz!**
+- **Ücretsiz** olması (her dağıtım ücretsiz değildir).  
+- **Hızlı ve Kararlıdır** (Donanım desteği olduğu taktirde).
+- GNU/Linux için **zararlı yazılım sayısının az olması.**
+- **Özgür Yazılım** olması.
+- Açık kaynak olduğu için, **sorun tespitinin ve çözümünün oldukça hızlı olması** (community).  
+- Yardım bulabilmeniz için birçok topluluğun (community) olması; **bir şirkete bağlı değilsiniz, yalnız değilsiniz!**
 
 ---
 
@@ -103,7 +102,7 @@ Tüm bu şartları yerine getirebilen her yazılım **özgürdür.**
 
 ## Distro (Dağıtım) nedir ?
 
-GNU/Linux isimli indirip kurabileceğiniz bir işletim sistemi aslında yoktur. Bir çok distro vardır.
+GNU/Linux isimli indirip kurabileceğiniz bir işletim sistemi aslında yoktur. Birçok distro vardır.
 
 Distro, yani dağıtım, özgür yazılım felsefesinin çok alternatifli dünyasının bir sonucu olarak ortaya çıkmış, GNU/Linux'a özgü bir terimdir.  
 
@@ -148,7 +147,7 @@ Ubuntu Studio bunun için güzel bir örnektir.
 
 ## PauSiber Dev Nedir ? Neden İhtiyacımız Var ?
 
-**PaüSiber Dev, Ubuntu üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış özelleştirilmiş bir dağıtımdır.**
+**PaüSiber Dev, Arch Linux üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış, özelleştirilmiş bir dağıtımdır.**
 
 Dağıtımın hazırlanması için duyduğumuz isteğin ana kaynağı, topluluğumuz tarafından düzenlenen eğitimler sırasında, katılımcıların sistemlerini eğitime uygun hale hazırlayarak gelmemesi ya da anlık olarak sorunlar çıkmasından kaynaklanan **zaman israfını önlemek** isteyişimizdir.
 
@@ -216,7 +215,7 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 	<img alt="dev" src="img/13.png">
 </p>
 
-**3 -** OVA'yı çalıştırdığınızda karşınız aşağıdaki gibi bir menu gelecek. MAC adreslerinin yeniden oluşturulması için gerekli tiki işaretledikten sonra **import** seçeneğine basın.
+**3 -** OVA'yı çalıştırdığınızda karşınıza aşağıdaki gibi bir menu gelecek. MAC adreslerinin yeniden oluşturulması için gerekli tiki işaretledikten sonra **import** seçeneğine basın.
 
 <p align="center">
 	<img alt="dev" src="img/14.png">
@@ -237,10 +236,10 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 - GNU'nun ne olduğunu, önceden HURD isimli bir çekirdeği kullandığını öğrendik.
 - Yalnızca Linux denmesinin neden yanlış olduğunu, GNU/Linux olarak isimlendirilmesi gerektiğini öğrendik.
 - GNU/Linux'a neden ihtiyacımız olduğunu tartıştık.
-- Özgür yazılımın ne olduğu öğrendik.
+- Özgür yazılımın ne olduğunu öğrendik.
 - Bir yazılımın özgür olması için gerekli koşulların neler olduğunu öğrendik.
-- Dağıtım yani distro teriminin ne olduğu ve neden bir çok dağıtımın olduğunu öğrendik.
+- Dağıtım yani distro teriminin ne olduğunu ve neden birçok dağıtımın olduğunu öğrendik.
 - Temel dağıtımların neler olduğunu öğrendik.
-- PauSiber Dev'in ne olduğu ve neden bunu hazırlama ihtiyacı duyduğumuzu öğrendik.
+- PauSiber Dev'in ne olduğunu ve neden bunu hazırlama ihtiyacı duyduğumuzu öğrendik.
 
 **Haftaya Görüşmek Üzere!** 
