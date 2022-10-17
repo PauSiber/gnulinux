@@ -13,7 +13,7 @@ Terminal, işletim sisteminizi shell ile kullanmanızı sağlayan bir arayüzdü
 
 Windows'ta bunun karşılığı CMD denebilir.
 
-Windows'ta şuana kadar hiç CMD'ye girmeden hayatta kalabiliyorsanız, aslında GNU/Linux dağıtımlarının **bir çoğunda da** terminale hiç uğramadan da hayatta kalabilirsiniz..
+Windows'ta şuana kadar hiç CMD'ye girmeden hayatta kalabiliyorsanız, aslında GNU/Linux dağıtımlarının **bir çoğunda da** terminale hiç uğramadan hayatta kalabilirsiniz.
 
 <p align="center">
 	<img alt="cmd" src="img/2.png" width="800">
@@ -27,11 +27,11 @@ Windows'ta şuana kadar hiç CMD'ye girmeden hayatta kalabiliyorsanız, aslında
 
 Ayrıca mesleğimiz gereği burada çok işimiz oluyor **:)**.
 
-Örneğin en basitinden, bir kaç hafta içerisinde eğitimini alacağınız git kullanımının terminal üzerinden yapılması gibi. Onun dışında, yazdığınız herhangi bir programı derlerken terminal kullanmanız gerektiği gibi faktörler terminal kullanımına alışmanız açısından önemlidir.
+Örneğin en basitinden, birkaç hafta içerisinde eğitimini alacağınız git kullanımının terminal üzerinden yapılması gibi. Onun dışında, yazdığınız herhangi bir programı derlerken terminal kullanmanız gerektiği gibi faktörler terminal kullanımına alışmanız açısından önemlidir.
 
-Bu arada html/css derslerinde yazdığınız ya da yazcağınız uygulamaları bundan bir kaç hafta sonra hep birlikte, hiç bir şekilde grafik arayüzü (GUI) kullanmadan yalnızca terminali kullanarak; bir sunucu üzerinde ayağa kaldıracağız **:)**.
+Bu arada html/css derslerinde yazdığınız ya da yazcağınız uygulamaları bundan birkaç hafta sonra hep birlikte, hiçbir şekilde grafik arayüzü (GUI) kullanmadan yalnızca terminali kullanarak; bir sunucu üzerinde ayağa kaldıracağız **:)**.
 
-Yani şuan öğreneceğiniz bilgiler başka anlamsız, hantal ve yavaş olarak gözükecek olsa bile aslında ilerki mesleki hayatınızda çokça rahat etmenizi sağlayacaktır.
+Yani şuan öğreneceğiniz bilgiler başka anlamsız, hantal ve yavaş olarak gözükecek olsa bile aslında ileriki mesleki hayatınızda çokça rahat etmenizi sağlayacaktır.
 
 Ne kadar erken öğrenmeniz sizin için o kadar iyi olacaktır.
 
@@ -76,7 +76,7 @@ Terminalda kullanabileceğiniz sayısız uygulama, sayısız komut var. Biz bu e
 
 Herhangi bir dizinin içini görmek için kullandığımız komuttur.
 
-Örneğin terminalde aşağıdaki gibi bir komut yürütürsek, o sırada bulunduğumuz dizinin içindeki tüm dosya dizinlerin çıktısı görürüz
+Örneğin terminalde aşağıdaki gibi bir komut yürütürsek, o sırada bulunduğumuz dizinin içindeki tüm dosya dizinlerin çıktısını görürüz.
 
 ```bash
 	ls
@@ -90,7 +90,7 @@ Herhangi bir dizinin içini görmek için kullandığımız komuttur.
 
 GNU/Linux'da bir dosyanın gizli olması için başına **"."** konması yeterlidir. Eğer bir dosyanın başında **"."** ifadesin var ise `ls` sorgularında gösterilmez.
 
-Bu yüzden az önce yaptığımız sorgu gördüklerimiz bulunduğumuz satırdaki tüm dosya ya da dizinleri göstermedi.
+Bu yüzden az önce yaptığımız sorguda gördüklerimiz, bulunduğumuz satırdaki tüm dosya ya da dizinleri göstermedi.
 
 Gizli dosya ve dizinler dahil tüm her şeyi görmek istiyor isek **--all** ya da **-a** parametresi kullanmamız gerekir.
 
@@ -104,7 +104,7 @@ Yani aşağıdaki gibi bir komut yürütürüz.
 	<img alt="ls - show them all" src="img/4.png" width="800">
 </p>
 
-Peki örneğin bulunduğumuz dizin altında bulunan tüm dosyaları tarihe ögre sıralı şekilde görüntülemek istersek ne yapmalıyız ? Aşağıdaki parametreleri kullanabiliriz.
+Peki örneğin bulunduğumuz dizin altında bulunan tüm dosyaları tarihe göre sıralı şekilde görüntülemek istersek ne yapmalıyız ? Aşağıdaki parametreleri kullanabiliriz.
 
 ```bash
 	ls -lat
@@ -239,7 +239,7 @@ Terminal ekrana string bir ifadeyi basmak amacıyla kullanılabilir.
 	echo "yeni veri" >> file.txt
 ```
 
-Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ve yerine yazmak istersek **`>>`** diyebiliriz.
+Eğer hali hazırda bulunan dosyadaki tüm verileri silmek ve yerine yazmak istersek **`>`** diyebiliriz.
 
 ```bash
 	echo "hepsini sil yerine yaz" > file.txt
@@ -471,7 +471,7 @@ Root kullanıcısının home dizinidir. Diğer home dizinlerinden bi farkı yokt
 
 #### `/lib`
 
-Kernel modülleri ve paylaşılan kütüphane dosyaları bu klasörde bulunur. Var olan çekirdek modüllerini `/lib/modules/[versiyon_numarası]` içersinde bulabilirsiniz.
+Kernel modülleri ve paylaşılan kütüphane dosyaları bu klasörde bulunur. Var olan çekirdek modüllerini `/lib/modules/[versiyon_numarası]` içerisinde bulabilirsiniz.
 
 
 #### `/var`
@@ -480,7 +480,7 @@ Sistem değişkenlerini saklar. Home dizini kullanıcıların dosyalarını depo
 
 #### `/opt`
 
-GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağımlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdür.
+GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. Henüz sizlere bahsetmediğimiz "Bağımlılık" kavramına uymayan bu programlar sistemden yalıtılmış halde /opt dizini altından çalışmayı sürdürür.
 
 <p align="center">
 	<img alt="opt" src="img/25.png" width="800">
@@ -490,17 +490,17 @@ GNU/Linux dosya dizin hiyerarşisine uymayan programların kurulduğu dizindir. 
 
 ---
 
-Bir dosyanın yeri tarif ederken kullanıdiğimiz iki türlü yol vardır. Bunlar **`Tam Yol`** ve **`Göreceli Yol`** dur.
+Bir dosyanın yeri tarif ederken kullanıdığımız iki türlü yol vardır. Bunlar **`Tam Yol`** ve **`Göreceli Yol`** dur.
 
-**Tam Yol :** Herzaman `root` dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiç bir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.
+**Tam Yol :** Herzaman `root` dizininden başlar ve hedef gösterdiğimiz dizine kadar devam eder. Bu komutu hangi dizinde olursak olalım çalıştırdığımızda sonuç alırız. Çünkü bu tarif hiçbir zaman değişmez. Bunun nedeni de referans aldığı ilk yolun root olmasıdır.
 
-**Göreceli Yol :** Bu tarifin herzaman geçerliliği yoktur. İçersinde bulununan dizine göre değişiklik gösterir.
+**Göreceli Yol :** Bu tarifin her zaman geçerliliği yoktur. İçersinde bulununan dizine göre değişiklik gösterir.
 
 ---
 
 ## Paket Yöneticisi Nedir ?
 
-Hadi şimdi gidip Windows bir sistem deneme amaçlı bir uygulama kuralım. Örnek olması açısından firefox kurulumu yapalım.
+Hadi şimdi gidip Windows bir sistemde deneme amaçlı bir uygulama kuralım. Örnek olması açısından firefox kurulumu yapalım.
 
 Kurulum için ilk olarak browser açılmalı, ilgili site bulunmalı, ilgili exe dosyası sisteme indirilip, çalıştırılmalı ve ardından kurulum adımları uygulanmalıdır.
 
@@ -508,11 +508,11 @@ Kurulum için ilk olarak browser açılmalı, ilgili site bulunmalı, ilgili exe
 
 GNU/Linux dağıtımlarında böyle bir şey yok arkadaşlar. Paket yöneticisi diye bir kavram var. Paket yöneticisi ile tek bir komut ile istediğiniz uygulamayı kullandığınız dağıtımın **`repo`**'larından direkt olarak çekip kurabilirsiniz.
 
-Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisi her dağıtımda kullanamazsınız.
+Paket yöneticisi yalnızca bir programdır ama dağıtımdan dağıtıma farklılık gösterir, her paket yöneticisini her dağıtımda kullanamazsınız.
 
 Örneğin Archlinux tabanlı dağıtımlarda Pacman isimli paket yöneticisi kullanılır.
 
-Pacman dışında, archlinux tabanlı olmayadan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
+Pacman dışında, archlinux tabanlı olmayan dağıtımlarda kullanılan, bir çok paket yöneticisi vardır.
 
 - dnf(yum) `fedora`
 - apt `debian`
@@ -541,7 +541,7 @@ Burada **`sudo`** ifadesini kullanma sebebimiz işlemin sistem dosyaları üzeri
 
 Gördüğünüz gibi kullanımı oldukça basit. Pacman paket yöneticisinin parametreleri ile ilgili bilgiye aşağıdaki tablodan erişebilirisiniz.
 
-Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisi veririz **:)** .
+Tablo başlangıçta oldukça korkunç gözükecektir ama paket yöneticisi kullandıkça alışacağınızın garantisini veririz **:)** .
 
 | PACMAN | Açıklama |
 |:--------:|:--------:|
@@ -593,12 +593,11 @@ REPO'larda yalnızca açık kaynak uygulamalar bulunabilir. Örneğin Google Chr
 
 **Not :** Chromium açık kaynak olduğu için REPO'larda mevcuttur.
 
-Eğer REPO'larda bulunmayan bir uygulamaya kurulacak ise ilk yapılması gerek uygulamanın dağıtıcının sitesinden hangi şekilde edinilmesi gerektiğine bakmaktır. Çünkü bir çok farklı şekilde dağıtılıyor olabilir.
+Eğer REPO'larda bulunmayan bir uygulama kurulacak ise ilk yapılması gereken, uygulamanın dağıtıcının sitesinden hangi şekilde edinilmesi gerektiğine bakmaktır. Çünkü birçok farklı şekilde dağıtılıyor olabilir.
 
 Örneğin Google Chrome için bir **`deb`** paketi indirmek gerekirken, Spotify kurulumu için REPO listemize ek bir kaynak adresi eklememiz gerekir.
 
-Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da youtube'a bakmak yerine, dağıtıcının sitesinden bakın. Orada kesinlikle bir bilgi olacaktır.
-
+Bu yüzden lütfen dışarıdan bir uygulama kuracaksanız, forumlara ya da youtube'a bakmak yerine, dağıtıcının sitesinden bakın. Orada kesinlikle bir bilgi olacaktır.
 <p align="center">
 	<img alt="chrome" src="img/31.png" width="800">
 </p>
@@ -611,7 +610,7 @@ Bu yüzden lütfen dışarıdan bir uygulama kuracaksınız, forumlara ya da you
 
 ## AUR(Arch User Repository) Nedir ?
 
-AUR, archlinux topluluğunun geliştirdikleri uygulama paketlerini, kütüphaneleri ve daha bir çok şeyi tüm archlinux topluluğuyla paylaştığı repodur. Topluluk üyeleri bu repoya kendi geliştirdikleri uygulama paketlerini yükleyebilir.AUR'da bulunan paketler ana repoda yoktur ve bu paketlerin güvenliği kulllanıcının sorumluluğuna aittir. AUR'da bulunan paketler topluluk tarafından oylanarak olumlu yönde oy almış paketler ana repoya taşınabilir.
+AUR, archlinux topluluğunun geliştirdikleri uygulama paketlerini, kütüphaneleri ve daha birçok şeyi tüm archlinux topluluğuyla paylaştığı repodur. Topluluk üyeleri bu repoya kendi geliştirdikleri uygulama paketlerini yükleyebilir. AUR'da bulunan paketler ana repoda yoktur ve bu paketlerin güvenliği kullanıcının sorumluluğuna aittir. AUR'da bulunan paketler topluluk tarafından oylanarak olumlu yönde oy almış paketler ana repoya taşınabilir.
 
 Kaynak: [**aur.archlinux.org**](https://aur.archlinux.org/)
 
@@ -639,8 +638,8 @@ Yukarıda bazı AUR helperlar listelenmiştir. Bunlardan yaourt bir çok güvenl
 
 ## Bu hafta neler yaptık ?
 
-- **Terminalin ne olduğu** ve neden kullanmamız gerektiğini öğrendik
-- **Temel komutlar** ile terminal kullanıma ilk adımı attık.
+- **Terminalin ne olduğunu** ve neden kullanmamız gerektiğini öğrendik.
+- **Temel komutlar** ile terminal kullanımına ilk adımı attık.
 - Terminal üzerinde kullanabileceğimiz **yararlı kısayollar**ı öğrendik.
 - Terminal üzerinde çalışan **metin editörleri**ni denedik.
 - GNU/Linux’da **dosya sistem hiyerarşisi**nin nasıl olduğunu temel düzeyde öğrendik.
