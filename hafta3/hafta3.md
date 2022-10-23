@@ -9,7 +9,7 @@
 
 ## Server (Sunucu) Nedir ?
 
-Server denince akıllara -filimlerin de etkisiyle- devasa büyüklükte hangarlar içine sıra sıra istiflenmiş, genelde siyah renkte dolaplar içinde bulunan, dikdörtgen şeklinde çekmeceler geliyor.
+Server denince akıllara -filmlerin de etkisiyle- devasa büyüklükte hangarlar içine sıra sıra istiflenmiş, genelde siyah renkte dolaplar içinde bulunan, dikdörtgen şeklinde çekmeceler geliyor.
 
 Evet, akıllara gelen bu tablo ve tanım tamamen doğru. Fakat bir "server" oluşturmak için tüm bu saydığımız şeylere ihtiyacımız yok. Sadece bir bilgisayar, server oluşturmak için yeterli. Ve tabiki gerekli olan bir iletişim ağı.
 
@@ -17,7 +17,7 @@ Evet, akıllara gelen bu tablo ve tanım tamamen doğru. Fakat bir "server" olu�
 	<img alt="pwd" src="img/0.jpg" width="800">
 </p>
 
-Yani server dediğimiz şeylerde aslında birer bilgisayardır.
+Yani server dediğimiz şeyler de aslında birer bilgisayardır.
 
 Bir bilgisayarın server olarak çalışabilmesi için; gerekli bazı yazılımlara ve kullandığı verileri iletim ağına itebilecek - çekebilecek güce sahip olması gerekir.
 
@@ -71,7 +71,7 @@ SSH-Key, parola kullanmadan SSH bağlantıları sağlayabilmemizde kullanılan p
 
 #### SSH-Keygen ile Key Oluşturulması
 
-SSH-Key oluşturmak oldukça basittir. Aşağıdaki komutu yürüttüğünüzde size bir kaç soru sorduktan sonra key üretilecektir. Key üretimi sonucunda biri **public** diğeri **private** olmak üzere **iki adet key** oluşacaktır.
+SSH-Key oluşturmak oldukça basittir. Aşağıdaki komutu yürüttüğünüzde size birkaç soru sorduktan sonra key üretilecektir. Key üretimi sonucunda biri **public** diğeri **private** olmak üzere **iki adet key** oluşacaktır.
 
 ```
 	[~$] ssh-keygen
@@ -143,7 +143,7 @@ Cron zamanlanmış olarak komutları çalıştırmamızı sağlayan bir daemon'd
 
 Cron kullanımı için iki temel yol vardır.
 
-Birincisi; hali hazırda sistemde /etc/ altında bulunan **cron.daily**, **cron.hourly**, **cron.monthly** ve **cron.weekly** klasörlerinine istenen script'in konulmasıdır.
+Birincisi; hali hazırda sistemde /etc/ altında bulunan **cron.daily**, **cron.hourly**, **cron.monthly** ve **cron.weekly** klasörlerine istenen script'in konulmasıdır.
 
 Bu klasörlerde bulunan scriptler, **/etc/crontab**'daki ayarlamaya göre ilgili zaman dilimlerinde çalıştırılır.
 
@@ -234,11 +234,11 @@ Yukardaki ifade yerine direkt olarak aşağıdaki gibi bir yapı da kullanılabi
 
 Hadi şimdi şuana kadar öğrendiğimiz SSH ve CRON bilgilerimizi harmanlayalım.
 
-Elimizde 192.168.1.101 ip'li bir sunucu olduğunu düşünelim. Bu sunucun developer kullanıcısın Home dizi altında **gnulinux** isimli, eğitim dokümanlarını içeren bir klasör olsun.
+Elimizde 192.168.1.101 ip'li bir sunucu olduğunu düşünelim. Bu sunucunun developer kullanıcısının Home dizini altında **gnulinux** isimli, eğitim dokümanlarını içeren bir klasör olsun.
 
-Senaryomuzda bu sunucuya her hafta pazartesi saat 23:50'de SSH-Key ilgili dizini kendi bilgisayarımızda bulunan Documents/egitim/ dizini içersine kaydetmek istiyor olalım.
+Senaryomuzda bu sunucuya her hafta pazartesi saat 23:50'de SSH-Key ilgili dizini kendi bilgisayarımızda bulunan Documents/egitim/ dizini içerisine kaydetmek istiyor olalım.
 
-Bunun için aşağıdaki gibi bi betik yazdım. Yapısını oldukça basit. Betiğini okuduğunuzda **`scp`** komutunu göreceksiniz. SCP, ssh protokolü üzerinden dosya transferi yapabilmemize olanak veren bir programdır. Detaylı olarak kullanımına bakmak için **`tldr scp`** yapabilirsiniz.
+Bunun için aşağıdaki gibi bir betik yazdım. Yapısı oldukça basit. Betiğini okuduğunuzda **`scp`** komutunu göreceksiniz. SCP, ssh protokolü üzerinden dosya transferi yapabilmemize olanak veren bir programdır. Detaylı olarak kullanımına bakmak için **`tldr scp`** yapabilirsiniz.
 
 Aşağıdaki betiğin bilgisayarınızda bir yere kayıt edip, çalıştırmak iznini **`+x`** verin.
 ```sh
