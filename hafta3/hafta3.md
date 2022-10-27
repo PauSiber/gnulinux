@@ -92,10 +92,16 @@ Bunu uygulamak için önceki haftanın dokümanını inceleyin : [**`hafta2.md`*
 
 #### SSH-Key Kullanarak Bağlantı Sağlanması
 
-SSH-Key kullanarak bağlantı sağlamak için **`-i`** parametresi kullanılmalıdır.
+SSH-Key kullanarak bağlantı sağlamak için aşağıdaki komutu kullanabilirsiniz.
 
 ```
-	[~$] ssh -i /path/to/private_key kullancı_adı@server
+	[~$] ssh kullancı_adı@server_ip
+```
+
+Ayrıca SSH-Key'i default path yerine başka bir yere kayıt ettiyseniz **`-i`** parametresini kullanarak bu path'i vermeniz gerekmektedir.
+
+```
+	[~$] ssh -i /path/to/private_key kullancı_adı@server_ip
 ```
 
 ---
