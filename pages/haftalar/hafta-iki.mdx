@@ -19,7 +19,7 @@ author: Enes Kaya
 Bir hastane düşünün, bu hastanede çalışanların kullanabileceği yalnız bir tane bilgisayar var. Ve hastanemizde çalışan üç ana meslek grubu var. Bunlar; **doktorlar**, **güvenlik görevlileri** ve **aşçılar**.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/14.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/14.png" width="800"/>
 </p>
 
 Bu çalışanların tek bir bilgisayarı kullanmasının iki farklı seneryosu olabilir.
@@ -58,15 +58,15 @@ GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için **adduser** 
 ```
 
 <p align="center">
-	<img alt="tldr useradd" src="/blog/images/hafta2/28.jpg" width="800"/>
+	<img alt="tldr useradd" src="/images/hafta2/28.jpg" width="800"/>
 </p>
 
 <p align="center">
-	<img alt="useradd" src="/blog/images/hafta2/29.jpg" width="800"/>
+	<img alt="useradd" src="/images/hafta2/29.jpg" width="800"/>
 </p>
 
 <p align="center">
-	<img alt="home" src="/blog/images/hafta2/30.jpg" width="800"/>
+	<img alt="home" src="/images/hafta2/30.jpg" width="800"/>
 </p>
 
 Şuan sistemimize altı adet kullanıcı ekledik.
@@ -83,7 +83,7 @@ Bu dosyayı görüntülemek için;
 ```
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/7.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/7.png" width="800"/>
 </p>
 
 Dosya incelendiğinde **dev:x:1000:1000:PauSiber Dev,,,:/home/dev:/usr/bin/zsh** gibi ifadeler gözükür. Hadi şimdi bu ifadelerin ne anlama geldiğini açıklayalım.
@@ -111,7 +111,7 @@ GNU/Linux dağıtımlarında, sisteme bir grup eklemek için **groupadd** komutu
 	[~#] groupadd grubun_ismi
 ```
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/8.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/8.png" width="800"/>
 </p>
 
 Sistemimize üç adet yeni grup ekledik. Sistemimizde bulunan gruplar **/etc/group** dosyasında sıralanır.
@@ -122,7 +122,7 @@ Bu dosyayı görüntülemek için;
 ```
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/9.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/9.png" width="800"/>
 </p>
 
 Son görselde de görüldüğü üzere bizim eklediğimiz grupların haricinde, önceden eklediğimiz kullacılar da burada gözükmekte. Örneğin "doktor_beyza" gibi bir grup sistemde çoktandır eklenmiş durumda. **Peki bu nasıl oluyor?**
@@ -144,13 +144,13 @@ Bunu yapmak için **gpasswd** komutu kullanılabilir.
 **Not :** Burada **--add** parametresi oldukça kritiktir. Eğer kullanılmaz ise kullanıcıyı hali hazırda bulunduğu tüm gruplardan çıkarır ve yeni gruba ekler. Fakat bizim istediğimiz bu değil, kullanıcının hali hazırda bulunduğu grupları değiştirmek istemiyoruz, yalnızca yeni bir gruba dahil etmek istiyoruz, bu durumda **--add** parametresi kullanmamız bir gerekliliktir.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/10.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/10.png" width="800"/>
 </p>
 
 Ekleme işlemlerimizi yaptık. Şimdi **/etc/group**' u yeniden görüntüleyelim.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/11.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/11.png" width="800"/>
 </p>
 
 Başarılı bir şekilde personelimizi gruplarına ekledik.
@@ -174,7 +174,7 @@ GNU/Linux işletim sistemlerinde sisteme kayıtlı her insan kullancı için **/
 **root** kullancısının da kendine ait bir odası vardır. Fakat **root** kullacısına ayrılmış bu alan direkt **root** dizini altında ayrılmış **/root** dizinidir.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/17.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/17.png" width="800"/>
 </p>
 
 <hr/>
@@ -190,7 +190,7 @@ Hastanemizden, yani sistemimizden bir kullanıcıyı silmek istersek **deluser**
 Şimdi sistemimizde kayıtlı olan doktor_ahmedi aşağıdaki örnekteki gibi işten çıkaralım.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/12.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/12.png" width="800"/>
 </p>
 
 <hr/>
@@ -204,7 +204,7 @@ Eğer bir kullanıcı parolasını değiştirmek ister ise **passwd** komutu kul
 ```
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/13.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/13.png" width="800"/>
 </p>
 
 <hr/>
@@ -218,7 +218,7 @@ Eğer bir kullanıcı parolasını değiştirmek ister ise **passwd** komutu kul
 ```
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/18.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/18.png" width="800"/>
 </p>
 
 Kullanıcıyı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edelim **:)**.
@@ -238,7 +238,7 @@ Kullanıcıyı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil ed
 ```
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/15.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/15.png" width="800"/>
 </p>
 
 <hr/>
@@ -250,7 +250,7 @@ Hastane örneğimizde **hastalar**, **kameralar** ve **yemekhane** dizinlerimiz 
 Aşağıdaki gibi dizinleri oluşturalım.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/19.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/19.png" width="800"/>
 </p>
 
 Dizinlerimiz içerisine aşağıdaki gibi gerekli dosyaları da oluşturalım.
@@ -258,7 +258,7 @@ Dizinlerimiz içerisine aşağıdaki gibi gerekli dosyaları da oluşturalım.
 Bu dizinlerin sahiplik ve izinlerini ayarlama işlemine geçmeden önce GNU/Linux'da dosya ve dizin kavramlarından bahsetmeliyiz.
 
 <p align="center">
-	<img alt="pwd" src="/blog/images/hafta2/20.png" width="800"/>
+	<img alt="pwd" src="/images/hafta2/20.png" width="800"/>
 </p>
 
 <hr/>
@@ -282,7 +282,7 @@ Dizin ve dosya isimleri aynı olamaz.
 ```
 
 <p align="center">
-	<img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/0.png"/>
+	<img src="/images/hafta2/dosya-ve-dizin-izinleri/0.png"/>
 </p>
 
 Dosya ve dizin işlemlerine bakıldığında 10 karakterden oluşan bir yapı görünür.
@@ -297,7 +297,7 @@ izinlerini temsilen kullanılır.
 Bunları aşağıdaki gibi üçerli olarak gruplandırarak incelemekte fayda vardır.
 
 <p align="center">
-	<img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/>
+	<img src="/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/>
 </p>
 
 Yani bu örnektekinin;  
@@ -333,13 +333,13 @@ Aşağıdaki gibi 3 dizin için de **-R** parametresini kullanarak dosyaların g
 Burada **-R** parametresini kullanma sebebimiz belirttiğimiz işlemi recursive olarak tüm alt(sub) dosya ve dizinlere uygulanması gerektiğini belirtmek içindir.
 
 <p align="center">
-	<img src="/blog/images/hafta2/21.png"/>
+	<img src="/images/hafta2/21.png"/>
 </p>
 
 Tüm hastane dosyalarımızın group sahipliklerini değiştirdik. Fakat dosyaların kullanıcı sahiplikleri halen belirlenmiş değil. Her dosyanın sahibi olarak meslek grubundan belirlenen bir kullanıcıyı atamak istiyoruz. Aşağıdaki gibi adımları gerçekleştirdik.
 
 <p align="center">
-	<img src="/blog/images/hafta2/22.png"/>
+	<img src="/images/hafta2/22.png"/>
 </p>
 
 Dosya sahipliklerini ayarladık.
@@ -392,7 +392,7 @@ Burada **kim** ifadesi, işlemi hangi kişiler için yapacağını belirtmek iç
 ```
 
 <p align="center">
-	<img src="/blog/images/hafta2/23.png"/>
+	<img src="/images/hafta2/23.png"/>
 </p>
 
 Ayrıca **other**'ın dosya üzerinde hiçbir yetkisinin olmasını istemiyoruz. Bunun için de aşağıdaki gibi örneğimizi uygularız. Other'ın sahip olduğu tüm yetkiyi kaldırmış oluruz.
@@ -403,7 +403,7 @@ Ayrıca **other**'ın dosya üzerinde hiçbir yetkisinin olmasını istemiyoruz.
 ```
 
 <p align="center">
-	<img src="/blog/images/hafta2/24.png"/>
+	<img src="/images/hafta2/24.png"/>
 </p>
 
 Bu işlemi uyguladığımızda klasör'ün içinde neler olduğuna bile bakamayız, çünkü şu ana kadar olan tüm işlemleri PauSiber Dev'in normal kullanıcısı olan **dev** ile yaptık, dizinler üzerinde dev kullanıcısı other olarak gözükür. dev'in hiçbir yetkisi olmadığı için dizin içlerini göremeyiz.
@@ -415,7 +415,7 @@ Eğer dosyalar üzerinden yazma işlemi yapmak istersek de meslek grubundan şef
 Başka bir kullanıcıya geçiş yapmak için **su** komutunu kullanabiliriz.
 
 <p align="center">
-	<img src="/blog/images/hafta2/25.png"/>
+	<img src="/images/hafta2/25.png"/>
 </p>
 
 <hr/>
@@ -433,7 +433,7 @@ Daha önceden öğrendiğimiz gibi, dosya ve dizinlerin izinleri **r**, **w** ve
 | **x** | 1 |
 
 <p align="center">
-	<img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/>
+	<img src="/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/>
 </p>
 
 Bir dosyanın yetkisinin numarasal karşılığını göstermek için 3 basamaklı bir sayı kullanırız. Bu 3 basamaklı sayıyı elde etmek için yetkileri üçerli olarak gruplandırıp toplarız.
@@ -445,7 +445,7 @@ Kendimiz toplamak yerine, bir dosyanın yetkisinin numarasal karşılığını d
 ```
 
 <p align="center">
-	<img src="/blog/images/hafta2/26.png"/>
+	<img src="/images/hafta2/26.png"/>
 </p>
 
 Dosyanın izinlerini numeric method ile değiştirmek istiyorsak aşağıdaki gibi bir syntax kullanırız.
@@ -457,7 +457,7 @@ Dosyanın izinlerini numeric method ile değiştirmek istiyorsak aşağıdaki gi
 Örneğin hastalar klasörü içerisinde bulunan dosyaların, other'lar tarafından okunabilir ve çalıştırılabilir olmasını istiyor olalım, aşağıdaki gibi yapabiliriz.
 
 <p align="center">
-	<img src="/blog/images/hafta2/27.png"/>
+	<img src="/images/hafta2/27.png"/>
 </p>
 
 Text method kullanacak olsaydık, aynı işlemi yapmak için chmod o=rx * dememiz yeterdi.
