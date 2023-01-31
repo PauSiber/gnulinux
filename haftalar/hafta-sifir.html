@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"><head><meta name="robots" content="follow, index"/><meta name="description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta property="og:site_name" content="Next.js Blog Starter Kit"/><meta property="og:description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta property="og:title" content="Next.js Blog Starter Kit"/><meta property="og:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@yourname"/><meta name="twitter:title" content="Next.js Blog Starter Kit"/><meta name="twitter:description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta name="twitter:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml"/><link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><script>!function(){try {var d=document.documentElement.classList;d.remove('light','dark');var e=localStorage.getItem('theme');if("system"===e||(!e&&true)){var t="(prefers-color-scheme: dark)",m=window.matchMedia(t);m.media!==t||m.matches?d.add('dark'):d.add('light')}else if(e) d.add(e)}catch(e){}}()</script><title>Hafta 0</title><meta name="next-head-count" content="6"/><link rel="preload" href="/blog/_next/static/css/5076a516e8a2b633.css" as="style"/><link rel="stylesheet" href="/blog/_next/static/css/5076a516e8a2b633.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/blog/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/blog/_next/static/chunks/webpack-0f44c3e068765874.js" defer=""></script><script src="/blog/_next/static/chunks/framework-d5c96c6d07ca9fe9.js" defer=""></script><script src="/blog/_next/static/chunks/main-dc3cbede724993d3.js" defer=""></script><script src="/blog/_next/static/chunks/pages/_app-e89de317f965cd3b.js" defer=""></script><script src="/blog/_next/static/chunks/353-9c855d83cc7ddaed.js" defer=""></script><script src="/blog/_next/static/chunks/pages/haftalar/hafta-sifir-9d2c03bdfa0ff80b.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_buildManifest.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_ssgManifest.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_middlewareManifest.js" defer=""></script><style id="__jsx-7c359fde634f3543">a.jsx-7c359fde634f3543{float:right}
+@media screen and (max-width:480px) {article.jsx-7c359fde634f3543{padding-top:2rem;
+padding-bottom:4rem}}</style></head><body><div id="__next" data-reactroot=""><article class="container prose prose-sm md:prose dark:prose-dark"><h1>Hafta 0</h1><div class="meta-line"><div class="meta">Enes Kaya<!-- -->, <time>Fri May 05 2023</time> • <a class="tag" href="/blog/tags/gnu/linux">gnu/linux</a></div><a class="meta-back" href="/blog/haftalar">Back</a></div>
+<p><strong>Amaç :</strong> Linux&#x27;un genel bir tanımı. Gerekli kurulumların gerçekleştirilmesi.</p>
+<p><strong>Yazarlar :</strong> <a href="https://github.com/boratanrikulu"><strong>boratanrikulu</strong></a> <strong>&amp;&amp;</strong> <a href="https://github.com/hasantezcan"><strong>hasantezcan</strong></a></p>
+<h2>Linux Nedir ?</h2>
+<p>Linux C dili ile yazılmış bir çekirdektir.</p>
+<p>1991&#x27;de UNIX&#x27;e bir alternatif olması amacıyla, Linus Torvalds tarafından, UNIX&#x27;den esinlenerek yazılmıştır. Linux&#x27;ta UNIX&#x27;den direkt olarak alınmış hiçbir kod bulunmamaktadır.</p>
+<p>POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile sunulan ve Linux Vakfı çatısı altında geliştirilen bir özgür yazılım projesidir.</p>
+<blockquote>
+<p>Daha detaylı bilgi için <strong>Just for Fun : The Story of an Accidental Revolutionary by Linus Benedict Torvalds</strong></p>
+</blockquote>
+<p><strong>Peki çekirdek nedir ?</strong></p>
+<p>Çekirdek, yani kernel, işletim sisteminin kalbidir. Uygulamalar ve donanım arasında çevirici görev görür. Fiziksel donanımla yazılım arasındaki haberleşmeyi sağlar.</p>
+<p align="center"><img alt="kernel-nedir" src="/blog/images/hafta0/0.png"/></p>
+<p>Yani Linux tek başına bir işletim sistemi değildir.</p>
+<p><strong>Peki işletim sistemi (operating system) nedir ?</strong></p>
+<p>İşletim sistemi, bilgisayarı kullanabilmemiz için gerekli olan yazılımlar bütünüdür. Örneğin önünüzde bulunan Windows bir işletim sistemidir. İşletim sistemi User Interface (shell) ve Kernel&#x27;dan oluşur.</p>
+<p align="center"><img alt="os-nedir" src="/blog/images/hafta0/1.png" width="650"/></p>
+<p>İşletim sistemleri ve kernel bir bütün halinde çalışır. <strong>Yani Linux için tek başına bir işletim sistemi diyemeyiz.</strong></p>
+<p>GNU isimli bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi, 1983&#x27;te Richard Stallman tarafından duyurulmuştur.<a href="https://www.gnu.org/">gnu.org</a></p>
+<p>Belli bir süre HURD çekirdeğini kullanan GNU; 1991&#x27;de Linus Torvals tarafından Linux&#x27;un duyurulması ve <strong>Linux çekirdeğinin popülerlik kazanmasıyla, GNU işletim sisteminde, çekirdek olarak Linux&#x27;a geçiş yapılmıştır.</strong> GNU araçları Linux&#x27;a uyarlanmış ve böylelikle HURD&#x27;ın gelişimi iyiden iyiye yavaşlamıştır.</p>
+<p>Günümüzde HURD&#x27;ın 1. versiyonu halen çıkarılamamıştır.</p>
+<p>Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. <strong>GNU/Linux</strong> olarak söylenmesi daha doğrudur.</p>
+<p align="center"><img alt="hurd" src="/blog/images/hafta0/2.png"/></p>
+<h2>GNU/Linux&#x27;a Neden İhtiyacımız Var ?</h2>
+<p>Açıkçası bu bir tercih meselesi. İşletim sistemi bir araçtır. <strong>Sizin için en doğru araç, amacınıza en uygun olan araçtır.</strong></p>
+<p>GNU/Linux&#x27;un size sağlayacağı birçok avantaj var.</p>
+<ul>
+<li>Yüksek düzeyde <strong>özelleştirilebilmesi.</strong></li>
+<li><strong>Ücretsiz</strong> olması (her dağıtım ücretsiz değildir).</li>
+<li><strong>Hızlı ve Kararlıdır</strong> (Donanım desteği olduğu taktirde).</li>
+<li>GNU/Linux için <strong>zararlı yazılım sayısının az olması.</strong></li>
+<li><strong>Özgür Yazılım</strong> olması.</li>
+<li>Açık kaynak olduğu için, <strong>sorun tespitinin ve çözümünün oldukça hızlı olması</strong> (community).</li>
+<li>Yardım bulabilmeniz için birçok topluluğun (community) olması; <strong>bir şirkete bağlı değilsiniz, yalnız değilsiniz!</strong></li>
+</ul>
+<h2>Özgür Yazılım Nedir ?</h2>
+<p><strong>Özgür Yazılım bir özgürlük meselesidir, fiyat değil.</strong></p>
+<p>Bu yanlış anlaşılmanın sebebi; <em>free</em> sözcüğünün hem ücretsiz hem de özgür manasına gelmesinden ortaya çıkıyor.</p>
+<p><em><strong>To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”.</strong></em></p>
+<p>Özgür yazılım insanları öğrenmeye, öğrendiklerini öğretmeye, kısıtlı ömrümüzde kazandığımız bilgileri gelecek nesillere bilgi birikimi olarak bırakmaya, bir defa yapılmış bir şeyin yapımı için gereken tekniği tekrar tekrar bulunmasına gerek bırakmamaya teşvik eder.</p>
+<p>Kısacası Özgür Yazılım <strong>tüm insanlığa hizmet eder</strong>, yanlızca <strong>bir grup insanın cebine değil.</strong></p>
+<h4>Bir Yazılım Nasıl Özgür Yazılım Olur?</h4>
+<p>Bir yazılımın özgür olması için yerine getirmesi gereken 4 kriter vardır.</p>
+<ol start="0">
+<li>
+<p><strong>Çalıştırılabilirlik:</strong> Bir yazılım istendiği şekilde ve doğrultuda çalıştırılabilir.</p>
+</li>
+<li>
+<p><strong>Değiştirilebilirlik:</strong> Herhangi bir yazlım istendiği amaç doğrultusunda değiştirilebilir. İstediğimiz şekilde ekleme çıkarma yapılabilinir.<em>(Yazılımın kaynak koduna erişim (open source) bunun için bir önşarttır.)</em></p>
+</li>
+<li>
+<p><strong>Dağıtılabilirlik:</strong>  Yazılım herhangi biri tarafından tekrardan dağıtılabilir, toplulukla bunu paylaşabilir.</p>
+</li>
+<li>
+<p><strong>Değiştirip Dağıtılabilirlik:</strong> Bir yazılımı istediğimiz gibi çalıştırıp, değiştirdiğimiz gibi o yazılımı istediğimiz doğrultuda değiştirip ve geliştirip bu haliyle yeniden dağıtabiliriz.</p>
+</li>
+</ol>
+<p>Tüm bu şartları yerine getirebilen her yazılım <strong>özgürdür.</strong></p>
+<h2>Distro (Dağıtım) nedir ?</h2>
+<p>GNU/Linux isimli indirip kurabileceğiniz bir işletim sistemi aslında yoktur. Birçok distro vardır.</p>
+<p>Distro, yani dağıtım, özgür yazılım felsefesinin çok alternatifli dünyasının bir sonucu olarak ortaya çıkmış, GNU/Linux&#x27;a özgü bir terimdir.</p>
+<p><a href="http://futurist.se/gldt/"><strong>futurist.se/gldt/</strong></a></p>
+<p align="center"><img alt="distros" src="http://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.png" width="400"/></p>
+<p><strong>Peki neden tek bir işletim sistemi değil de birden fazla işletim sistemine -distro- ihtiyaç duyulmuştur ?</strong></p>
+<p>Çünkü tüm insanlar farklıdır. Herkesin kendine göre ilgi alanları vardır. Bu sebepten dolayı aynı ilgi alanına sahip kişiler birleşerek bir topluluk yani <strong>community</strong>&#x27;leri oluşturur. Bu community&#x27;ler ilgi duydukları alanlara uygun özelleştirmeleri yaparak bunu bir dağıtım haline getirirler ve bunu tüm dünya ile paylaşırlar.</p>
+<p>Ubuntu Studio bunun için güzel bir örnektir.</p>
+<p align="center"><img alt="distros" src="/blog/images/hafta0/12.png" width="600"/></p>
+<h2>Temel Dağıtımlar Nelerdir ?</h2>
+<ul>
+<li>
+<p>Debian</p>
+<ul>
+<li>Ubuntu</li>
+<li>Pardus</li>
+</ul>
+</li>
+<li>
+<p>Red Hat</p>
+<ul>
+<li>CentOS</li>
+<li>Fedora</li>
+</ul>
+</li>
+<li>
+<p>Slackware</p>
+</li>
+<li>
+<p>Arch</p>
+<ul>
+<li>Manjaro</li>
+</ul>
+</li>
+<li>
+<p>OpenSuse</p>
+</li>
+</ul>
+<p><a href="https://distrowatch.com/"><strong>distrowatch.com/</strong></a></p>
+<h2>PauSiber Dev Nedir ? Neden İhtiyacımız Var ?</h2>
+<p><strong>PaüSiber Dev, Arch Linux üzerine özelleştirilerek, geliştirme yapılması için uygun bir ortamın oluşması amacıyla hazırlanmış, özelleştirilmiş bir dağıtımdır.</strong></p>
+<p>Dağıtımın hazırlanması için duyduğumuz isteğin ana kaynağı, topluluğumuz tarafından düzenlenen eğitimler sırasında, katılımcıların sistemlerini eğitime uygun hale hazırlayarak gelmemesi ya da anlık olarak sorunlar çıkmasından kaynaklanan <strong>zaman israfını önlemek</strong> isteyişimizdir.</p>
+<p>Bu dağıtım ile daha önceden düşünülerek yapılandırılmış sistem üzerinde, direkt olarak geliştirme aşamasına geçilmesi planlanmaktadır. Ayrıca genel olarak sistemin kullanımı kolaylaştıracak bazı yapılar da sisteme entegre edilmiştir.</p>
+<p><strong>Aslında gerçekten bir dağıtım değildir, yalnızca OVA sürümü vardır.</strong></p>
+<p>Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux&#x27;un farklı donanımlarda ortaya çıkarabileceği sürücü sorunlarıdır. Eğitimler sırasında bu gibi sorunların ortaya çıkmasını istemiyoruz. OVA olarak sunduğumuz için, katılımcı ana sisteminin yapısını değiştirmeden, direkt olarak VirtualBox üzerinden &quot;PauSiber Dev.ova&quot; kurulumunu 2 dakika içersinde yapabilecektir. Ardından geliştirmeye başlanabilir!</p>
+<p><strong>PauSiber Dev</strong> fikri <strong>HacknBreak18</strong>&#x27;de oraya çıkmıştır.</p>
+<p align="center"><img alt="hacknbreak18" src="/blog/images/hafta0/3.png" width="500"/></p>
+<h2>VirtualBox Kurulumu</h2>
+<p><strong>1 -</strong> VirtualBox&#x27;ın sitesinden bilgisayarınıza uygun olan setup&#x27;ı indirin.
+<a href="https://www.virtualbox.org/wiki/Downloads">www.virtualbox.org/wiki/Downloads/</a></p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/4.png"/></p>
+<p><strong>2 -</strong> İndirilen setup&#x27;ı açın.</p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/5.png"/></p>
+<p><strong>3 -</strong> Ardından next next next diyerek kurulumu tamamlayın :) ..</p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/6.png"/></p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/7.png"/></p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/8.png"/></p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/9.png"/></p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/10.png"/></p>
+<p><strong>4 -</strong> Ve yükleme işlemi tamamlandı.</p>
+<p align="center"><img alt="virtualbox" src="/blog/images/hafta0/11.png"/></p>
+<h2>PauSiber Dev Kurulumu</h2>
+<p><strong>1 -</strong> Dev&#x27;in sitesinden OVA&#x27;yı indirin.
+<a href="https://dev.pausiber.xyz/">dev.pausiber.xyz/</a></p>
+<p><strong>2 -</strong> Ardından OVA&#x27;yı VirtualBox ile çalıştırın.</p>
+<p align="center"><img alt="dev" src="/blog/images/hafta0/13.png"/></p>
+<p><strong>3 -</strong> OVA&#x27;yı çalıştırdığınızda karşınıza aşağıdaki gibi bir menu gelecek. MAC adreslerinin yeniden oluşturulması için gerekli tiki işaretledikten sonra <strong>import</strong> seçeneğine basın.</p>
+<p align="center"><img alt="dev" src="/blog/images/hafta0/14.png"/></p>
+<p><strong>4 -</strong> Import işlemi bittikten sonra sanal makineyi başlatabilirsiniz.</p>
+<p align="center"><img alt="dev" src="/blog/images/hafta0/15.png"/></p>
+<h2>Bu hafta neler yaptık ?</h2>
+<ul>
+<li>Linux&#x27;un bir işletim sistemi değil, çekirdek olduğunu öğrendik.</li>
+<li>Çekirdek ve işletim sisteminin ne olduğunu kabaca öğrendik.</li>
+<li>GNU&#x27;nun ne olduğunu, önceden HURD isimli bir çekirdeği kullandığını öğrendik.</li>
+<li>Yalnızca Linux denmesinin neden yanlış olduğunu, GNU/Linux olarak isimlendirilmesi gerektiğini öğrendik.</li>
+<li>GNU/Linux&#x27;a neden ihtiyacımız olduğunu tartıştık.</li>
+<li>Özgür yazılımın ne olduğunu öğrendik.</li>
+<li>Bir yazılımın özgür olması için gerekli koşulların neler olduğunu öğrendik.</li>
+<li>Dağıtım yani distro teriminin ne olduğunu ve neden birçok dağıtımın olduğunu öğrendik.</li>
+<li>Temel dağıtımların neler olduğunu öğrendik.</li>
+<li>PauSiber Dev&#x27;in ne olduğunu ve neden bunu hazırlama ihtiyacı duyduğumuzu öğrendik.</li>
+</ul>
+<p><strong>Haftaya Görüşmek Üzere!</strong></p><small style="display:block;margin-top:8rem" class="jsx-7c359fde634f3543"><time class="jsx-7c359fde634f3543">2023</time> © PauSiber</small></article></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/haftalar/hafta-sifir","query":{},"buildId":"AnwSNZldjFlOmbX5kYkmh","assetPrefix":"/blog","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en"><head><meta name="robots" content="follow, index"/><meta name="description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta property="og:site_name" content="Next.js Blog Starter Kit"/><meta property="og:description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta property="og:title" content="Next.js Blog Starter Kit"/><meta property="og:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@yourname"/><meta name="twitter:title" content="Next.js Blog Starter Kit"/><meta name="twitter:description" content="Clone and deploy your own Next.js portfolio in minutes."/><meta name="twitter:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml"/><link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><script>!function(){try {var d=document.documentElement.classList;d.remove('light','dark');var e=localStorage.getItem('theme');if("system"===e||(!e&&true)){var t="(prefers-color-scheme: dark)",m=window.matchMedia(t);m.media!==t||m.matches?d.add('dark'):d.add('light')}else if(e) d.add(e)}catch(e){}}()</script><title>Hafta 2</title><meta name="next-head-count" content="6"/><link rel="preload" href="/blog/_next/static/css/5076a516e8a2b633.css" as="style"/><link rel="stylesheet" href="/blog/_next/static/css/5076a516e8a2b633.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/blog/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/blog/_next/static/chunks/webpack-0f44c3e068765874.js" defer=""></script><script src="/blog/_next/static/chunks/framework-d5c96c6d07ca9fe9.js" defer=""></script><script src="/blog/_next/static/chunks/main-dc3cbede724993d3.js" defer=""></script><script src="/blog/_next/static/chunks/pages/_app-e89de317f965cd3b.js" defer=""></script><script src="/blog/_next/static/chunks/353-9c855d83cc7ddaed.js" defer=""></script><script src="/blog/_next/static/chunks/pages/haftalar/hafta-iki-7bb119fc9a67cdea.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_buildManifest.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_ssgManifest.js" defer=""></script><script src="/blog/_next/static/AnwSNZldjFlOmbX5kYkmh/_middlewareManifest.js" defer=""></script><style id="__jsx-7c359fde634f3543">a.jsx-7c359fde634f3543{float:right}
+@media screen and (max-width:480px) {article.jsx-7c359fde634f3543{padding-top:2rem;
+padding-bottom:4rem}}</style></head><body><div id="__next" data-reactroot=""><article class="container prose prose-sm md:prose dark:prose-dark"><h1>Hafta 2</h1><div class="meta-line"><div class="meta">Enes Kaya<!-- -->, <time>Wed May 05 2021</time> • <a class="tag" href="/blog/tags/gnu/linux">gnu/linux</a></div><a class="meta-back" href="/blog/haftalar">Back</a></div>
+<p><strong>Amaç :</strong> Kullanıcı-grup yönetimini ve dosya-dizin izinlerini kavratmak.</p>
+<p><strong>Yazarlar :</strong> <a href="https://github.com/boratanrikulu"><strong>boratanrikulu</strong></a> <strong>&amp;&amp;</strong> <a href="https://github.com/hasantezcan"><strong>hasantezcan</strong></a></p>
+<hr/>
+<h2>Hastane Örneği Üzerinden Açıklanması</h2>
+<p>Bir hastane düşünün, bu hastanede çalışanların kullanabileceği yalnız bir tane bilgisayar var. Ve hastanemizde çalışan üç ana meslek grubu var. Bunlar; <strong>doktorlar</strong>, <strong>güvenlik görevlileri</strong> ve <strong>aşçılar</strong>.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/14.png" width="800"/></p>
+<p>Bu çalışanların tek bir bilgisayarı kullanmasının iki farklı seneryosu olabilir.</p>
+<h4>1 - Üç meslek grubu da aynı bilgisayarı &quot;tek oturum&quot; şeklinde kullanabilir.</h4>
+<p>Bu durumda doktor, bilgisayarı kullandığı zaman, olması gerektiği gibi hastalarının; raporlarına, filimlerine, ameliyat görüntülerine vb.. bilgilere ulaşabilir. Aynı zamanda diğer meslek grupları ile ortak bir bilgisayar kullandığından; <strong>güvenlik kameralarına</strong>, o ayın <strong>mutfak masraflarına</strong> da bakabilir.</p>
+<p>Ve bu durum diğer meslek grupları için de geçerlidir. Bir güvenlik görevlisinin ya da aşçının herhangi bir hastanın raporlarına erişebilmesi ne kadar güvenli ve doğurudur?</p>
+<p>İşte bu durumun yaşanmaması için, her bir çalışan için ayrı bir kullanıcı oturumu oluştururuz.</p>
+<h4>2 - Her bir çalışan için ayrı bir oturum açılabilir.</h4>
+<p>Bu durumda her bir çalışanın kendine ait bir <strong>kullanıcısı</strong> olacağından bir önceki durumda yaşanan dosya erişim karmaşası bu sefer olmayacaktır. Yani hiçbir aşçı, güvenlik kameralarına erişip bu kayıtlar ile oynayamayacaktır. Her bir kullanıcının yetkileri belirli olacaktır.</p>
+<hr/>
+<h2>Hastane Örneğimizi Uygulayalım</h2>
+<p>Şimdi gelin bu hastaneye <strong>iki tane doktor</strong>, <strong>iki tane güvenlik görevlisi</strong> ve <strong>iki tane de aşçı</strong> ekleyelim.</p>
+<ul>
+<li>Doktorlar<!-- -->
+<ul>
+<li>doktor_beyza</li>
+<li>doktor_ahmed</li>
+</ul>
+</li>
+<li>Güvenlikçiler<!-- -->
+<ul>
+<li>guvenlik_aykut</li>
+<li>guvenlik_ayse</li>
+</ul>
+</li>
+<li>Aşçılar<!-- -->
+<ul>
+<li>asci_bora</li>
+<li>asci_hayriye</li>
+</ul>
+</li>
+</ul>
+<p>GNU/Linux dağıtımlarında, sisteme bir kullanıcı eklemek için <strong>adduser</strong> komutu kullanılabilir.</p>
+<pre><code>	[~$] adduser kullanıcının_adı
+</code></pre>
+<p align="center"><img alt="tldr useradd" src="/blog/images/hafta2/28.jpg" width="800"/></p>
+<p align="center"><img alt="useradd" src="/blog/images/hafta2/29.jpg" width="800"/></p>
+<p align="center"><img alt="home" src="/blog/images/hafta2/30.jpg" width="800"/></p>
+<p>Şuan sistemimize altı adet kullanıcı ekledik.</p>
+<hr/>
+<h4>Eklediğimiz Kullanıcıları Görüntüleyelim</h4>
+<p>GNU/Linux&#x27;da sistemde bulunan kullanıcılar <strong>/etc/passwd</strong> dosyasında sıralanır. Kullancıların bilgileri bu dosyada saklanır.</p>
+<p>Bu dosyayı görüntülemek için;</p>
+<pre><code>	[~$] cat /etc/passwd
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/7.png" width="800"/></p>
+<p>Dosya incelendiğinde <strong>dev:x:1000:1000:PauSiber Dev,,,:/home/dev:/usr/bin/zsh</strong> gibi ifadeler gözükür. Hadi şimdi bu ifadelerin ne anlama geldiğini açıklayalım.</p>
+<table><thead><tr><th align="center">ifade</th><th align="center">açıklama</th></tr></thead><tbody><tr><td align="center"><strong>dev</strong></td><td align="center">kullanıcı adı</td></tr><tr><td align="center"><strong>x</strong></td><td align="center">kullancının parolasını temsil eder</td></tr><tr><td align="center"><strong>1000</strong></td><td align="center">kullanıcının üyelik numarasıdır (user ID)</td></tr><tr><td align="center"><strong>1000</strong></td><td align="center">kullanıcının ait olduğu grubun numarasıdır (group ID)</td></tr><tr><td align="center"><strong>PauSiber Dev</strong></td><td align="center">kullancı hakkında kayıtlı bilgi</td></tr><tr><td align="center"><strong>/usr/bin/zsh</strong></td><td align="center">kullanıcının shell dizini</td></tr></tbody></table>
+<hr/>
+<h4>Gruplarımızı Oluşturalım</h4>
+<p>Peki bu hastanede bir tane mi doktar var ? Tabiki de hayır. Bir meslek grubuna dahil birden fazla çalışan olabilir. Aynı meslek grubunda bulunan çalışanların görev tanımları birbirleri ile örtüşür. Aynı meslek grubunda olanları gruplara toplamamız mantıklı bir hareket olacaktır.</p>
+<p>Şuan hastanemizde üç farklı meslek grubuna ait ikişer tane çalışanımız var. Gelin şimdi bu meslek grupları için sistemimizde bunu ifade edecek yeni gruplar oluşturalım.</p>
+<p>GNU/Linux dağıtımlarında, sisteme bir grup eklemek için <strong>groupadd</strong> komutu kullanılabilir.</p>
+<pre><code>	[~#] groupadd grubun_ismi
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/8.png" width="800"/></p>
+<p>Sistemimize üç adet yeni grup ekledik. Sistemimizde bulunan gruplar <strong>/etc/group</strong> dosyasında sıralanır.</p>
+<p>Bu dosyayı görüntülemek için;</p>
+<pre><code>	[~$] cat /etc/group
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/9.png" width="800"/></p>
+<p>Son görselde de görüldüğü üzere bizim eklediğimiz grupların haricinde, önceden eklediğimiz kullacılar da burada gözükmekte. Örneğin &quot;doktor_beyza&quot; gibi bir grup sistemde çoktandır eklenmiş durumda. <strong>Peki bu nasıl oluyor?</strong></p>
+<p>GNU/Linux dağıtımlarında, sisteme yeni bir kullanıcı eklediğinizde, sisteme aynı anda bu kullanıcı adında bir de grup ekler.</p>
+<hr/>
+<h4>Çalışanlarımızı Gruplarına Ekleyelim</h4>
+<p>Evet, şuan hastanemizde altı adet çalışan ve bununla birlikte henüz daha hiçbir personeli dahil etmediğimiz üç tane de meslek grubumuz var. Şimdi çalışanlarımızı ait oldukları meslek gruplarına ekleyelim.</p>
+<p>Bunu yapmak için <strong>gpasswd</strong> komutu kullanılabilir.</p>
+<pre><code>	[~#] gpasswd --add kullanıcı_adi grup_adi
+</code></pre>
+<p><strong>Not :</strong> Burada <strong>--add</strong> parametresi oldukça kritiktir. Eğer kullanılmaz ise kullanıcıyı hali hazırda bulunduğu tüm gruplardan çıkarır ve yeni gruba ekler. Fakat bizim istediğimiz bu değil, kullanıcının hali hazırda bulunduğu grupları değiştirmek istemiyoruz, yalnızca yeni bir gruba dahil etmek istiyoruz, bu durumda <strong>--add</strong> parametresi kullanmamız bir gerekliliktir.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/10.png" width="800"/></p>
+<p>Ekleme işlemlerimizi yaptık. Şimdi <strong>/etc/group</strong>&#x27; u yeniden görüntüleyelim.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/11.png" width="800"/></p>
+<p>Başarılı bir şekilde personelimizi gruplarına ekledik.</p>
+<hr/>
+<h4>Hastane Müdürümüz, Nam-ı Değer ROOT !</h4>
+<p>Şimdi sıra hastanenin müdüründen bahsetmeye geldi. Hastane müdürü hastanedeki en yetkili kişidir. Doktorların, güvenlik görevlilerinin ve aşçının erişebildiği verilerin hepsine erişebilir. Aslında o da bir çalışandır, fakat özel bir çalışandır. Yetkileri onu diğer çalışanlardan ayrıştırır.</p>
+<p>GNU/Linux sistemlerde bahsettiğimiz hastane müdrünün karşılığı <strong>root</strong> kullanıcısıdır. Root kullancısı sistemdeki en yetkili kullancıdır. Sistemdeki tüm dosyalara erişim yetkisi vardır.</p>
+<hr/>
+<h4>Çalışanların Odaları, /home dizinleri</h4>
+<p>Hastanemizde çalışan tüm personelin kendine ait bir odası vardır. Çalışanlar bu odalarda kendi kişisel eşyalarını saklarlar.</p>
+<p>GNU/Linux işletim sistemlerinde sisteme kayıtlı her insan kullancı için <strong>/home</strong> dizini altında o kullancıya tahsis edilmiş bir alan mevcuttur. Kullanıcılar bu dizinde verilerini diledikleri şekilde depolarlar.</p>
+<p><strong>root</strong> kullancısının da kendine ait bir odası vardır. Fakat <strong>root</strong> kullacısına ayrılmış bu alan direkt <strong>root</strong> dizini altında ayrılmış <strong>/root</strong> dizinidir.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/17.png" width="800"/></p>
+<hr/>
+<h4>Hastanemizden Çalışan Çıkaralım</h4>
+<p>Hastanemizden, yani sistemimizden bir kullanıcıyı silmek istersek <strong>deluser</strong> komutunu kullanabiliriz.</p>
+<pre><code>	[~#] deluser --remove-home kullancı_adi
+</code></pre>
+<p>Şimdi sistemimizde kayıtlı olan doktor_ahmedi aşağıdaki örnekteki gibi işten çıkaralım.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/12.png" width="800"/></p>
+<hr/>
+<h4>Kullancının Parolalarının Değiştirilmesi</h4>
+<p>Eğer bir kullanıcı parolasını değiştirmek ister ise <strong>passwd</strong> komutu kullanılabilir.</p>
+<pre><code>	[~$] passwd
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/13.png" width="800"/></p>
+<hr/>
+<h4>Bir Çalışanımızı Grubundan Çıkaralım</h4>
+<p>Örneğin guvenlık_aykut kullanıcısının artık guvenlik grubunda bulunmasını istemiyorsak <strong>gpasswd</strong> ile birlikte <strong>--delete</strong> parametresini kullanarak bu işlemi gerçekleştirebiliriz.</p>
+<pre><code>	[~#] gpasswd --delete guvenlik_aykut guvenlikciler
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/18.png" width="800"/></p>
+<p>Kullanıcıyı örnek amacıyla grubundan çıkarmıştık, şimdi geri dahil edelim <strong>:)</strong>.</p>
+<pre><code>	[~#] gpasswd --add guvenlik_aykut guvenlikciler
+</code></pre>
+<hr/>
+<h4>Bir Grubumuzu Silelim</h4>
+<p>Örneğin sistemimize hemşireler grubunu eklemiş olalım, eğer bu gruba ihtiyacımız artık kalmaz ise grubu silebiliriz. Grubu silmek için <strong>groupdel</strong> komutu kullanılır.</p>
+<pre><code>	[~#] groupdel hemsireler
+</code></pre>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/15.png" width="800"/></p>
+<hr/>
+<h2>Hastane Yönetimi</h2>
+<p>Hastane örneğimizde <strong>hastalar</strong>, <strong>kameralar</strong> ve <strong>yemekhane</strong> dizinlerimiz olacak. Fakat tahmin edeceğiniz üzere bu dosyalara yalnızca belirli meslek gruplarının ve belirli kullanıcıların yetki sahibi olmasını bekleriz.</p>
+<p>Aşağıdaki gibi dizinleri oluşturalım.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/19.png" width="800"/></p>
+<p>Dizinlerimiz içerisine aşağıdaki gibi gerekli dosyaları da oluşturalım.</p>
+<p>Bu dizinlerin sahiplik ve izinlerini ayarlama işlemine geçmeden önce GNU/Linux&#x27;da dosya ve dizin kavramlarından bahsetmeliyiz.</p>
+<p align="center"><img alt="pwd" src="/blog/images/hafta2/20.png" width="800"/></p>
+<hr/>
+<h2>Dosya ve Dizin Kavramları</h2>
+<p><strong>GNU/Linux&#x27;ta her şey birer dosyadır</strong>. <a href="https://stackoverflow.com/a/10893965"><strong>[1]</strong></a></p>
+<p>Özünde <strong>dizinler de dosyaların konumunu belirten birer özel dosyadır.</strong> Dizinler veri içeremez, yalnızca konum belirtmek amaçlı kullanılabilirler. Dizinlerin bir türü yoktur, uzantısı yoktur. Dosyaların ise bir türü vardır, uzantısı bulunabilir.</p>
+<p>Dizin ve dosya isimleri aynı olamaz.</p>
+<hr/>
+<h4>Dosya ve Dizin İzinlerinin İncelenmesi</h4>
+<p><strong>ls</strong> ile dosyaların izinleri incelenebilir.</p>
+<pre><code>	[~$] ls -l fileName
+</code></pre>
+<p align="center"><img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/0.png"/></p>
+<p>Dosya ve dizin işlemlerine bakıldığında 10 karakterden oluşan bir yapı görünür.</p>
+<p>Bu karakterler</p>
+<ul>
+<li>dosyalar için <strong>r</strong>[read] okumak, <strong>w</strong>[write] yazmak, <strong>x</strong>[execute] çalıştırmak</li>
+<li>dizinler için <strong>r</strong>[read] içeriğini görüntüleyebilmek, <strong>w</strong>[write] alt dosya ve dizinler oluşturabilmek, <strong>x</strong>[execute] cd ile içine girebilmek</li>
+</ul>
+<p>izinlerini temsilen kullanılır.</p>
+<p>Bunları aşağıdaki gibi üçerli olarak gruplandırarak incelemekte fayda vardır.</p>
+<p align="center"><img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/></p>
+<p>Yani bu örnektekinin;</p>
+<ul>
+<li>bir <strong>dizin</strong> olduğunu,</li>
+<li>dosya kullanıcısının <strong>okuma/yazma/çalıştırma</strong>,</li>
+<li>dosya grubunun <strong>okuma/çalıştırma</strong>,</li>
+<li>diğer herkesin de <strong>okuma/çalıştırma</strong></li>
+</ul>
+<p>iznine sahip olduğunu görüyoruz. Ayrıca bu dosyaların fsutil kullanıcısına ait olduğunu ve group&#x27;unun users olduğunu incelemiş olduk.</p>
+<hr/>
+<h4>Hastane Dosya Sahipliklerinin Değiştirilmesi</h4>
+<p>Şimdi teorik bilgimizi edikten sonra hastane örneğimize geri dönebiliriz.</p>
+<p>Dosyaların sahipliklerini user ve group bazında değiştireceğiz. Bunun için <strong>chown</strong> komutu kullanabiliriz. Yapısı oldukça basittir.</p>
+<p>Genel syntax örnekleri aşağıdaki gibidir.</p>
+<pre><code>	[~#] chown yeniSahip dosya_adi
+</code></pre>
+<pre><code>	[~#] chown yeniSahip:yeniGroup dosya_adi
+</code></pre>
+<pre><code>	[~#] chown :yeniGroup dosya_adi
+</code></pre>
+<p>Aşağıdaki gibi 3 dizin için de <strong>-R</strong> parametresini kullanarak dosyaların group bilgilerini değiştirelim.</p>
+<p>Burada <strong>-R</strong> parametresini kullanma sebebimiz belirttiğimiz işlemi recursive olarak tüm alt(sub) dosya ve dizinlere uygulanması gerektiğini belirtmek içindir.</p>
+<p align="center"><img src="/blog/images/hafta2/21.png"/></p>
+<p>Tüm hastane dosyalarımızın group sahipliklerini değiştirdik. Fakat dosyaların kullanıcı sahiplikleri halen belirlenmiş değil. Her dosyanın sahibi olarak meslek grubundan belirlenen bir kullanıcıyı atamak istiyoruz. Aşağıdaki gibi adımları gerçekleştirdik.</p>
+<p align="center"><img src="/blog/images/hafta2/22.png"/></p>
+<p>Dosya sahipliklerini ayarladık.</p>
+<hr/>
+<h4>Hastane Dosya İzinlerinin Değiştirilmesi</h4>
+<p>Burada kurmak isteğimiz yapı şu şekilde; ilgi dizinler ve dosyalar meslek grubundaki herkes tarafından okunabilir, çalıştırılabilir olmalı; meslek grubundan belirlenen yalnızca bir kişi dosya üzerinde değiştirme yetkisine sahip olmalı.</p>
+<p>Bunun için dosyaların izinlerini değiştireceğiz.</p>
+<p>Bunun için <strong>chmod</strong> komutu kullanabilirz. Chmod&#x27;un iki tip kullanımı vardır; <strong>text method</strong> ve <strong>numeric method</strong>. Text method günlük kullanımda daha çok kullanılır, basit olması açısından. Numeric method daha çok script&#x27;lerde kullanılır.</p>
+<p>Text Method&#x27;un genel kullanım syntax&#x27;ı aşağıdaki gibidir.</p>
+<pre><code>	[~$] chmod kim=izinYetkisi dosyaAd
+</code></pre>
+<p>Burada <strong>kim</strong> ifadesi, işlemi hangi kişiler için yapacağını belirtmek için kullanırız.</p>
+<table><thead><tr><th align="center">Text</th><th align="center">Class</th><th align="center">Açıklama</th></tr></thead><tbody><tr><td align="center"><strong>u</strong></td><td align="center">Owner</td><td align="center">Dosyaya sahip olan kullanıcı</td></tr><tr><td align="center"><strong>g</strong></td><td align="center">Group</td><td align="center">Dosyanın ait olduğu grup</td></tr><tr><td align="center"><strong>o</strong></td><td align="center">Other</td><td align="center">Diğer herkes</td></tr><tr><td align="center"><strong>a</strong></td><td align="center">All</td><td align="center">Herkes (<strong>ugo</strong> ile aynı anlama gelir)</td></tr></tbody></table>
+<p>Örnekte <strong>=</strong> olarak ifade ise verilen işlem ile ne yapılacağını belirtmek amacıyla kullanırız.</p>
+<table><thead><tr><th align="center">Operator</th><th align="center">Açıklama</th></tr></thead><tbody><tr><td align="center"><strong>+</strong></td><td align="center">Yetkiyi ilgili kullanıcılara ekler</td></tr><tr><td align="center"><strong>-</strong></td><td align="center">Yetkiyi ilgili kullanıcılardan çıkarır</td></tr><tr><td align="center"><strong>=</strong></td><td align="center">Yetkiyi eşitler</td></tr></tbody></table>
+<p><strong>İzin yetkisi</strong> ise verilecek olan izindir. Yani; r, w, x gibi ifadeler girilir.</p>
+<hr/>
+<h4>Dosyalarımızın İzinlerini Ayarlayalım</h4>
+<p>Şimdi öğrendiğimiz teorik bilgileri, hastane örneğimiz üzerinde uygulayarak pratiğe dökelim.</p>
+<p>İlk olarak tüm dosya group&#x27;larından yazma yetkisini çıkaracağız. Bunun için aşağıdaki gibi bir ifade kullanmamız yeterlidir. Aşağıdaki ifade, dosyanın group sahipliğinden yazma <strong>[w]</strong> yetkisini çıkarmamızı sağlar. Artık group yetkisi kullanılarak dosya üzerinde yazma işlemi yapılamayacaktır.</p>
+<pre><code>	[~#] chmod g-w -R dizin/
+</code></pre>
+<p align="center"><img src="/blog/images/hafta2/23.png"/></p>
+<p>Ayrıca <strong>other</strong>&#x27;ın dosya üzerinde hiçbir yetkisinin olmasını istemiyoruz. Bunun için de aşağıdaki gibi örneğimizi uygularız. Other&#x27;ın sahip olduğu tüm yetkiyi kaldırmış oluruz.</p>
+<pre><code>	[~#] chmod o-rwx -R dizin/
+</code></pre>
+<p align="center"><img src="/blog/images/hafta2/24.png"/></p>
+<p>Bu işlemi uyguladığımızda klasör&#x27;ün içinde neler olduğuna bile bakamayız, çünkü şu ana kadar olan tüm işlemleri PauSiber Dev&#x27;in normal kullanıcısı olan <strong>dev</strong> ile yaptık, dizinler üzerinde dev kullanıcısı other olarak gözükür. dev&#x27;in hiçbir yetkisi olmadığı için dizin içlerini göremeyiz.</p>
+<p>Dizinlerin içerisini görüntülemek için meslek grubundan bir kullanıcıya geçiş yapabiliriz.</p>
+<p>Eğer dosyalar üzerinden yazma işlemi yapmak istersek de meslek grubundan şef olarak seçtiğimiz kullanıcıya geçiş yapmamız gerekir.</p>
+<p>Başka bir kullanıcıya geçiş yapmak için <strong>su</strong> komutunu kullanabiliriz.</p>
+<p align="center"><img src="/blog/images/hafta2/25.png"/></p>
+<hr/>
+<h4>Numeric Method ile İzin İşlemlerinin Yapılması</h4>
+<p>Az önce, text method örneklerimizi yapmadan önce, numeric method da olduğunu söylemiştik. Bu method&#x27;u uygulayabilmemiz için bazı bilgilere ihtiyacımız var.</p>
+<p>Daha önceden öğrendiğimiz gibi, dosya ve dizinlerin izinleri <strong>r</strong>, <strong>w</strong> ve <strong>x</strong> ile temsil edilir. Her yetkinin numarasal olarak bir karşılığı vardır. Bunlar aşağıdaki gibidir.</p>
+<table><thead><tr><th align="center">İzin</th><th align="center">Numara Karşılığı</th></tr></thead><tbody><tr><td align="center"><strong>r</strong></td><td align="center">4</td></tr><tr><td align="center"><strong>w</strong></td><td align="center">2</td></tr><tr><td align="center"><strong>x</strong></td><td align="center">1</td></tr></tbody></table>
+<p align="center"><img src="/blog/images/hafta2/dosya-ve-dizin-izinleri/1.jpg"/></p>
+<p>Bir dosyanın yetkisinin numarasal karşılığını göstermek için 3 basamaklı bir sayı kullanırız. Bu 3 basamaklı sayıyı elde etmek için yetkileri üçerli olarak gruplandırıp toplarız.</p>
+<p>Kendimiz toplamak yerine, bir dosyanın yetkisinin numarasal karşılığını direkt olarak görmek için <strong>stat</strong> komutu kullanılabilir.</p>
+<pre><code>	[~$] stat -c %a dosyaAdi
+</code></pre>
+<p align="center"><img src="/blog/images/hafta2/26.png"/></p>
+<p>Dosyanın izinlerini numeric method ile değiştirmek istiyorsak aşağıdaki gibi bir syntax kullanırız.</p>
+<pre><code>	[~$] chmod XXX dosyaAdi
+</code></pre>
+<p>Örneğin hastalar klasörü içerisinde bulunan dosyaların, other&#x27;lar tarafından okunabilir ve çalıştırılabilir olmasını istiyor olalım, aşağıdaki gibi yapabiliriz.</p>
+<p align="center"><img src="/blog/images/hafta2/27.png"/></p>
+<p>Text method kullanacak olsaydık, aynı işlemi yapmak için chmod o=rx * dememiz yeterdi.</p>
+<hr/>
+<h4>Dosya Kilitlemek</h4>
+<p>Bir dosyayı üzerinde izni verilmiş olsa bile kilitlemek, yani değişiklik yapılmaz olsun istiyorsak <strong>chattr</strong> komutu kullanabiliriz. Kullanımı oldukça basittir.</p>
+<p>Kilitlemek için :</p>
+<pre><code>	[~$] chattr +i dosyaAdi
+</code></pre>
+<p>Kilidi açmak için :</p>
+<pre><code>	[~$] chattr -i dosyaAdi
+</code></pre>
+<hr/>
+<h2>Bu hafta neler yaptık ?</h2>
+<ul>
+<li>
+<p>Kullanıcı-Grup Yönetimi için;</p>
+<ul>
+<li>Bir kullanıcının parolasının nasıl değiştirileceğini,</li>
+<li>Sisteme yeni kullanıcıların nasıl ekleneceğini,</li>
+<li>Yeni grupların nasıl oluşturulacağını,</li>
+<li>Gruplara kullanıcıların nasıl ekleneceğini,</li>
+<li>Root kullanıcısının mantığını,</li>
+<li>/home dizinlerinin mantığını,</li>
+<li>Kullanıcıların nasıl silineceğini,</li>
+<li>Gruplardan kullanıcıların nasıl çıkarılacağını,</li>
+<li>Grupların nasıl silineceğini öğrendik..</li>
+</ul>
+</li>
+<li>
+<p>Dosya-Dizin İzinleri için;</p>
+<ul>
+<li>GNU/Linux&#x27;ta dizinlerin de aslında birer dosya olduğunu,</li>
+<li>Yetki kavramlarını,</li>
+<li>Dosya sahipliklerinin nasıl değiştirileceğini,</li>
+<li>Text ve numeric method ile dosyaların izinlerinin nasıl değiştirileceğini,</li>
+<li>Dosyaların nasıl kilitlenebileceğini öğrendik..</li>
+</ul>
+</li>
+</ul><small style="display:block;margin-top:8rem" class="jsx-7c359fde634f3543"><time class="jsx-7c359fde634f3543">2023</time> © PauSiber</small></article></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/haftalar/hafta-iki","query":{},"buildId":"AnwSNZldjFlOmbX5kYkmh","assetPrefix":"/blog","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
