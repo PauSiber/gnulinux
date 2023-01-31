@@ -4,7 +4,7 @@ module.exports = withNextra({
         loader: "akamai",
         path: ""
     },
-    basePath: "/blog",
-    assetPrefix: "/blog"
+    basePath: "/",
+    assetPrefix: "/"
 
 })
