@@ -1,11 +1,16 @@
+---
+title: Hafta 0
+date: 2023/5/5
+description: Linux'un genel bir tanımı. Gerekli kurulumların gerçekleştirilmesi.
+tag: gnu/linux
+author: Enes Kaya
+---
 
 # Hafta 0
 
-**Amaç :** Linux'un genel bir tanımı. PauSiber Dev kurulumunun gerçekleştirilmesi.  
+**Amaç :** Linux'un genel bir tanımı. Gerekli kurulumların gerçekleştirilmesi.  
 
 **Yazarlar :** [**boratanrikulu**](https://github.com/boratanrikulu) **&&** [**hasantezcan**](https://github.com/hasantezcan)
-
----
 
 ## Linux Nedir ?
 
@@ -22,7 +27,7 @@ POSIX standartlarına uygun olarak yazılan Linux, GNU Genel Kamu Lisansı ile s
 Çekirdek, yani kernel, işletim sisteminin kalbidir. Uygulamalar ve donanım arasında çevirici görev görür. Fiziksel donanımla yazılım arasındaki haberleşmeyi sağlar.  
 
 <p align="center">
-	<img alt="kernel-nedir" src="img/0.png" width="500">
+	<img alt="kernel-nedir" src="/blog/images/hafta0/0.png"/>
 </p>
 
 Yani Linux tek başına bir işletim sistemi değildir.  
@@ -32,12 +37,10 @@ Yani Linux tek başına bir işletim sistemi değildir.
 İşletim sistemi, bilgisayarı kullanabilmemiz için gerekli olan yazılımlar bütünüdür. Örneğin önünüzde bulunan Windows bir işletim sistemidir. İşletim sistemi User Interface (shell) ve Kernel'dan oluşur.
 
 <p align="center">
-	<img alt="os-nedir" src="img/1.png" width="650">
+	<img alt="os-nedir" src="/blog/images/hafta0/1.png" width="650" />
 </p>
 
 İşletim sistemleri ve kernel bir bütün halinde çalışır. **Yani Linux için tek başına bir işletim sistemi diyemeyiz.**
-
----
 
 GNU isimli bir işletim sistemi vardır. Özgür yazılım felsefesini amaç edinen bu işletim sistemi, 1983'te Richard Stallman tarafından duyurulmuştur.[gnu.org](https://www.gnu.org/)
 
@@ -48,10 +51,8 @@ Günümüzde HURD'ın 1. versiyonu halen çıkarılamamıştır.
 Bu sebeplerden dolayı yalnızca Linux demek yanlıştır. **GNU/Linux** olarak söylenmesi daha doğrudur.
 
 <p align="center">
-	<img alt="hurd" src="img/2.png">
+	<img alt="hurd" src="/blog/images/hafta0/2.png" />
 </p>
-
----
 
 ## GNU/Linux'a Neden İhtiyacımız Var ?
 
@@ -67,8 +68,6 @@ GNU/Linux'un size sağlayacağı birçok avantaj var.
 - Açık kaynak olduğu için, **sorun tespitinin ve çözümünün oldukça hızlı olması** (community).  
 - Yardım bulabilmeniz için birçok topluluğun (community) olması; **bir şirkete bağlı değilsiniz, yalnız değilsiniz!**
 
----
-
 ## Özgür Yazılım Nedir ?
 
 **Özgür Yazılım bir özgürlük meselesidir, fiyat değil.**
@@ -80,8 +79,6 @@ Bu yanlış anlaşılmanın sebebi; *free* sözcüğünün hem ücretsiz hem de 
 Özgür yazılım insanları öğrenmeye, öğrendiklerini öğretmeye, kısıtlı ömrümüzde kazandığımız bilgileri gelecek nesillere bilgi birikimi olarak bırakmaya, bir defa yapılmış bir şeyin yapımı için gereken tekniği tekrar tekrar bulunmasına gerek bırakmamaya teşvik eder.
 
 Kısacası Özgür Yazılım **tüm insanlığa hizmet eder**, yanlızca **bir grup insanın cebine değil.**
-
----
 
 #### Bir Yazılım Nasıl Özgür Yazılım Olur?
 
@@ -97,9 +94,6 @@ Bir yazılımın özgür olması için yerine getirmesi gereken 4 kriter vardır
 
 Tüm bu şartları yerine getirebilen her yazılım **özgürdür.**
 
-
----
-
 ## Distro (Dağıtım) nedir ?
 
 GNU/Linux isimli indirip kurabileceğiniz bir işletim sistemi aslında yoktur. Birçok distro vardır.
@@ -109,7 +103,7 @@ Distro, yani dağıtım, özgür yazılım felsefesinin çok alternatifli dünya
 [**futurist.se/gldt/**](http://futurist.se/gldt/)
 
 <p align="center">
-	<img alt="distros" src="http://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.png" width="400">
+	<img alt="distros" src="http://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.png" width="400"/>
 </p>
 
 **Peki neden tek bir işletim sistemi değil de birden fazla işletim sistemine -distro- ihtiyaç duyulmuştur ?**
@@ -119,31 +113,24 @@ Distro, yani dağıtım, özgür yazılım felsefesinin çok alternatifli dünya
 Ubuntu Studio bunun için güzel bir örnektir.
 
 <p align="center">
-	<img alt="distros" src="img/12.png" width="600">
+	<img alt="distros" src="/blog/images/hafta0/12.png" width="600"/>
 </p>
-
----
 
 ## Temel Dağıtımlar Nelerdir ?
 
-- **Debian**
-	- Ubuntu
-	- Pardus
+* Debian
+	* Ubuntu
+	* Pardus
+* Red Hat
+	* CentOS
+	* Fedora
+* Slackware
+* Arch
+	* Manjaro
 
-- **Red Hat**
-	- CentOS
-	- Fedora
-
-- **Slackware**
-
-- Arch **<3**
-	- Manjaro
-
-- OpenSuse
+* OpenSuse
 
 [**distrowatch.com/**](https://distrowatch.com/)
-
----
 
 ## PauSiber Dev Nedir ? Neden İhtiyacımız Var ?
 
@@ -160,10 +147,8 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 **PauSiber Dev** fikri **HacknBreak18**'de oraya çıkmıştır.
 
 <p align="center">
-	<img alt="hacknbreak18" src="img/3.png" width="500">
+	<img alt="hacknbreak18" src="/blog/images/hafta0/3.png" width="500"/>
 </p>
-
----
 
 ## VirtualBox Kurulumu 
 
@@ -171,37 +156,37 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 [www.virtualbox.org/wiki/Downloads/](https://www.virtualbox.org/wiki/Downloads)
 
 <p align="center">
-	<img alt="virtualbox" src="img/4.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/4.png"/>
 </p>
 
 **2 -** İndirilen setup'ı açın.
 
 <p align="center">
-	<img alt="virtualbox" src="img/5.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/5.png"/>
 </p>
 
 **3 -** Ardından next next next diyerek kurulumu tamamlayın :) ..
 
 <p align="center">
-	<img alt="virtualbox" src="img/6.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/6.png"/>
 </p>
 <p align="center">
-	<img alt="virtualbox" src="img/7.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/7.png"/>
 </p>
 <p align="center">
-	<img alt="virtualbox" src="img/8.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/8.png"/>
 </p>
 <p align="center">
-	<img alt="virtualbox" src="img/9.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/9.png"/>
 </p>
 <p align="center">
-	<img alt="virtualbox" src="img/10.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/10.png"/>
 </p>
 
 **4 -** Ve yükleme işlemi tamamlandı.
 
 <p align="center">
-	<img alt="virtualbox" src="img/11.png">
+	<img alt="virtualbox" src="/blog/images/hafta0/11.png"/>
 </p>
 
 ## PauSiber Dev Kurulumu
@@ -212,22 +197,20 @@ Dağıtımı şuan yalnızca OVA olarak sunma sebebimiz, GNU/Linux'un farklı do
 **2 -** Ardından OVA'yı VirtualBox ile çalıştırın.
 
 <p align="center">
-	<img alt="dev" src="img/13.png">
+	<img alt="dev" src="/blog/images/hafta0/13.png"/>
 </p>
 
 **3 -** OVA'yı çalıştırdığınızda karşınıza aşağıdaki gibi bir menu gelecek. MAC adreslerinin yeniden oluşturulması için gerekli tiki işaretledikten sonra **import** seçeneğine basın.
 
 <p align="center">
-	<img alt="dev" src="img/14.png">
+	<img alt="dev" src="/blog/images/hafta0/14.png"/>
 </p>
 
 **4 -** Import işlemi bittikten sonra sanal makineyi başlatabilirsiniz.
 
 <p align="center">
-	<img alt="dev" src="img/15.png">
+	<img alt="dev" src="/blog/images/hafta0/15.png"/>
 </p>
-
----
 
 ## Bu hafta neler yaptık ?
 
