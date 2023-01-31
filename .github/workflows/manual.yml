@@ -1,0 +1,31 @@
+name: Deploy gnu/linux doc. to pages
+on:
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Deploy ...
+    runs-on: ubuntu-18.04
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js Env.
+        uses: actions/setup-node@v3.5.1
+      - name: Node version
+        run: node -v
+      - name: List file
+        run: ls
+      - name: Install dependencies
+        run: npm install
+      - name: Build the next.js app
+        run: npm run build
+      - run: touch ./out/.nojekyll
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: out
+      

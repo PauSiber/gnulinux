@@ -1,0 +1,147 @@
+---
+title: Hafta 3
+date: 2020/5/5
+description: Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması.
+tag: gnu/linux
+author: Enes Kaya
+---
+
+# Hafta 3
+
+**Amaç :** Server kavramının açıklanması, SSH Kullanımı, Zamanlanmış görevler oluşturulması.
+
+**Yazarlar :** [**boratanrikulu**](https://github.com/boratanrikulu) **&&** [**hasantezcan**](https://github.com/hasantezcan)
+
+<hr/>
+
+## Server (Sunucu) Nedir ?
+
+Server denince akıllara -filmlerin de etkisiyle- devasa büyüklükte hangarlar içine sıra sıra istiflenmiş, genelde siyah renkte dolaplar içinde bulunan, dikdörtgen şeklinde çekmeceler geliyor.
+
+Evet, akıllara gelen bu tablo ve tanım tamamen doğru. Fakat bir "server" oluşturmak için tüm bu saydığımız şeylere ihtiyacımız yok. Sadece bir bilgisayar, server oluşturmak için yeterli. Ve tabiki gerekli olan bir iletişim ağı.
+
+<p align="center">
+	<img alt="pwd" src="/blog/images/hafta3/0.jpg" width="800"/>
+</p>
+
+Yani server dediğimiz şeyler de aslında birer bilgisayardır.
+
+Bir bilgisayarın server olarak çalışabilmesi için; gerekli bazı yazılımlara ve kullandığı verileri iletim ağına itebilecek - çekebilecek güce sahip olması gerekir.
+
+Bu **güç** bazen en başta anlattığımız o hollywood vari tablodaki serverların gücü gibi devasa bir güce sahip olurken, bazen de 20 dolarlık bir bilgisayar olan Raspberry Pi'ın gücü olabilir.
+
+Server'ları yönetmek için her durumda fiziksel olarak müdahale edemeyiz. Uzaktan erişip yönetmemiz gerekir. Bu gibi durumlarda **SSH protokolü** kullanır.
+
+<hr/>
+
+## SSH Protokolü Nedir ?
+
+SSH (Secure Shell), ağ üzerinde bulunan bir sunucuya bağlanmaya ve bağlanılan sunucu üzerinde komut çalıştırma, dosya transferi gibi işlemleri gerçekleştirmeye olanak sağlayan bir uzak sunucu bağlantı protokolüdür.
+
+SSH protokolü; komut çalıştırma, dosya transferi gibi işlemlerin dışında, güvenli iletişim kanalları gerektiren durumların tamamında kullanılabilmektedir. Örneğin, POP3 mail protokolü gibi iletişimini şifrelenmemiş şekilde gerçekleştiren servisler SSH üzerinden aktarılarak şifreli ve güvenli duruma getirilebilirler.
+
+<hr/>
+
+#### SSH Kullanımı
+
+SSH'ın genel olarak kullanımı oldukça basittir. Aşağıdaki gibi bir yapı ile uzak server'ımıza; kullanıcı adı ve parola bilgisini kullanarak erişebiliriz.
+
+```
+	[~$] ssh kullancı_adı@server_ip
+```
+
+SSH'ın varsayılan port'u 22'dir. Fakat genellikle -her ne kadar gerekliliği tartışılsa da- sunucularda bu port güvenlik sebebi ile değiştirilmektedir. Bağlantı sağlanırken, sunucunun SSH bağlantısını kabul etmek amacıyla dinlediğini port'u belirtmek için **-p** parametresi kullanılır.
+
+```
+	[~$] ssh kullancı_adı@server_ip -p port
+```
+
+<hr/>
+
+#### Parola ile Bağlantı Kurmak Neden Güvenli Değil ?
+
+Az önce kullanıcı adı ve parola bilgisi sağlayan uzakta bulunan server'ımıza erişim sağladık. Fakat sizce bu güvenli mi ?
+
+Bizim açımıza göre server'ımıza **parola ile uzaktan bağlanmak güvenli bir yöntem değildir.**
+
+Bunun belli başlı sebepleri vardır; ssh bağlantısının bruteforce işlemine açık olması, herkese açık ortamlarda parolanın elle girilmesi uzaktan izleyen kişiler tarafından parolanın tespit edilmesine yol açabilecek olması gibi faktörler örnek verilebilir.
+
+Bu yüzden, server'ımıza erişim sağlarken, ssh-key kullanmamız daha kullanışlı ve güvenli olacaktır.
+
+<hr/>
+
+#### SSH-Key Nedir ?
+
+SSH-Key, parola kullanmadan SSH bağlantıları sağlayabilmemizde kullanılan public ve private key çiftine denir.
+
+<hr/>
+
+#### SSH-Keygen ile Key Oluşturulması
+
+SSH-Key oluşturmak oldukça basittir. Aşağıdaki komutu yürüttüğünüzde size birkaç soru sorduktan sonra key üretilecektir. Key üretimi sonucunda biri **public** diğeri **private** olmak üzere **iki adet key** oluşacaktır.
+
+```
+	[~$] ssh-keygen
+```
+
+<p align="center">
+	<img alt="ssh-keygen" src="/blog/images/hafta3/1.png" width="800"/>
+</p>
+
+Üretilen keyler'den sonunda **.pub** uzantısı bulunan sizin public key'inizdir. Bu key'i bağlanmak istediğiniz sunuculara eklemeniz gerekir.
+
+Uzantısı bulunmayan key ise sizin private key'inizdir. Bu dosyayı kimse ile paylaşmamalısınız. SSH ile bağlantı sağlarken bu dosyayı kullanacağız.
+
+Ek olarak private key'in izinleri **600** olarak ayarlanmalıdır.  
+Bunu uygulamak için önceki haftanın dokümanını inceleyin : [**hafta-iki**](/blog/haftalar/hafta-iki)
+
+<hr/>
+
+#### SSH-Key Kullanarak Bağlantı Sağlanması
+
+SSH-Key kullanarak bağlantı sağlamak için aşağıdaki komutu kullanabilirsiniz.
+
+```
+	[~$] ssh kullancı_adı@server_ip
+```
+
+Ayrıca SSH-Key'i default path yerine başka bir yere kayıt ettiyseniz **-i** parametresini kullanarak bu path'i vermeniz gerekmektedir.
+
+```
+	[~$] ssh -i /path/to/private_key kullancı_adı@server_ip
+```
+
+<hr/>
+
+#### ".ssh/config" Dosyasının Kullanımı
+
+Eğer birden fazla sunucu ile uğraşıyorsanız, her bağlantı kurma aşamasında IP girmek tam bir işkence. Bunun önüne geçmek için bilgisayarınızda aşağıdaki gibi bir **`${HOME}/.ssh/config`** dosyası oluşturabilirsiniz. Bu sayede IP'leri girmeden direkt olarak **ssh server_name** diyerek sunucunuz ile bağlantı sağlayabilirsiniz.
+
+Bunun için **`${HOME}/.ssh/config`** dosyasını oluşturun.
+
+```
+	[~$] touch ${HOME}/.ssh/config
+```
+
+Ardından dosya içeriğini aşağıdaki yapıya uygun şekilde ayarlayın.
+
+```
+		Host			server_name
+		HostName		server_ip
+		User			username
+		Port			22
+		IdentityFile	/path/to/ssh-key
+```
+
+Artık herhangi bir şekilde IP girmek yerine direkt olarak **ssh server_name** diyerek sunucunuza bağlanabilirsiniz.
+
+<hr/>
+
+## Bu hafta neler yaptık ?
+
+- Server'ın ne olduğunu,
+- SSH protokolünün ne olduğunu,
+- SSH kullanımını,
+- SSH-Key'in ne olduğunu,
+- SSH-Key kullanarak bağlantı kurmayı,
+- Parola yerine neden SSH-Key kullandığımızı öğrendik.
