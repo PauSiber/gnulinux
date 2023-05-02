@@ -1,7 +1,13 @@
 import 'nextra-theme-blog/style.css'
 import Head from 'next/head'
+import { MDXProvider } from '@mdx-js/react'
+import CenteredImageLightbox from './components/CenteredImageLightbox';
 
 import '../styles/main.css'
+
+const mdxComponents = {
+  CenteredImageLightbox,
+}
 
 export default function Nextra({ Component, pageProps }) {
   return (
@@ -21,7 +27,9 @@ export default function Nextra({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Component {...pageProps} />
+      <MDXProvider components={mdxComponents}>
+        <Component {...pageProps} />
+      </MDXProvider>
     </>
   )
 }
