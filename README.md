@@ -11,7 +11,7 @@
 | **`hafta 1`** | [Terminal kullanımını ve Temel Komutlar, Dosya sistem hiyerarşisi, Paket yöneticisi kavramı](https://gnulinux.pausiber.xyz/haftalar/hafta-bir)|
 | **`hafta 2`** | [Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri](https://gnulinux.pausiber.xyz/haftalar/hafta-iki)|
 | **`hafta 3`** | [Server kavramının açıklanması, SSH Kullanımı](https://gnulinux.pausiber.xyz/haftalar/hafta-uc) |
-| **`hafta 4`** | [Kriptoloji bilimi, Şifreleme algoritmaları, Rastgelelik](https://gnulinux.pausiber.xyz/haftalar/hafta-uc) |
+| **`hafta 4`** | [Kriptoloji bilimi, Şifreleme algoritmaları, Rastgelelik](https://gnulinux.pausiber.xyz/haftalar/hafta-dort) |
 
 
 ---
