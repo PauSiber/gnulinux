@@ -1,0 +1,203 @@
+---
+title: Hafta 4
+date: 2019/10/4
+description: Kriptolojiye giriş, Canlı dünya örnekleri, Şifreleme algoritması geliştirilmesi.
+tag: gnu/linux cryptography
+author: Abdullah Bagyapan
+---
+
+# Hafta 4
+
+**Amaç :** Kriptoloji kavramının açıklanması. Örnek kullanımların gösterilmesi. Şifreleme algoritması kodlanması.
+
+**Yazar :** [**abdullahbagyapan**](https://github.com/abdullahbagyapan)
+
+<hr/>
+
+
+## Kriptoloji Nedir ?
+
+Kriptoloji, bilgiyi şifreleme ve gizleme ile ilgilenen bir bilim dalıdır.
+
+Modern kriptoloji, birden çok disiplinin bir araya gelmesiyle oluşmuştur: Matematik, bilgisayar bilimleri, elektronik...
+
+Dijital bankacılık uygulamaları, e-ticaret, dijital para birimleri, askeri iletişim gibi her alanda kriptolojinin pratik uygulamları vardır.
+
+
+<hr/>
+
+## Kriptoloji Neden Önemlidir ?
+
+Kriptolojinin günümüzde bu kadar önemli olmasının birçok nedeni vardır.
+
+- **Gizlilik ve Güvenlik**
+- **Güvenli İletişim**
+- **Kimlik Doğrulama**
+- **Veri Saklama ve Taşıma**
+- **Veri Bütünlüğü**
+
+
+<hr/>
+
+## Kriptolojinin Yükselişi
+
+Modern kriptoloji, 1. Dünya Savaşıyla(1914 – 1918) beraber yükselişe geçmiştir.
+
+Rotor makinelerin keşfiyle beraber çok daha kompleks şifreleme algoritmaları geliştirilmiştir.
+
+<CenteredImageLightbox alt="rotor machine" src="/images/hafta4/0.png"/>
+
+
+<hr/>
+
+### Enigma
+
+Enigma, diplomatik ve askeri iletişimi korumak için 20. yüzyılın başlarından ortalarına kadar geliştirilen ve kullanılan bir şifreleme cihazıdır. 2. Dünya Savaşı sırasında Nazi Almanyası tarafından yaygın olarak kullanıldı.
+
+Enigma, alfabenin 26 harfini karıştıran elektromekanik bir rotor mekanizmasına sahiptir.
+
+
+<CenteredImageLightbox alt="enigma machine" src="/images/hafta4/1.jpg"/>
+
+> Daha detaylı bilgi için: [**History of the Enigma**](https://www.cryptomuseum.com/crypto/enigma/hist.htm)
+
+
+<hr/>
+
+## Encoding/Decoding
+
+Encoding, bir bilgiyi veya veriyi belirli bir formata dönüştürme veya kodlama işlemidir. 
+Orijinal verinin kolaylıkla iletilebilecek, saklanabilecek veya işlenebilecek kodlanmış bir forma dönüştürülmesini içerir.
+
+
+<CenteredImageLightbox alt="base conversion" src="/images/hafta4/2.png"/>
+
+
+<CenteredImageLightbox alt="string conversion" src="/images/hafta4/3.png"/>
+
+> String conversion: https://string-functions.com/string-binary.aspx
+
+<hr/>
+
+## Encryption/Decryption
+
+Encryption, verileri yalnızca anahtar sahiplerinin çözebileceği şekilde dönüştürme işlemidir.
+
+Verinin şifrelenmemiş halini, şifrelenmiş olarak bilinen alternatif bir biçime dönüştürür.
+
+
+<CenteredImageLightbox alt="encryption" src="/images/hafta4/4.png"/>
+
+
+
+<hr/>
+
+### Caesar Cipher
+
+Caesar şifreleme, en basit ve en çok bilinen şifreleme tekniklerinden biridir. Düz metindeki her harfin, alfabede sabit sayıda kaydırılarak değiştirilmesiyle oluşan bir tür şifreleme methodudur.
+
+
+<CenteredImageLightbox alt="caesar cipher" src="/images/hafta4/5.png"/>
+
+
+```python
+def caesar_cipher(text, shift):
+    cipher_text = ""
+
+    for character in text:
+
+        if character.isalpha():
+            encrypted_chr = ord(character) + shift  # get shifted character
+
+            if (encrypted_chr > ord("z")):          # overflow check
+                encrypted_chr -= 26
+
+            encrypted_chr = chr(encrypted_chr)      # return into character
+
+            cipher_text += encrypted_chr
+
+    return cipher_text
+
+cipher_text = caesar_cipher("PAUSIBER", 3)
+print(cipher_text)
+```
+
+> Online Python Editor: https://pythononline.net/
+
+<hr/>
+
+### XOR Cipher
+
+XOR, bir mantık kapısıdır.
+
+
+<CenteredImageLightbox alt="xor gate" src="/images/hafta4/6.png"/>
+
+
+XOR kapısı, karmaşık şifrelemede son derece yaygındır.
+
+Başlıca avantajı, uygulanmasının basit olması ve XOR işleminin hesaplama açısından ucuz olmasıdır.
+
+
+<CenteredImageLightbox alt="xor cipher" src="/images/hafta4/7.png"/>
+
+
+<hr/>
+
+### Stream Cipher, LFSR
+
+Linear-feedback shift register (LFSR), giriş biti önceki durumunun doğrusal bir fonksiyonu olan bir dijital devredir.
+
+En yaygın kullanılan doğrusal fonksiyonu, XOR fonksiyonudur. Bu nedenle, bir LFSR çoğunlukla bazı bitlerinin XOR kapısı tarafından yönlendirilen bir dijital devredir.
+
+
+<CenteredImageLightbox alt="lfsr" src="/images/hafta4/8.gif"/>
+
+
+
+
+<hr/>
+
+## Rastgelelik ve Sözde Rastgelelik (Pseudorandom)
+
+Rastgelelik, bilgide kesin bir öngörülebilirliğin olmamasıdır. Rastgele adımlar dizisinin çoğu zaman bir sırası yoktur ve anlaşılır bir model veya kombinasyon izlemez.
+
+Sözde rasgele sayı dizisi, tamamen deterministik ve tekrarlanabilir bir süreç tarafından üretilmiş olmasına rağmen istatistiksel olarak rasgele görünen bir dizidir.
+
+İnsanlar için mevcut olan geleneksel rastgelelik kaynakları (zar atmak gibi), bilgisayarlar tarafından kolayca kullanılamayan fiziksel süreçlere dayanır.
+
+
+
+<hr/>
+
+### Linear Congruential Generator (LCG)
+
+LCG, doğrusal denklemle hesaplanan sözde rastgele sayıların bir dizisini veren bir algoritmadır. Yöntem, en eski ve en iyi bilinen sözde rastgele sayı üreteci algoritmalarından birini temsil eder.
+
+
+```python
+MODULUS = 1033          # M, 0 < M          — the "modulus"
+MULTIPLIER = 827        # A, 0 < A < M      — the "multiplier"
+INCREMENT = 57          # C, 0 <= C < M     — the "increment"
+SEED = 512              # X, 0 <= X < M     — the "seed" or "start value"
+
+# X = (A*X + C) mod M
+def lcg():
+
+    global SEED
+    
+    SEED = (MULTIPLIER * SEED + INCREMENT) % MODULUS
+```
+
+> Online Python Editor: https://pythononline.net/
+
+<hr/>
+
+## Bu hafta neler yaptık ?
+
+- **Kriptolojinin ne olduğunu** ve neden kullanmamız gerektiğini öğrendik.
+- **Kriptolojinin yükselişini** ve fiziksel şifreleme makinelerini öğrendik.
+- Şifrelemeyle çok karıştırılan **encoding/decoding** kavramlarını öğrendik.
+- **Encryption/Decryption** kavramlarını ve en basit şifreleme methodolojisini öğrendik.
+- **XOR şifrelemeyi ve LFSR şifrelemeyi** öğrendik.
+- **Rastgelelik ve Sözde Rastgelelik** kavramlarını öğrendik ve sözde rastgele sayı üreteci yaptık.
