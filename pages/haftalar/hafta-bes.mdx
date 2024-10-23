@@ -1,0 +1,224 @@
+---
+title: Hafta 5
+date: 2018/10/23
+description: Simetrik ve asimetrik şifreleme, Sayılar Teorisine giriş, Asallık Testi, Özet fonksiyonlar.
+tag: cryptography
+author: Abdullah Bagyapan
+---
+
+# Hafta 5
+
+**Amaç :** Simetrik ve asimetrik şifreleme, Sayılar Teorisine giriş, Asallık Testi, Özet fonksiyonlar.
+
+**Yazar :** [**abdullahbagyapan**](https://github.com/abdullahbagyapan)
+
+
+<hr/>
+
+
+## Asimetrik Şifreleme
+
+Asimetrik şifreleme, anahtar çiftlerini(public key - private key) kullanan bir şifrelemedir. Her anahtar çifti, bir public key ve ona karşılık gelen bir private key'den oluşur.
+
+Asimetrik şifrelemenin güvenliği, private key'in gizli tutulmasına bağlıdır; public key, açık bir şekilde herkese dağıtılabilir.
+
+Public key'e sahip olan herkes bir mesajı şifreleyebilir ve bir şifreli metin elde edebilir, ancak yalnızca ilgili private key'in sahibi şifreli metni çözebilir.
+
+
+<CenteredImageLightbox alt="asymmetric encryption" src="/images/hafta5/0.jpeg"/>
+
+<hr/>
+
+
+### Asimetrik Şifreleme Kullanarak Mesaj Şifreleyelim
+
+**1. Private Key Oluşturalım**
+
+```bash
+openssl genpkey -algorithm RSA -out private_key.pem
+```
+
+
+<CenteredImageLightbox alt="private key" src="/images/hafta5/1.png"/>
+
+
+**2. Public Key Oluşturalım**
+
+```bash
+openssl rsa -pubout -in private_key.pem -out public_key.pem
+```
+
+<CenteredImageLightbox alt="private key" src="/images/hafta5/2.png"/>
+
+
+**3. Mesaj Oluşturalım**
+
+```bash
+echo "PAUSIBER" > message.txt
+```
+
+
+**4. Mesajımızı Public Key ile Şifreleyelim**
+
+```bash
+openssl pkeyutl -encrypt -inkey public_key.pem -pubin -in message.txt -out encrypted_message.bin
+```
+
+Görüntülemeye çalıştığımızda ise anlamsız sayı ve rakamlar görüyoruz.
+
+<CenteredImageLightbox alt="encrypted message" src="/images/hafta5/3.png"/>
+
+
+**5. Şimdi de Private Key Kullanarak Mesajımızı Çözelim**
+
+```bash
+openssl pkeyutl -decrypt -inkey private_key.pem -in encrypted_message.bin -out decrypted_message.txt
+```
+
+
+Görüntülemeye çalıştığımızda ise şifrelediğimiz mesajı görüyoruz.
+
+<CenteredImageLightbox alt="decrypted message" src="/images/hafta5/4.png"/>
+
+<hr/>
+
+
+
+## Simetrik Şifreleme
+
+Simetrik şifreleme, hem düz metnin şifrelenmesi hem de şifreli metnin çözülmesi için aynı gizli anahtarı kullanan bir şifrelemedir.
+
+Her iki tarafın da gizli anahtara erişimi olması gerekliliği, asimetrik şifrelemeye kıyasla simetrik şifrelemenin ana dezavantajlarından biridir.
+
+Simetrik şifrelemede anahtar boyutu daha küçüktür, bu da daha az depolama alanı ve daha hızlı şifreleme anlamına gelir.
+
+Gizli anahtarı karşı tarafa iletmek için asimetrik şifrelemeyle beraber tek seferlik şifreleme kullanılır.
+
+<CenteredImageLightbox alt="decrypted message" src="/images/hafta5/5.png"/>
+
+
+### Simetrik Şifreleme Kullanarak Mesaj Şifreleyelim
+
+**1. Rastgele Key Oluşturalım**
+
+```bash
+head /dev/urandom -c 128 > secret.key
+```
+
+<CenteredImageLightbox alt="secret key" src="/images/hafta5/6.png"/>
+
+
+**2. Mesaj Oluşturalım**
+
+```bash
+echo "PAUSIBER" > message.txt
+```
+
+
+**3. Mesajımızı Key ile Şifreleyelim**
+
+```bash
+openssl enc -aes-128-cbc -in message.txt -kfile secret.key -out secret.bin
+```
+
+<CenteredImageLightbox alt="encrypted message" src="/images/hafta5/7.png"/>
+
+
+**4. Şimdi de Key'imizi Kullanarak Mesajımızı Çözelim**
+
+```bash
+openssl enc -aes-128-cbc -d -in secret.bin -kfile secret.key -out decrypted_message.txt
+```
+
+Görüntülemeye çalıştığımızda ise şifrelediğimiz mesajı görüyoruz.
+
+<CenteredImageLightbox alt="decrypted message" src="/images/hafta5/8.png"/>
+
+<hr/>
+
+
+## Diffie Hellman Key Exchange
+
+Diffie Hellman Key Exchange, halka açık ve güvenli olmayan bir kanal üzerinden güvenli şekilde simetrik anahtar oluşturma yöntemidir.
+
+Birbirleri hakkında önceden bilgisi olmayan iki tarafın ortaklaşa paylaşılan gizli anahtar oluşturmasına olanak tanır.
+
+Bu anahtar ile simetrik şifreleme kullanılarak sonraki iletişimler şifrelenir.
+
+<CenteredImageLightbox alt="diffie hellman" src="/images/hafta5/9.png"/>
+
+<hr/>
+
+
+
+## Sayılar Teorisi (Number Theory)
+
+Sayılar Teorisi, öncelikle tam sayıların ve aritmetik fonksiyonların incelenmesine adanmış saf matematiğin bir dalıdır.
+
+Kriptoloji tamamen sayılar teorisi ile ilgilidir ve tüm tam sayılar (0 ve 1 hariç) asal sayılardan oluşur, bu nedenle sayılar teorisi asal sayılarla çok ilgilenir.
+
+İki asal sayının çarpımı public key olarak kullanılabilirken, asal sayıların kendisi de private olarak kullanılabilir.
+
+RSA gibi bazı önemli kriptografik algoritmalar, büyük sayıların asal çarpanlarına ayrılmasının uzun zaman alması gerçeğine kritik olarak bağlıdır.
+
+<hr/>
+
+
+
+## Asallık Testi (Primality Test)
+
+Asallık testi, bir sayının asal olup olmadığını belirleyen bir algoritmadır. Matematiğin diğer alanları arasında kriptografi için kullanılır.
+
+Çarpanlara ayırmanın hesaplama açısından zor bir problem olduğu için asallık testini yapmak daha kolaydır.
+
+
+> Big Prime Number Generator: https://bigprimes.org
+
+> Primality Test: https://bigprimes.org/primality-test
+
+<hr/>
+
+
+## Özet Fonksiyonlar (Hash Functions)
+
+Özet fonksiyonlar, rastgele boyuttaki verileri sabit boyutlu değerlere eşlemek için kullanılan bir fonksiyondur.
+
+Özet fonksiyonların gizli anahtarı yoktur. Fonksiyonun kendisi herkese açıktı ve herkes fonksiyonu çalıştırabilir.
+
+İyi bir özet fonksiyonu aşağıdaki özellikleri taşır:
+
+- **Terslenemezler**
+- **Hızlı çalışırlar**
+- **Özet değerinden verinin kendisi elde edilemez**
+- **2 farklı veri aynı özet değerine sahip olamaz**
+
+
+### Özet Fonksiyonlarının Kullanımı
+
+
+**1. Mesaj Oluşturalım**
+
+```bash
+echo "PAUSIBER" > message.txt
+```
+
+**2. Mesajımızı Hashleyelim**
+
+```bash
+sha256sum message.txt
+```
+
+<CenteredImageLightbox alt="sha256sum" src="/images/hafta5/10.png"/>
+
+<hr/>
+
+
+## Bu hafta neler yaptık ?
+
+- **Asimetrik Şifreleme** ve **Simetrik Şifrelemenin** ne olduğunu öğrendik.
+- Şifreleme algoritmaları kullanarak **mesaj şifreledik**.
+- Simetrik Şifrelemenin dezavantajı olan **anahtar paylaşımının** nasıl yapıldığını öğrendik.
+- **Kriptolojinin arkasındaki matematiği** öğrendik.
+- **Asal Sayıların** kriptolojideki yerini ve nasıl kullanıldıklarını öğrendik.
+- **Özet Fonksiyonlarını** ve nasıl kullanıldıklarını öğrendik.
+
