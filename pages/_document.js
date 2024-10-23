@@ -4,7 +4,7 @@ export default function Document() {
   const meta = {
     title: 'Herkes için GNU/Linux ve Siber Güvenlik',
     description: 'Topluluğumuz tarafından eğitimi verilen "Herkes için GNU/Linux ve Siber Güvenlik" kursunun dokümanlarını içerir',
-    image: 'public/images/pausiber-logo.png'
+    image: 'https://gnulinux.pausiber.xyz/images/pausiber-logo.png'
   }
 
   return (
