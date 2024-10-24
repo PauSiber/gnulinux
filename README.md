@@ -1,4 +1,4 @@
-> Kurs dokümanları ve eğitimden fotoğraflara bu adres üzerinden de erieşbilirsiniz.  
+> Kurs dokümanları ve eğitimden fotoğraflara bu adres üzerinden de erişebilirsiniz.  
   [**`https://gnulinux.pausiber.xyz`**](https://gnulinux.pausiber.xyz)
 
 **Kurs Eğitmenleri:** [**abdullahbagyapan**](https://github.com/abdullahbagyapan) && [**mertkirgil**](https://github.com/mertkrgl) && [**eneskaya**](https://github.com/eneskaya12) && [**cerensukaramese**](https://github.com/cerensukaramese)
@@ -12,6 +12,8 @@
 | **`hafta 2`** | [Kullanıcı-Grup Yönetimi ve Dosya-Dizin İzinleri](https://gnulinux.pausiber.xyz/haftalar/hafta-iki)|
 | **`hafta 3`** | [Server kavramının açıklanması, SSH Kullanımı](https://gnulinux.pausiber.xyz/haftalar/hafta-uc) |
 | **`hafta 4`** | [Kriptoloji bilimi, Şifreleme algoritmaları, Rastgelelik](https://gnulinux.pausiber.xyz/haftalar/hafta-dort) |
+| **`hafta 5`** | [Simetrik ve asimetrik şifreleme, Sayılar Teorisi, Asallık Testi, Özet fonksiyonlar](https://gnulinux.pausiber.xyz/haftalar/hafta-bes) |
+
 
 
 ---
